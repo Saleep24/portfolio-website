@@ -463,3 +463,22 @@ footer .socials {
   gap: 1rem;
 }
 
+
+/* Default Button Style */
+.btn.btn-secondary {
+  background-color: #1a1a1a; 
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover Effect */
+.btn.btn-secondary:hover {
+  background-color: black; 
+  color: #fff;
+  transform: scale(1.1);  /* Slightly enlarge the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
