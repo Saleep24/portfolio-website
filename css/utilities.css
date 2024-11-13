@@ -145,14 +145,18 @@
   .card:nth-child(4) {
     background: url(../assets/project/Frog-the-ball.png) center center/cover;
   }
+
+  .card:nth-child(5) {
+    background: url(../assets/project/HealthCheck.png) center center/cover;
+  }
   
   /* Project 5 */
-  .card:nth-child(5) {
+  .card:nth-child(6) {
     background: url(../assets/project/Lucky-number.png) center center/cover;
   }
   
   /* Project 6 */
-  .card:nth-child(6) {
+  .card:nth-child(7) {
     background: url(../assets/project/Expense-tracker.png) center center/cover;
   }
   
