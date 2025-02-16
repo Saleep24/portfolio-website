@@ -44,24 +44,21 @@ const successMessage = document.getElementById("message-success");
 const warningMessage = document.getElementById("message-warning");
 
 contactForm.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Show loader and hide messages
+  event.preventDefault();
   submitLoader.style.display = "block";
   successMessage.style.display = "none";
   warningMessage.style.display = "none";
 
-  // Send form data to Formspree
   fetch("https://formspree.io/f/mayznvpp", {
     method: "POST",
     body: new FormData(contactForm),
     headers: { "Accept": "application/json" }
   })
     .then((response) => {
-      submitLoader.style.display = "none"; // Hide loader
+      submitLoader.style.display = "none";
       if (response.ok) {
         successMessage.style.display = "block";
-        contactForm.reset(); // Clear form after submission
+        contactForm.reset();
       } else {
         warningMessage.style.display = "block";
       }
@@ -70,4 +67,48 @@ contactForm.addEventListener("submit", function (event) {
       submitLoader.style.display = "none";
       warningMessage.style.display = "block";
     });
+});
+
+// Remove all previous typing code and replace with this
+document.addEventListener('DOMContentLoaded', function() {
+    const words = ["Saleep Shrestha", "a Developer", "a Creator", "a Researcher"];
+    let wordIndex = 0;
+    
+    function typeWord(word) {
+        const typingText = document.getElementById('typing-text');
+        let charIndex = 0;
+        
+        // Clear the previous word
+        typingText.textContent = '';
+        
+        // Type the word
+        function type() {
+            if (charIndex < word.length) {
+                typingText.textContent += word.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                // Wait before starting to delete
+                setTimeout(deleteWord, 2000);
+            }
+        }
+        
+        // Delete the word
+        function deleteWord() {
+            if (typingText.textContent.length > 0) {
+                typingText.textContent = word.substring(0, typingText.textContent.length - 1);
+                setTimeout(deleteWord, 50);
+            } else {
+                // Move to next word
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(() => typeWord(words[wordIndex]), 500);
+            }
+        }
+        
+        // Start typing
+        type();
+    }
+    
+    // Start the first word
+    typeWord(words[0]);
 });
