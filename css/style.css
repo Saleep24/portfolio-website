@@ -3,8 +3,8 @@
 /* variables */
 :root {
   /* Colors */
-  --primary-color: #ff6b6b;
-  --secondary-color: #ffa500;
+  --primary-color: #4a90e2;
+  --secondary-color: #5cb85c;
   --bg-primary: #f2f2f2;
   --text-color: #333333;
   --text-color-two: #ffffff;
@@ -26,8 +26,8 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #ff6b6b;
-  --secondary-color: #ffa500;
+  --primary-color: #4a90e2;
+  --secondary-color: #5cb85c;
   --bg-primary: #1a1a1a;
   --text-color: #f2f2f2;
   --text-color-two: #333333;
