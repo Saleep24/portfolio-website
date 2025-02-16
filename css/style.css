@@ -601,3 +601,22 @@ footer .socials {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Update the primary button style to match secondary */
+.btn.btn-primary {
+  background-color: #1a1a1a; 
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Add hover effect to primary button */
+.btn.btn-primary:hover {
+  background-color: black;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
