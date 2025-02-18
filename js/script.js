@@ -134,3 +134,110 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(card);
   });
 });
+
+// Add this to your script.js
+function calculateReadingTime() {
+  const articles = document.querySelectorAll('.blog-content');
+  const wordsPerMinute = 200;
+
+  articles.forEach(article => {
+    const text = article.textContent;
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    
+    const timeElement = article.closest('.blog-post').querySelector('.reading-time');
+    if (timeElement) {
+      timeElement.textContent = `${readingTime} min read`;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', calculateReadingTime);
+
+// Add to your existing script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Chart.js Radar Chart
+  const ctx = document.getElementById('skillsRadar').getContext('2d');
+  const skillsData = {
+    labels: ['Languages', 'Data Science', 'Web Development', 'Problem Solving', 'Tools & Frameworks', 'Soft Skills'],
+    datasets: [{
+      label: 'Skill Level',
+      data: [85, 90, 82, 88, 85, 90],
+      backgroundColor: 'rgba(74, 144, 226, 0.2)',
+      borderColor: 'rgba(74, 144, 226, 1)',
+      pointBackgroundColor: 'rgba(74, 144, 226, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(74, 144, 226, 1)'
+    }]
+  };
+
+  const radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: skillsData,
+    options: {
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            stepSize: 20
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  // Skill Bubbles Animation
+  const bubbles = document.querySelectorAll('.skill-bubble');
+  const filters = document.querySelectorAll('.filter-btn');
+
+  // Position bubbles randomly
+  bubbles.forEach(bubble => {
+    const size = parseInt(bubble.dataset.level) * 0.8;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    repositionBubble(bubble);
+  });
+
+  // Filter functionality
+  filters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      const category = filter.dataset.filter;
+      
+      filters.forEach(f => f.classList.remove('active'));
+      filter.classList.add('active');
+
+      bubbles.forEach(bubble => {
+        if (category === 'all' || bubble.dataset.category === category) {
+          bubble.classList.add('visible');
+        } else {
+          bubble.classList.remove('visible');
+        }
+      });
+    });
+  });
+
+  // Helper function to position bubbles
+  function repositionBubble(bubble) {
+    const container = document.querySelector('.skill-bubbles-container');
+    const maxX = container.clientWidth - bubble.clientWidth;
+    const maxY = container.clientHeight - bubble.clientHeight;
+    
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+    
+    bubble.style.left = `${randomX}px`;
+    bubble.style.top = `${randomY}px`;
+  }
+
+  // Show all bubbles initially
+  setTimeout(() => {
+    bubbles.forEach(bubble => bubble.classList.add('visible'));
+  }, 100);
+});
