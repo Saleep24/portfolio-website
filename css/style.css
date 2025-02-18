@@ -692,3 +692,119 @@ footer .socials {
 .highlight-light:hover {
   opacity: 0.8;
 }
+
+/* Update the Skills section styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 45px rgba(74, 144, 226, 0.2);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.skill-card i {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--primary-color), #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: var(--weight-semibold);
+}
+
+.skill-bars {
+  text-align: left;
+}
+
+.skill-item {
+  margin-bottom: 1.2rem;
+}
+
+.skill-name {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(74, 144, 226, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), #2196f3);
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this for dark mode compatibility */
+[data-theme="dark"] .skill-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .progress-bar {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Add a subtle animation when hovering over progress bars */
+.skill-item:hover .progress {
+  filter: brightness(1.1);
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: var(--progress-width);
+    opacity: 1;
+  }
+}
+
+.skill-card.animate .progress {
+  animation: progressAnimation 1.5s ease-in-out forwards;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-card {
+    margin-bottom: 1rem;
+  }
+}

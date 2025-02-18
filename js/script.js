@@ -112,3 +112,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the first word
     typeWord(words[0]);
 });
+
+// Update the skills animation code
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        
+        // Animate progress bars
+        const progressBars = entry.target.querySelectorAll('.progress');
+        progressBars.forEach(bar => {
+          const value = bar.getAttribute('data-value');
+          bar.style.setProperty('--progress-width', `${value}%`);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.skill-card').forEach((card) => {
+    observer.observe(card);
+  });
+});
