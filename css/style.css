@@ -150,13 +150,6 @@ body {
   }
 }
 
-.division {
-  width: 100%;
-  height: 2px;
-  background-color: var(--card-background);
-  margin: 5.5rem 0;
-}
-
 /* Projects */
 #projects {
   display: flex;
@@ -809,13 +802,34 @@ footer .socials {
   }
 }
 
-/* Add these new blog styles */
+/* Update blog section styles */
 .blog-posts {
-  max-width: 800px;
-  margin: 7rem auto 2rem;
-  padding: 2rem;
+  margin-top: 6rem; /* Reduced from 8rem since we removed the division and heading */
 }
 
+.blog-post {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.blog-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Keep other blog styles the same */
 .blog-header {
   margin-bottom: 3rem;
   text-align: center;
@@ -846,19 +860,6 @@ footer .socials {
 
 .blog-meta i {
   color: var(--primary-color);
-}
-
-.blog-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-}
-
-.blog-content h2 {
-  font-size: 1.8rem;
-  margin: 2rem 0 1rem;
-  color: var(--text-color);
 }
 
 .blog-tags {
