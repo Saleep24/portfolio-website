@@ -241,3 +241,93 @@ document.addEventListener('DOMContentLoaded', function() {
     bubbles.forEach(bubble => bubble.classList.add('visible'));
   }, 100);
 });
+
+window.addEventListener('scroll', function() {
+  const parallax = document.querySelector('.projects-section');
+  let scrollPosition = window.pageYOffset;
+  parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const modal = document.getElementById('projectModal');
+    const modalBody = modal.querySelector('.modal-body');
+    
+    // Insert project details into the modal
+    modalBody.innerHTML = `
+      <h2>${this.dataset.title}</h2>
+      <p>${this.dataset.description}</p>
+      <img src="${this.dataset.image}" alt="${this.dataset.title}" style="width: 100%;">
+    `;
+    
+    modal.style.display = 'block';
+  });
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+  document.getElementById('projectModal').style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('projectModal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
+
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const subjectError = document.getElementById('subjectError');
+  const messageError = document.getElementById('messageError');
+
+  form.addEventListener('submit', function(event) {
+    let valid = true;
+
+    // Validate Name
+    if (nameInput.value.trim().length < 2) {
+      nameError.textContent = 'Name must be at least 2 characters long.';
+      nameError.style.display = 'block';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    // Validate Email
+    if (!emailInput.value.includes('@')) {
+      emailError.textContent = 'Please enter a valid email address.';
+      emailError.style.display = 'block';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    // Validate Subject
+    if (subjectInput.value.trim() === '') {
+      subjectError.textContent = 'Subject cannot be empty.';
+      subjectError.style.display = 'block';
+      valid = false;
+    } else {
+      subjectError.style.display = 'none';
+    }
+
+    // Validate Message
+    if (messageInput.value.trim() === '') {
+      messageError.textContent = 'Message cannot be empty.';
+      messageError.style.display = 'block';
+      valid = false;
+    } else {
+      messageError.style.display = 'none';
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }
+  });
+});
