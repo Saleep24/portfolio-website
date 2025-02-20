@@ -333,21 +333,70 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Back to Top functionality
-const backToTopButton = document.getElementById('backToTop');
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.getElementById('backToTop');
+  
+  if (backToTopButton) {
+    // Show button when user scrolls down 300px
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
 
-// Show button when user scrolls down 300px
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTopButton.classList.add('visible');
-  } else {
-    backToTopButton.classList.remove('visible');
+    // Smooth scroll to top when button is clicked
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 });
 
-// Smooth scroll to top when button is clicked
-backToTopButton.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+// Add to your existing JavaScript
+function animateSkills() {
+  const skillBars = document.querySelectorAll('.skill-progress');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target.querySelector('.progress-bar');
+        const percentage = progressBar.getAttribute('data-progress');
+        progressBar.style.width = `${percentage}%`;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  skillBars.forEach(bar => observer.observe(bar));
+}
+
+document.addEventListener('DOMContentLoaded', animateSkills);
+
+// Add to your JavaScript
+function initializeProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projects = document.querySelectorAll('.project');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projects.forEach(project => {
+        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+          project.classList.remove('hidden');
+        } else {
+          project.classList.add('hidden');
+        }
+      });
+    });
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', initializeProjectFilters);
