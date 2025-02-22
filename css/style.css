@@ -593,25 +593,39 @@ footer .socials {
 }
 
 .project-bio h3 {
-  color: var(--text-color-two);
-  font-size: 1.1rem;
+  color: #ffffff !important;
   margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
-.tech-stack {
-  color: var(--primary-color);
+.project-bio .tech-stack {
+  color: #ffffff !important;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
 }
 
-.project-description {
+.project-bio .project-description {
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.project-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   color: var(--text-color-two);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Hover Effects */
+.project-link i {
+  color: #ffffff !important;
+  font-size: 1.5rem;
+}
+
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -625,18 +639,14 @@ footer .socials {
   transform: translateY(0);
 }
 
-.project-link {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: var(--text-color-two);
-  font-size: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .card:hover .project-link {
   opacity: 1;
+}
+
+.card:hover .project-bio h3,
+.card:hover .project-bio p,
+.card:hover .project-link i {
+  color: #ffffff !important;
 }
 
 /* Update the primary button style to match secondary */
