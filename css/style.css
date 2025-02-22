@@ -1079,92 +1079,57 @@ footer .socials {
 
 /* Achievement Section Styles */
 .achievements-container {
+  background-color: var(--bg-primary);
   padding: 4rem 2rem;
-}
-
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  transition: all 0.3s ease;
 }
 
 .achievement-card {
-  background: var(--card-background);
+  background-color: var(--card-background);
   border-radius: 15px;
   padding: 2rem;
-  transition: all 0.3s ease;
   display: flex;
-  align-items: flex-start;
   gap: 1.5rem;
+  transition: all 0.3s ease;
   box-shadow: var(--shadow);
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .achievements-container {
+  background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .achievement-card {
+  background-color: #222222;
+}
+
+[data-theme="dark"] .achievement-content h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .achievement-content p {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .achievement-date,
+[data-theme="dark"] .achievement-issuer {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .view-certificate {
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .achievement-icon {
+  color: var(--primary-color);
 }
 
 .achievement-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 45px rgba(74, 144, 226, 0.2);
 }
 
-.achievement-icon {
-  font-size: 2rem;
-  color: var(--primary-color);
-  background: rgba(74, 144, 226, 0.1);
-  padding: 1rem;
-  border-radius: 12px;
-}
-
-.achievement-content {
-  flex: 1;
-}
-
-.achievement-content h3 {
-  color: var(--text-color);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  font-weight: var(--weight-semibold);
-}
-
-.achievement-date {
-  color: var(--primary-color);
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-}
-
-.achievement-issuer {
-  color: var(--text-color);
-  opacity: 0.8;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.view-certificate {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-color);
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.view-certificate:hover {
-  opacity: 0.8;
-  gap: 0.8rem;
-}
-
-/* Dark theme adjustments */
-[data-theme="dark"] .achievement-card {
-  background: var(--bg-secondary-two);
-}
-
-@media (max-width: 768px) {
-  .achievements-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .achievement-card {
-    margin-bottom: 1rem;
-  }
+[data-theme="dark"] .achievement-card:hover {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
 }
 
 .projects-section {
