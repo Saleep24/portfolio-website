@@ -69,7 +69,7 @@ contactForm.addEventListener("submit", function (event) {
     });
 });
 
-// Remove all previous typing code and replace with this
+
 document.addEventListener('DOMContentLoaded', function() {
     const words = ["Saleep Shrestha", "a Developer", "a Creator", "a Researcher"];
     let wordIndex = 0;
@@ -78,49 +78,49 @@ document.addEventListener('DOMContentLoaded', function() {
         const typingText = document.getElementById('typing-text');
         let charIndex = 0;
         
-        // Clear the previous word
+
         typingText.textContent = '';
         
-        // Type the word
+
         function type() {
             if (charIndex < word.length) {
                 typingText.textContent += word.charAt(charIndex);
                 charIndex++;
                 setTimeout(type, 100);
             } else {
-                // Wait before starting to delete
+
                 setTimeout(deleteWord, 2000);
             }
         }
         
-        // Delete the word
+
         function deleteWord() {
             if (typingText.textContent.length > 0) {
                 typingText.textContent = word.substring(0, typingText.textContent.length - 1);
                 setTimeout(deleteWord, 50);
             } else {
-                // Move to next word
+
                 wordIndex = (wordIndex + 1) % words.length;
                 setTimeout(() => typeWord(words[wordIndex]), 500);
             }
         }
         
-        // Start typing
+
         type();
     }
     
-    // Start the first word
+
     typeWord(words[0]);
 });
 
-// Update the skills animation code
+
 document.addEventListener('DOMContentLoaded', function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
         
-        // Animate progress bars
+
         const progressBars = entry.target.querySelectorAll('.progress');
         progressBars.forEach(bar => {
           const value = bar.getAttribute('data-value');
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Add this to your script.js
+
 function calculateReadingTime() {
   const articles = document.querySelectorAll('.blog-content');
   const wordsPerMinute = 200;
@@ -154,9 +154,9 @@ function calculateReadingTime() {
 
 document.addEventListener('DOMContentLoaded', calculateReadingTime);
 
-// Add to your existing script.js
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Chart.js Radar Chart
+
   const ctx = document.getElementById('skillsRadar').getContext('2d');
   const skillsData = {
     labels: ['Languages', 'Data Science', 'Web Development', 'Problem Solving', 'Tools & Frameworks', 'Soft Skills'],
@@ -193,11 +193,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Skill Bubbles Animation
+
   const bubbles = document.querySelectorAll('.skill-bubble');
   const filters = document.querySelectorAll('.filter-btn');
 
-  // Position bubbles randomly
+
   bubbles.forEach(bubble => {
     const size = parseInt(bubble.dataset.level) * 0.8;
     bubble.style.width = `${size}px`;
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     repositionBubble(bubble);
   });
 
-  // Filter functionality
+
   filters.forEach(filter => {
     filter.addEventListener('click', () => {
       const category = filter.dataset.filter;
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Helper function to position bubbles
+
   function repositionBubble(bubble) {
     const container = document.querySelector('.skill-bubbles-container');
     const maxX = container.clientWidth - bubble.clientWidth;
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bubble.style.top = `${randomY}px`;
   }
 
-  // Show all bubbles initially
+
   setTimeout(() => {
     bubbles.forEach(bubble => bubble.classList.add('visible'));
   }, 100);
@@ -252,8 +252,7 @@ document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', function() {
     const modal = document.getElementById('projectModal');
     const modalBody = modal.querySelector('.modal-body');
-    
-    // Insert project details into the modal
+
     modalBody.innerHTML = `
       <h2>${this.dataset.title}</h2>
       <p>${this.dataset.description}</p>
