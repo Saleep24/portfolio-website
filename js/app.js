@@ -1,4 +1,4 @@
-// Mobile Menu Toggle
+
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -8,7 +8,7 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking a nav link
+
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('active');
@@ -16,7 +16,7 @@ navLinks.forEach(link => {
   });
 });
 
-// Add background to navbar when scrolling
+
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
