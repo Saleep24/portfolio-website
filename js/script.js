@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(event) {
     let valid = true;
 
-    // Validate Name
+
     if (nameInput.value.trim().length < 2) {
       nameError.textContent = 'Name must be at least 2 characters long.';
       nameError.style.display = 'block';
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
       nameError.style.display = 'none';
     }
 
-    // Validate Email
+
     if (!emailInput.value.includes('@')) {
       emailError.textContent = 'Please enter a valid email address.';
       emailError.style.display = 'block';
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
       emailError.style.display = 'none';
     }
 
-    // Validate Subject
+
     if (subjectInput.value.trim() === '') {
       subjectError.textContent = 'Subject cannot be empty.';
       subjectError.style.display = 'block';
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
       subjectError.style.display = 'none';
     }
 
-    // Validate Message
+
     if (messageInput.value.trim() === '') {
       messageError.textContent = 'Message cannot be empty.';
       messageError.style.display = 'block';
@@ -332,12 +332,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Back to Top functionality
 document.addEventListener('DOMContentLoaded', function() {
   const backToTopButton = document.getElementById('backToTop');
   
   if (backToTopButton) {
-    // Show button when user scrolls down 300px
+
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 300) {
         backToTopButton.classList.add('visible');
@@ -346,7 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Smooth scroll to top when button is clicked
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -356,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Add to your existing JavaScript
 function animateSkills() {
   const skillBars = document.querySelectorAll('.skill-progress');
   
@@ -375,14 +372,12 @@ function animateSkills() {
 
 document.addEventListener('DOMContentLoaded', animateSkills);
 
-// Add to your JavaScript
 function initializeProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projects = document.querySelectorAll('.project');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
