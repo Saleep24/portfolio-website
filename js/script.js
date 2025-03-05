@@ -1,4 +1,4 @@
-// Mobile menu toggle
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -8,7 +8,7 @@ function mobileMenu() {
   navMenu.classList.toggle("active");
 }
 
-// Close navbar when a link is clicked
+
 const navLink = document.querySelectorAll(".nav-link");
 navLink.forEach((n) => n.addEventListener("click", closeMenu));
 function closeMenu() {
@@ -16,7 +16,7 @@ function closeMenu() {
   navMenu.classList.remove("active");
 }
 
-// Theme switching
+
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 function switchTheme(e) {
   const theme = e.target.checked ? "dark" : "light";
@@ -25,19 +25,19 @@ function switchTheme(e) {
 }
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-// Load user theme preference on page load
+
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
   toggleSwitch.checked = currentTheme === "dark";
 }
 
-// Display current year
+
 const myDate = document.querySelector("#datee");
 const currentYear = new Date().getFullYear();
 myDate.innerHTML = currentYear;
 
-// Form submission with Formspree
+
 const contactForm = document.getElementById("contactForm");
 const submitLoader = document.getElementById("submit-loader");
 const successMessage = document.getElementById("message-success");
