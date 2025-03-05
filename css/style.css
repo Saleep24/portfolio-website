@@ -158,6 +158,16 @@ body {
   box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
 }
 
+.nav-link.btn::after {
+  display: none !important;
+}
+
+
+.nav-link.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+}
+
 /* hamburger */
 .hamburger {
   margin-bottom: 0;
