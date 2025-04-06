@@ -176,6 +176,11 @@
   .card:nth-child(9) {
     background: url(../assets/project/exium.png) center center/cover;
   }
+
+
+  .card:nth-child(10) {
+    background: url(../assets/project/mrgrammar.png) center center/cover;
+  }
   /* Button styles for form */
   .contact-container .btn {
     padding: 0.7rem 1.8rem;
