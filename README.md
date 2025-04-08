@@ -104,15 +104,15 @@ To customize this portfolio for your own use:
 **MrGrammar** is a lightweight browser extension that fixes grammar and polishes text directly in your browser using OpenAI's API.
 
 **Key Features:**
-- ✅ **One-click grammar correction** via right-click context menu
-- ✅ **Powered by OpenAI's latest models** (GPT-3.5, GPT-4o Mini, GPT-4, GPT-4o)
-- ✅ **Keyboard shortcuts** for faster text correction
-- ✅ **Loading indicator** shows when your text is being processed
-- ✅ **Text statistics** displaying character, word, and sentence counts
-- ✅ **Popup UI** with quick access to options and API status
-- ✅ Works in Gmail, Google Docs, CMS, and most editable fields
-- ✅ Fallback to clipboard copy for non-editable text
-- ✅ Lightweight and easy to set up
+- **One-click grammar correction** via right-click context menu
+- **Powered by OpenAI's latest models** (GPT-3.5, GPT-4o Mini, GPT-4, GPT-4o)
+- **Keyboard shortcuts** for faster text correction
+- **Loading indicator** shows when your text is being processed
+- **Text statistics** displaying character, word, and sentence counts
+- **Popup UI** with quick access to options and API status
+- Works in Gmail, Google Docs, CMS, and most editable fields
+- Fallback to clipboard copy for non-editable text
+- Lightweight and easy to set up
 
 **Technologies:** JavaScript, HTML, Chrome Extension API, OpenAI API
 
@@ -139,7 +139,7 @@ Feel free to reach out through:
 - GitHub: [@Saleep24](https://github.com/Saleep24/)
 - LinkedIn: [Saleep Shrestha](https://www.linkedin.com/in/saleepshrestha/)
 - Kaggle: [Saleep Shrestha](https://www.kaggle.com/saleepshrestha)
-- Email: [Saleep Shrestha] (mailto:info@saleepshrestha.com.np)
+- Email: info@saleepshrestha.com.np
 
 ## License
 
