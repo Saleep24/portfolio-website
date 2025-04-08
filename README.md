@@ -1,10 +1,10 @@
-# 🚀 Saleep Shrestha's Portfolio
+# Saleep Shrestha's Portfolio
 
 A modern, responsive portfolio website showcasing my projects, skills, and achievements. Built with HTML, CSS, and JavaScript.
 
 ![Portfolio Preview](assets/headshot-saleep.png)
 
-## 🌟 Features
+## Features
 
 - **Responsive Design:** Fully responsive and works on all devices
 - **Dark/Light Mode:** Toggle between dark and light themes
@@ -16,7 +16,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and achie
 - **Back to Top Button:** Easy navigation with smooth scrolling
 - **Social Media Integration:** Links to GitHub, LinkedIn, and other platforms
 
-## 💻 Responsive Design & Accessibility
+## Responsive Design & Accessibility
 
 This portfolio website is built with a mobile-first approach, ensuring optimal viewing experience across all devices:
 
@@ -30,7 +30,7 @@ This portfolio website is built with a mobile-first approach, ensuring optimal v
 - **Semantic HTML:** Uses proper HTML5 semantic elements
 - **Color Contrast:** Meets WCAG 2.1 AA standards for readability
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -38,7 +38,7 @@ This portfolio website is built with a mobile-first approach, ensuring optimal v
 - Font Awesome Icons
 - Formspree for contact form
 
-## 🔧 Setup and Installation
+## Setup and Installation
 
 1. Clone this repository:
    ```
@@ -59,7 +59,7 @@ This portfolio website is built with a mobile-first approach, ensuring optimal v
    npx serve
    ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio-website/
@@ -78,7 +78,7 @@ portfolio-website/
 └── README.md               # Project documentation
 ```
 
-## 🎨 Customization
+## Customization
 
 To customize this portfolio for your own use:
 
@@ -88,7 +88,7 @@ To customize this portfolio for your own use:
 4. Add your own certificates to `assets/certificates/`
 5. Update contact form action URL with your own Formspree endpoint
 
-## 🔍 Featured Projects
+## Featured Projects
 
 - **Influence of News and Social Media on Tesla Stock Price:** Python data analysis project
 - **EasyLib:** Library management system with Django
@@ -97,7 +97,7 @@ To customize this portfolio for your own use:
 - **MrGrammar:** Browser extension for grammar correction using OpenAI API
 - **Travel Guide:** Next.js application for finding Instagram-worthy spots
 
-### 🔍 Spotlight: MrGrammar Browser Extension
+### Spotlight: MrGrammar Browser Extension
 
 ![MrGrammar](assets/project/mrgrammar.png)
 
@@ -118,7 +118,7 @@ To customize this portfolio for your own use:
 
 **Repository:** [GitHub - MrGrammar](https://github.com/Saleep24/MrGrammar)
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 The following features are planned for future updates:
 
@@ -133,14 +133,14 @@ The following features are planned for future updates:
 - **Interactive Skill Tree:** Visual navigation through skills and competencies
 - **Live Chat Support:** Real-time communication with portfolio visitors
 
-## 📱 Contact
+## Contact
 
 Feel free to reach out through:
 - GitHub: [@Saleep24](https://github.com/Saleep24/)
 - LinkedIn: [Saleep Shrestha](https://www.linkedin.com/in/saleepshrestha/)
 - Kaggle: [Saleep Shrestha](https://www.kaggle.com/saleepshrestha)
-- Email: Via the contact form on the website
+- Email: [Saleep Shrestha] (mailto:info@saleepshrestha.com.np)
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE.md). 
