@@ -1802,10 +1802,9 @@ footer .socials {
   transform: translateX(5px);
 }
 
-/* Add back the click instruction text */
-/* Click instruction text */
+/* Remove click instruction text */
 .certificate-preview::after {
-  content: 'Click to view full certificate';
+  content: '';
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -1813,7 +1812,7 @@ footer .socials {
   text-align: center;
   color: white;
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
 }
