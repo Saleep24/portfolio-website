@@ -229,7 +229,7 @@ function initializeProjectFilters() {
 
 document.addEventListener('DOMContentLoaded', initializeProjectFilters);
 
-// Wait for DOM to be fully loaded
+
 document.addEventListener('DOMContentLoaded', function() {
   initSkillTabs();
 });
@@ -238,7 +238,7 @@ function initSkillTabs() {
   console.clear();
   console.log('🚀 Initializing skill tabs with direct DOM manipulation...');
   
-  // Get all tab buttons and content panels
+
   const tabs = document.querySelectorAll('.skill-tab');
   const contents = document.querySelectorAll('.skill-content');
   
@@ -249,7 +249,7 @@ function initSkillTabs() {
   
   console.log(`✅ Found ${tabs.length} tabs and ${contents.length} content panels`);
   
-  // For each tab, add a direct click handler
+
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
       const targetId = this.getAttribute('data-tab');
@@ -262,7 +262,7 @@ function initSkillTabs() {
         return;
       }
       
-      // Remove active class from all tabs and contents
+ 
       tabs.forEach(t => {
         t.classList.remove('active');
         console.log(`📋 Removed active class from tab: ${t.getAttribute('data-tab')}`);
@@ -272,14 +272,12 @@ function initSkillTabs() {
         c.classList.remove('active');
         console.log(`📋 Removed active class from content: ${c.id}`);
       });
-      
-      // Add active class to current tab and content
+
       this.classList.add('active');
       targetContent.classList.add('active');
       
       console.log(`✅ Activated tab: ${targetId} and corresponding content`);
-      
-      // Handle specific content types
+
       if (targetId === 'skill-radar') {
         initRadarChart();
       } else if (targetId === 'skill-bubbles') {
@@ -288,7 +286,7 @@ function initSkillTabs() {
     });
   });
   
-  // Initialize the first tab by directly clicking it (synthetic event)
+
   console.log('🔄 Setting initial tab...');
   setTimeout(() => {
     if (tabs[0]) {
@@ -308,20 +306,19 @@ function initRadarChart() {
   }
   
   const ctx = canvas.getContext('2d');
-  
-  // Check if Chart.js is available
+
   if (typeof Chart === 'undefined') {
     console.error('❌ Chart.js library not loaded!');
     return;
   }
   
-  // Destroy existing chart if any
+
   if (window.radarChart) {
     window.radarChart.destroy();
     console.log('🔄 Destroyed existing radar chart');
   }
   
-  // Create new chart
+
   const skillsData = {
     labels: ['Languages', 'Data Science', 'Web Development', 'Problem Solving', 'Tools & Frameworks', 'Soft Skills'],
     datasets: [{
@@ -379,65 +376,61 @@ function initSkillBubbles() {
   
   console.log(`✅ Found ${bubbles.length} skill bubbles`);
   
-  // Hide all bubbles first
+
   bubbles.forEach(bubble => {
     bubble.classList.remove('visible');
   });
   
-  // Position bubbles with improved sizing for single-line text
+
   bubbles.forEach(bubble => {
-    // Get the text content
+
     const text = bubble.textContent.trim();
-    
-    // Set initial size based on skill level
+
     const skillLevel = parseInt(bubble.dataset.level);
     
-    // Calculate bubble size based on text length and skill level
-    // We need more space for text that stays on a single line
-    const textWidth = text.length * 10; // Approximate width needed for text
+
+    const textWidth = text.length * 10; 
     
-    // Calculate size to fit the text while maintaining skill level proportions
+
     let size = Math.max(textWidth * 1.2, skillLevel * 0.9);
+
+    size = Math.max(size, 70); 
+    size = Math.min(size, 150); 
     
-    // Ensure minimum and maximum sizes
-    size = Math.max(size, 70); // Minimum size increased to accommodate text
-    size = Math.min(size, 150); // Maximum size to avoid overly large bubbles
-    
-    // Apply size
+
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
     
-    // Calculate appropriate font size (smaller for longer words)
+
     const fontSize = Math.max(10, Math.min(16, size / (Math.max(text.length / 1.5, 3))));
     bubble.style.fontSize = `${fontSize}px`;
     
-    // For longer text, ensure we have enough padding
+
     bubble.style.padding = `${Math.max(8, text.length * 0.5)}px`;
     
-    // Position bubble with animation delay
+
     setTimeout(() => {
       positionBubble(bubble, container, bubbles);
       bubble.classList.add('visible');
     }, Math.random() * 500);
   });
   
-  // Add filter functionality
+
   filters.forEach(filter => {
     filter.addEventListener('click', function() {
       const category = this.getAttribute('data-filter');
       
       console.log(`🔍 Filter clicked: ${category}`);
       
-      // Update active filter
+
       filters.forEach(f => f.classList.remove('active'));
       this.classList.add('active');
       
-      // Hide all bubbles first
+  
       bubbles.forEach(bubble => {
         bubble.classList.remove('visible');
       });
       
-      // Show bubbles with animation delay
       setTimeout(() => {
         bubbles.forEach((bubble, index) => {
           if (category === 'all' || bubble.dataset.category === category) {
@@ -451,7 +444,7 @@ function initSkillBubbles() {
     });
   });
   
-  // Initialize first filter
+
   console.log('🔄 Activating first filter...');
   setTimeout(() => {
     if (filters[0]) {
@@ -462,22 +455,22 @@ function initSkillBubbles() {
   console.log('✅ Skill bubbles initialized');
 }
 
-// Helper function to position a bubble with improved collision detection
+
 function positionBubble(bubble, container, allBubbles) {
   if (!container) return;
   
   const containerRect = container.getBoundingClientRect();
   const bubbleSize = parseInt(bubble.style.width);
   
-  // Calculate available space with margins
-  const margin = 20; // Add margin to prevent bubbles from touching the container edges
+ 
+  const margin = 20; 
   const maxX = containerRect.width - bubbleSize - margin;
   const maxY = containerRect.height - bubbleSize - margin;
   
   let posX = margin + Math.random() * maxX;
   let posY = margin + Math.random() * maxY;
   
-  // Better collision avoidance
+
   let attempts = 0;
   let collision = true;
   
@@ -490,22 +483,21 @@ function positionBubble(bubble, container, allBubbles) {
         const otherY = parseInt(otherBubble.style.top) || 0;
         const otherSize = parseInt(otherBubble.style.width) || 0;
         
-        // Calculate distance between centers
+
         const dx = posX - otherX;
         const dy = posY - otherY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        // Minimum distance to avoid overlap (with some extra spacing)
+
         const minDistance = (bubbleSize + otherSize) / 2 + 10;
         
-        // If too close, flag collision
+
         if (distance < minDistance) {
           collision = true;
         }
       }
     });
-    
-    // If collision, try new position
+
     if (collision) {
       posX = margin + Math.random() * maxX;
       posY = margin + Math.random() * maxY;
@@ -513,19 +505,19 @@ function positionBubble(bubble, container, allBubbles) {
     }
   }
   
-  // If still colliding after max attempts, adjust position slightly
+
   if (collision) {
     console.log('⚠️ Could not find non-colliding position for bubble after 30 attempts');
-    // Add some random offset to prevent exact overlap
+
     posX += Math.random() * 30 - 15;
     posY += Math.random() * 30 - 15;
   }
   
-  // Keep bubbles within container boundaries
+
   posX = Math.max(margin, Math.min(maxX, posX));
   posY = Math.max(margin, Math.min(maxY, posY));
   
-  // Apply position
+
   bubble.style.left = `${posX}px`;
   bubble.style.top = `${posY}px`;
 }
@@ -641,11 +633,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Initialize everything at once when DOM is ready
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Initializing all interactive elements...');
   
-  // Force the first tab to be active 
+
   setTimeout(function() {
     const firstTab = document.querySelector('.skill-tab');
     if (firstTab) {
@@ -653,11 +645,11 @@ document.addEventListener('DOMContentLoaded', function() {
       firstTab.click();
     }
     
-    // Initialize the filters for skill bubbles
+
     const firstFilter = document.querySelector('.skill-filters .filter-btn');
     if (firstFilter) {
       console.log('Activating first filter...');
       firstFilter.click();
     }
-  }, 500); // Small delay to ensure DOM is fully processed
+  }, 500); 
 });
