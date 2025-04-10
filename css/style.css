@@ -1344,6 +1344,7 @@ footer .socials {
   display: flex;
   flex-direction: column;
   border-top: 4px solid var(--primary-color);
+  cursor: pointer;
 }
 
 .achievement-card::after {
@@ -1426,6 +1427,7 @@ footer .socials {
   padding: 0.7rem 1.5rem;
   font-size: 0.9rem;
   z-index: 5;
+  pointer-events: auto;
 }
 
 /* Certificate preview container */
@@ -1442,10 +1444,11 @@ footer .socials {
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease;
-  z-index: 4;
+  z-index: 10;
   border-radius: 12px;
   backdrop-filter: blur(3px);
   transform: scale(0.9);
+  cursor: pointer;
 }
 
 .certificate-preview img {
@@ -1459,42 +1462,27 @@ footer .socials {
   border: 3px solid var(--primary-color);
 }
 
-/* Show certificate preview on button hover */
-.btn-certificate:hover + .certificate-preview,
+/* Show certificate preview on card hover instead of just button */
+.achievement-card:hover .certificate-preview,
 .certificate-preview:hover {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-.btn-certificate:hover + .certificate-preview img,
+.achievement-card:hover .certificate-preview img,
 .certificate-preview:hover img {
   transform: translateY(0);
 }
 
-/* Click instruction text */
-.certificate-preview::after {
-  content: 'Click to view full certificate';
-  position: absolute;
-  bottom: 15%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: white;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-}
-
-.btn-certificate:hover + .certificate-preview::after,
+.achievement-card:hover .certificate-preview::after,
 .certificate-preview:hover::after {
   transform: translateY(0);
 }
 
-/* Make the preview also clickable to the certificate */
-.certificate-preview {
-  cursor: pointer;
+/* Remove hover to preview text */
+.achievement-card::before {
+  display: none;
 }
 
 /* Dark mode enhancements */
@@ -1812,4 +1800,25 @@ footer .socials {
 
 .btn-certificate:hover i {
   transform: translateX(5px);
+}
+
+/* Add back the click instruction text */
+/* Click instruction text */
+.certificate-preview::after {
+  content: 'Click to view full certificate';
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+/* Make the preview also clickable to the certificate */
+.certificate-preview {
+  cursor: pointer;
 }
