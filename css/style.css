@@ -1186,32 +1186,42 @@ footer .socials {
 }
 
 .skill-bubbles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+  height: 500px;
+  margin: 2rem auto;
+  background-color: var(--card-background);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 20px;
 }
 
 .skill-bubble {
   position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(45deg, var(--primary-color), #2196f3);
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  pointer-events: auto;
+  border-radius: 50%;
+  font-weight: var(--weight-semibold);
+  text-align: center;
+  color: white;
+  background: linear-gradient(145deg, var(--primary-color), #2196f3);
+  box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
   cursor: pointer;
-  transition: all 0.3s ease;
   opacity: 0;
   transform: scale(0);
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 8px;
+  min-width: 60px;
+  min-height: 60px;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  z-index: 2;
+  line-height: 1.2;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .skill-bubble.visible {
@@ -1220,8 +1230,10 @@ footer .socials {
 }
 
 .skill-bubble:hover {
+  box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.5);
   transform: scale(1.1) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .skill-filters {
@@ -1753,6 +1765,7 @@ footer .socials {
   border-radius: 15px;
   box-shadow: var(--shadow);
   overflow: hidden;
+  padding: 20px;
 }
 
 .skill-bubble {
@@ -1770,11 +1783,16 @@ footer .socials {
   opacity: 0;
   transform: scale(0);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  padding: 0.5rem;
-  min-width: 50px;
-  min-height: 50px;
+  padding: 8px;
+  min-width: 60px;
+  min-height: 60px;
   word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
   z-index: 2;
+  line-height: 1.2;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .skill-bubble.visible {
@@ -1785,7 +1803,8 @@ footer .socials {
 .skill-bubble:hover {
   box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.5);
   transform: scale(1.1) !important;
-  z-index: 3;
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Enhanced Skill Filters */

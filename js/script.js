@@ -384,12 +384,44 @@ function initSkillBubbles() {
     bubble.classList.remove('visible');
   });
   
-  // Position bubbles
+  // Position bubbles with improved sizing
   bubbles.forEach(bubble => {
-    const size = parseInt(bubble.dataset.level) * 0.8;
+    // Get the text content
+    const text = bubble.textContent.trim();
+    
+    // Base size on skill level
+    let size = parseInt(bubble.dataset.level) * 0.8;
+    
+    // Adjust size based on text length
+    if (text.length > 12) {
+      // For longer text, make bubble larger
+      size = Math.max(size, text.length * 5);
+    } else if (text.length <= 5) {
+      // For very short text, keep original size
+      size = Math.max(size, 60);
+    } else {
+      // For medium text, adjust slightly
+      size = Math.max(size, text.length * 6);
+    }
+    
+    // Set minimum size to ensure readability
+    size = Math.max(size, 60);
+    
+    // Apply size
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
-    bubble.style.fontSize = `${Math.max(12, size * 0.25)}px`;
+    
+    // Adjust font size based on bubble size and text length
+    const fontSize = Math.max(11, Math.min(16, size / (Math.max(text.length / 2, 4))));
+    bubble.style.fontSize = `${fontSize}px`;
+    
+    // Add text wrapping for longer texts
+    if (text.length > 10) {
+      bubble.style.wordBreak = 'break-word';
+      bubble.style.whiteSpace = 'normal';
+      bubble.style.lineHeight = '1.2';
+      bubble.style.padding = '10px';
+    }
     
     // Position bubble with animation delay
     setTimeout(() => {
@@ -439,21 +471,22 @@ function initSkillBubbles() {
   console.log('✅ Skill bubbles initialized');
 }
 
-// Helper function to position a bubble
+// Helper function to position a bubble with improved collision detection
 function positionBubble(bubble, container, allBubbles) {
   if (!container) return;
   
   const containerRect = container.getBoundingClientRect();
   const bubbleSize = parseInt(bubble.style.width);
   
-  // Calculate available space
-  const maxX = containerRect.width - bubbleSize;
-  const maxY = containerRect.height - bubbleSize;
+  // Calculate available space with margins
+  const margin = 20; // Add margin to prevent bubbles from touching the container edges
+  const maxX = containerRect.width - bubbleSize - margin;
+  const maxY = containerRect.height - bubbleSize - margin;
   
-  let posX = Math.random() * maxX;
-  let posY = Math.random() * maxY;
+  let posX = margin + Math.random() * maxX;
+  let posY = margin + Math.random() * maxY;
   
-  // Simple collision avoidance (basic implementation)
+  // Better collision avoidance
   let attempts = 0;
   let collision = true;
   
@@ -462,17 +495,20 @@ function positionBubble(bubble, container, allBubbles) {
     
     allBubbles.forEach(otherBubble => {
       if (otherBubble !== bubble && otherBubble.classList.contains('visible')) {
-        const otherX = parseInt(otherBubble.style.left);
-        const otherY = parseInt(otherBubble.style.top);
-        const otherSize = parseInt(otherBubble.style.width);
+        const otherX = parseInt(otherBubble.style.left) || 0;
+        const otherY = parseInt(otherBubble.style.top) || 0;
+        const otherSize = parseInt(otherBubble.style.width) || 0;
         
         // Calculate distance between centers
         const dx = posX - otherX;
         const dy = posY - otherY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
+        // Minimum distance to avoid overlap (with some extra spacing)
+        const minDistance = (bubbleSize + otherSize) / 2 + 10;
+        
         // If too close, flag collision
-        if (distance < (bubbleSize + otherSize) / 1.5) {
+        if (distance < minDistance) {
           collision = true;
         }
       }
@@ -480,11 +516,23 @@ function positionBubble(bubble, container, allBubbles) {
     
     // If collision, try new position
     if (collision) {
-      posX = Math.random() * maxX;
-      posY = Math.random() * maxY;
+      posX = margin + Math.random() * maxX;
+      posY = margin + Math.random() * maxY;
       attempts++;
     }
   }
+  
+  // If still colliding after max attempts, adjust position slightly
+  if (collision) {
+    console.log('⚠️ Could not find non-colliding position for bubble after 30 attempts');
+    // Add some random offset to prevent exact overlap
+    posX += Math.random() * 30 - 15;
+    posY += Math.random() * 30 - 15;
+  }
+  
+  // Keep bubbles within container boundaries
+  posX = Math.max(margin, Math.min(maxX, posX));
+  posY = Math.max(margin, Math.min(maxY, posY));
   
   // Apply position
   bubble.style.left = `${posX}px`;
