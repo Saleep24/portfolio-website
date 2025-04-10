@@ -384,44 +384,35 @@ function initSkillBubbles() {
     bubble.classList.remove('visible');
   });
   
-  // Position bubbles with improved sizing
+  // Position bubbles with improved sizing for single-line text
   bubbles.forEach(bubble => {
     // Get the text content
     const text = bubble.textContent.trim();
     
-    // Base size on skill level
-    let size = parseInt(bubble.dataset.level) * 0.8;
+    // Set initial size based on skill level
+    const skillLevel = parseInt(bubble.dataset.level);
     
-    // Adjust size based on text length
-    if (text.length > 12) {
-      // For longer text, make bubble larger
-      size = Math.max(size, text.length * 5);
-    } else if (text.length <= 5) {
-      // For very short text, keep original size
-      size = Math.max(size, 60);
-    } else {
-      // For medium text, adjust slightly
-      size = Math.max(size, text.length * 6);
-    }
+    // Calculate bubble size based on text length and skill level
+    // We need more space for text that stays on a single line
+    const textWidth = text.length * 10; // Approximate width needed for text
     
-    // Set minimum size to ensure readability
-    size = Math.max(size, 60);
+    // Calculate size to fit the text while maintaining skill level proportions
+    let size = Math.max(textWidth * 1.2, skillLevel * 0.9);
+    
+    // Ensure minimum and maximum sizes
+    size = Math.max(size, 70); // Minimum size increased to accommodate text
+    size = Math.min(size, 150); // Maximum size to avoid overly large bubbles
     
     // Apply size
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
     
-    // Adjust font size based on bubble size and text length
-    const fontSize = Math.max(11, Math.min(16, size / (Math.max(text.length / 2, 4))));
+    // Calculate appropriate font size (smaller for longer words)
+    const fontSize = Math.max(10, Math.min(16, size / (Math.max(text.length / 1.5, 3))));
     bubble.style.fontSize = `${fontSize}px`;
     
-    // Add text wrapping for longer texts
-    if (text.length > 10) {
-      bubble.style.wordBreak = 'break-word';
-      bubble.style.whiteSpace = 'normal';
-      bubble.style.lineHeight = '1.2';
-      bubble.style.padding = '10px';
-    }
+    // For longer text, ensure we have enough padding
+    bubble.style.padding = `${Math.max(8, text.length * 0.5)}px`;
     
     // Position bubble with animation delay
     setTimeout(() => {
