@@ -83,6 +83,9 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    
+    <!-- Chart.js for skill radar visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header id="hero">
@@ -158,82 +161,139 @@
       <div class="content-text">
         <h2>Skills</h2>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card" data-aos="fade-up">
-          <i class="fas fa-code"></i>
-          <h3>Languages</h3>
-          <div class="skill-bars">
-            <div class="skill-item">
-              <span class="skill-name">Python</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 90%;" data-value="90"></div>
+      
+      <!-- Skill Navigation Tabs -->
+      <div class="skill-tabs">
+        <button class="skill-tab active" data-tab="skill-bars">Progress Bars</button>
+        <button class="skill-tab" data-tab="skill-radar">Radar Chart</button>
+        <button class="skill-tab" data-tab="skill-bubbles">Skill Cloud</button>
+      </div>
+      
+      <!-- Skill Progress Bars (Original) -->
+      <div class="skill-content active" id="skill-bars">
+        <div class="skills-grid">
+          <div class="skill-card" data-aos="fade-up">
+            <i class="fas fa-code"></i>
+            <h3>Languages</h3>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span class="skill-name">Python</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 90%;" data-value="90"></div>
+                </div>
               </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 85%;" data-value="85"></div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 85%;" data-value="85"></div>
+                </div>
               </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">C++</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 75%;" data-value="75"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-database"></i>
-          <h3>Data Science</h3>
-          <div class="skill-bars">
-            <div class="skill-item">
-              <span class="skill-name">NumPy/Pandas</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 95%;" data-value="95"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Scikit-learn</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 85%;" data-value="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">TensorFlow</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 80%;" data-value="80"></div>
+              <div class="skill-item">
+                <span class="skill-name">C++</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%;" data-value="75"></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-laptop-code"></i>
-          <h3>Web Development</h3>
-          <div class="skill-bars">
-            <div class="skill-item">
-              <span class="skill-name">HTML/CSS</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 90%;" data-value="90"></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-database"></i>
+            <h3>Data Science</h3>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span class="skill-name">NumPy/Pandas</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 95%;" data-value="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Scikit-learn</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 85%;" data-value="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">TensorFlow</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%;" data-value="80"></div>
+                </div>
               </div>
             </div>
-            <div class="skill-item">
-              <span class="skill-name">React</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 80%;" data-value="80"></div>
+          </div>
+
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Development</h3>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span class="skill-name">HTML/CSS</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 90%;" data-value="90"></div>
+                </div>
               </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Node.js</span>
-              <div class="progress-bar">
-                <div class="progress" style="width: 75%;" data-value="75"></div>
+              <div class="skill-item">
+                <span class="skill-name">React</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%;" data-value="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Node.js</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%;" data-value="75"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <!-- Radar Chart Visualization -->
+      <div class="skill-content" id="skill-radar">
+        <div class="radar-chart-container">
+          <canvas id="skillsRadar"></canvas>
+        </div>
+      </div>
+      
+      <!-- Interactive Skill Bubbles -->
+      <div class="skill-content" id="skill-bubbles">
+        <div class="skill-filters">
+          <button class="filter-btn active" data-filter="all">All Skills</button>
+          <button class="filter-btn" data-filter="languages">Languages</button>
+          <button class="filter-btn" data-filter="data-science">Data Science</button>
+          <button class="filter-btn" data-filter="web-dev">Web Development</button>
+          <button class="filter-btn" data-filter="tools">Tools & Frameworks</button>
+        </div>
+        
+        <div class="skill-bubbles-container">
+          <!-- Languages -->
+          <div class="skill-bubble" data-category="languages" data-level="90">Python</div>
+          <div class="skill-bubble" data-category="languages" data-level="85">JavaScript</div>
+          <div class="skill-bubble" data-category="languages" data-level="75">C++</div>
+          <div class="skill-bubble" data-category="languages" data-level="80">SQL</div>
+          
+          <!-- Data Science -->
+          <div class="skill-bubble" data-category="data-science" data-level="95">NumPy/Pandas</div>
+          <div class="skill-bubble" data-category="data-science" data-level="85">Scikit-learn</div>
+          <div class="skill-bubble" data-category="data-science" data-level="80">TensorFlow</div>
+          <div class="skill-bubble" data-category="data-science" data-level="75">Data Visualization</div>
+          <div class="skill-bubble" data-category="data-science" data-level="85">Statistical Analysis</div>
+          
+          <!-- Web Development -->
+          <div class="skill-bubble" data-category="web-dev" data-level="90">HTML/CSS</div>
+          <div class="skill-bubble" data-category="web-dev" data-level="80">React</div>
+          <div class="skill-bubble" data-category="web-dev" data-level="75">Node.js</div>
+          <div class="skill-bubble" data-category="web-dev" data-level="85">Responsive Design</div>
+          
+          <!-- Tools & Frameworks -->
+          <div class="skill-bubble" data-category="tools" data-level="90">Git</div>
+          <div class="skill-bubble" data-category="tools" data-level="85">Docker</div>
+          <div class="skill-bubble" data-category="tools" data-level="80">AWS</div>
+          <div class="skill-bubble" data-category="tools" data-level="75">Django</div>
+        </div>
+      </div>
+      
     </section>
 
 
