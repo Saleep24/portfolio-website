@@ -14,17 +14,16 @@
 
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 
-  /* Font Weight */
+
   --weight-small: 400;
   --weight-semibold: 600;
   --weight-bold: 800;
 
-  /* Max width */
   --width-small: 600px;
   --width-medium: 1100px;
   --width-large: 1300px;
 
-  /* Added for new styles */
+
   --bg-primary-rgb: 242, 242, 242;
   --text-color-rgb: 51, 51, 51;
   --primary-color-rgb: 74, 144, 226;
@@ -41,7 +40,7 @@
   --bg-secondary-two: #e6e6e6;
   --shadow: 0 2px 10px rgba(95, 95, 95, 0.2);
 
-  /* Added for new styles */
+
   --bg-primary-rgb: 26, 26, 26;
 }
 
@@ -50,14 +49,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Reset default styling */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Add smooth transition for theme changes */
 body, a, p, h1, h2, h3, h4, h5, h6, div, section, article, 
 .navbar, .card, .btn, footer, .project-info, .skill-card, 
 .blog-post, .achievement-card, input, textarea, button {
@@ -73,7 +71,7 @@ a {
   color: var(--text-color);
 }
 
-/* Main styling */
+
 body {
   background: var(--bg-primary);
   color: var(--text-color);
@@ -81,7 +79,7 @@ body {
   line-height: 1.5;
 }
 
-/* Theme Switch Enhancements */
+
 .theme-switch {
   position: relative;
   margin-left: 10px;
@@ -119,7 +117,7 @@ body {
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* Adding visual feedback */
+
 .theme-changed .toggle-icons {
   animation: pulse 0.5s ease;
 }
@@ -154,7 +152,7 @@ body {
   opacity: 0.7;
 }
 
-/* Navbar */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -248,7 +246,7 @@ body {
   box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
 }
 
-/* hamburger */
+
 .hamburger {
   margin-bottom: 0;
   display: none;
@@ -264,7 +262,7 @@ body {
   background-color: var(--text-color);
 }
 
-/* Hero section */
+
 #hero {
   display: flex;
   flex-direction: column;
@@ -287,7 +285,7 @@ body {
   }
 }
 
-/* Projects */
+
 #projects {
   display: flex;
   flex-direction: column;
@@ -336,7 +334,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Footer */
+
 #footer {
   background: #111111;
 }
@@ -377,7 +375,7 @@ body {
   font-size: 0.8rem;
 }
 
-/* Responsiveness */
+
 
 @media (max-width: 1000px) {
   .project {
@@ -509,7 +507,7 @@ body {
 }
 
 
-/* Form styling */
+
 .contact-container form {
   display: flex;
   flex-direction: column;
@@ -553,7 +551,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Loader styling */
+
 #submit-loader {
   display: flex;
   align-items: center;
@@ -565,10 +563,10 @@ body {
   font-weight: var(--weight-semibold);
 }
 
-/* Footer Styling */
+
 footer {
-  background-color: #222; /* Dark background for contrast */
-  color: #f0f0f0; /* Light text color */
+  background-color: #222;
+  color: #f0f0f0; 
   padding: 1.5rem 0;
   text-align: center;
   font-size: 0.9rem;
@@ -593,7 +591,7 @@ footer .socials a {
 }
 
 footer .socials a:hover {
-  color: #3498db; /* Highlight color on hover, can adjust to preferred */
+  color: #3498db; 
 }
 
 footer .socials i {
@@ -601,7 +599,7 @@ footer .socials i {
   vertical-align: middle;
 }
 
-/* Header Container */
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -609,28 +607,28 @@ footer .socials i {
   gap: 1rem;
 }
 
-/* Project Grid */
+
 .project {
   grid-gap: 1.2rem;
 }
 
-/* Contact Form Container */
+
 .contact-container form {
   padding: 1.5rem;
 }
 
-/* Footer Padding */
+
 footer {
   padding: 2rem;
 }
 
-/* Footer Social Icons */
+
 footer .socials {
   gap: 1rem;
 }
 
 
-/* Default Button Style */
+
 .btn.btn-secondary {
   background-color: #1a1a1a; 
   color: white;
@@ -641,15 +639,15 @@ footer .socials {
   text-decoration: none;
 }
 
-/* Hover Effect */
+
 .btn.btn-secondary:hover {
   background-color: black; 
   color: #fff;
-  transform: scale(1.1);  /* Slightly enlarge the button */
+  transform: scale(1.1);  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-/* Add to your existing CSS */
+
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -731,7 +729,7 @@ footer .socials {
   margin-top: 1rem;
 }
 
-/* Updated Project Card Styles */
+
 .card {
   position: relative;
   border-radius: 15px;
@@ -823,7 +821,7 @@ footer .socials {
   color: #ffffff !important;
 }
 
-/* Update the primary button style to match secondary */
+
 .btn.btn-primary {
   background-color: #1a1a1a; 
   color: white;
@@ -834,7 +832,7 @@ footer .socials {
   text-decoration: none;
 }
 
-/* Add hover effect to primary button */
+
 .btn.btn-primary:hover {
   background-color: black;
   color: #fff;
@@ -842,7 +840,7 @@ footer .socials {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Add these new styles */
+
 .tagline {
   font-size: 1.5rem;
   color: var(--text-color);
@@ -870,7 +868,7 @@ footer .socials {
   opacity: 0.8;
 }
 
-/* Update the Skills section styles */
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -946,7 +944,7 @@ footer .socials {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Add this for dark mode compatibility */
+
 [data-theme="dark"] .skill-card {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -956,7 +954,7 @@ footer .socials {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Add a subtle animation when hovering over progress bars */
+
 .skill-item:hover .progress {
   filter: brightness(1.1);
 }
@@ -986,9 +984,9 @@ footer .socials {
   }
 }
 
-/* Update blog section styles */
+
 .blog-posts {
-  margin-top: 6rem; /* Reduced from 8rem since we removed the division and heading */
+  margin-top: 6rem; 
 }
 
 .blog-post {
@@ -1013,7 +1011,7 @@ footer .socials {
   text-align: justify;
 }
 
-/* Keep other blog styles the same */
+
 .blog-header {
   margin-bottom: 3rem;
   text-align: center;
@@ -1120,7 +1118,7 @@ footer .socials {
   font-weight: var(--weight-semibold);
 }
 
-/* Add animation for timeline items */
+
 @keyframes slideIn {
   from {
     transform: translateX(-100%);
@@ -1166,7 +1164,7 @@ footer .socials {
   left: 100%;
 }
 
-/* Skills Section Styles */
+
 .skills-visualization {
   position: relative;
   display: flex;
@@ -1265,7 +1263,7 @@ footer .socials {
   box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
 }
 
-/* Add this selector to override other filter button styles */
+
 .skill-filters .filter-btn {
   padding: 0.6rem 1.2rem;
   background: var(--card-background); 
@@ -1278,7 +1276,7 @@ footer .socials {
   color: white;
 }
 
-/* Dark mode compatibility */
+
 [data-theme="dark"] .filter-btn {
   background: var(--bg-secondary-two);
   color: var(--text-color);
@@ -1289,7 +1287,6 @@ footer .socials {
   color: white;
 }
 
-/* Achievement Section Styles */
 .achievements-container {
   background-color: var(--bg-primary);
   padding: 4rem 2rem;
@@ -1306,7 +1303,7 @@ footer .socials {
   box-shadow: var(--shadow);
 }
 
-/* Dark mode specific styles */
+
 [data-theme="dark"] .achievements-container {
   background-color: #1a1a1a;
 }
@@ -1446,13 +1443,12 @@ footer .socials {
   transform: translateY(-3px);
 }
 
-/* Dark theme adjustment */
+
 [data-theme="dark"] .back-to-top {
   background-color: var(--primary-color);
   color: white;
 }
 
-/* Add to your existing CSS */
 .skill-progress {
   width: 100%;
   height: 25px;
@@ -1480,7 +1476,7 @@ footer .socials {
   z-index: 1;
 }
 
-/* Add to your CSS */
+
 .project-filters {
   display: flex;
   justify-content: center;
@@ -1511,7 +1507,7 @@ footer .socials {
   display: none;
 }
 
-/* Achievements Section */
+
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1655,7 +1651,7 @@ footer .socials {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Skill Tabs Styles - Enhanced */
+
 .skill-tabs {
   display: flex;
   justify-content: center;
