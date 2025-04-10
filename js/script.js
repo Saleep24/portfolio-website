@@ -147,28 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        
-
-        const progressBars = entry.target.querySelectorAll('.progress');
-        progressBars.forEach(bar => {
-          const value = bar.getAttribute('data-value');
-          bar.style.setProperty('--progress-width', `${value}%`);
-        });
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.skill-card').forEach((card) => {
-    observer.observe(card);
-  });
-});
-
-
 function calculateReadingTime() {
   const articles = document.querySelectorAll('.blog-content');
   const wordsPerMinute = 200;
@@ -189,8 +167,161 @@ document.addEventListener('DOMContentLoaded', calculateReadingTime);
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        
+        const progressBars = entry.target.querySelectorAll('.progress');
+        progressBars.forEach(bar => {
+          const value = bar.getAttribute('data-value');
+          bar.style.setProperty('--progress-width', `${value}%`);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
 
-  const ctx = document.getElementById('skillsRadar').getContext('2d');
+  document.querySelectorAll('.skill-card').forEach((card) => {
+    observer.observe(card);
+  });
+});
+
+
+function animateSkills() {
+  const skillBars = document.querySelectorAll('.skill-progress');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target.querySelector('.progress-bar');
+        const percentage = progressBar.getAttribute('data-progress');
+        progressBar.style.width = `${percentage}%`;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  skillBars.forEach(bar => observer.observe(bar));
+}
+
+document.addEventListener('DOMContentLoaded', animateSkills);
+
+function initializeProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projects = document.querySelectorAll('.project');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projects.forEach(project => {
+        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+          project.classList.remove('hidden');
+        } else {
+          project.classList.add('hidden');
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initializeProjectFilters);
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initSkillTabs();
+});
+
+function initSkillTabs() {
+  console.clear();
+  console.log('🚀 Initializing skill tabs with direct DOM manipulation...');
+  
+  // Get all tab buttons and content panels
+  const tabs = document.querySelectorAll('.skill-tab');
+  const contents = document.querySelectorAll('.skill-content');
+  
+  if (!tabs.length || !contents.length) {
+    console.error('❌ Could not find skill tabs or content panels!');
+    return;
+  }
+  
+  console.log(`✅ Found ${tabs.length} tabs and ${contents.length} content panels`);
+  
+  // For each tab, add a direct click handler
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-tab');
+      const targetContent = document.getElementById(targetId);
+      
+      console.log(`🔍 Tab clicked: ${targetId}`);
+      
+      if (!targetContent) {
+        console.error(`❌ Target content #${targetId} not found!`);
+        return;
+      }
+      
+      // Remove active class from all tabs and contents
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        console.log(`📋 Removed active class from tab: ${t.getAttribute('data-tab')}`);
+      });
+      
+      contents.forEach(c => {
+        c.classList.remove('active');
+        console.log(`📋 Removed active class from content: ${c.id}`);
+      });
+      
+      // Add active class to current tab and content
+      this.classList.add('active');
+      targetContent.classList.add('active');
+      
+      console.log(`✅ Activated tab: ${targetId} and corresponding content`);
+      
+      // Handle specific content types
+      if (targetId === 'skill-radar') {
+        initRadarChart();
+      } else if (targetId === 'skill-bubbles') {
+        initSkillBubbles();
+      }
+    });
+  });
+  
+  // Initialize the first tab by directly clicking it (synthetic event)
+  console.log('🔄 Setting initial tab...');
+  setTimeout(() => {
+    if (tabs[0]) {
+      console.log('🔄 Clicking first tab...');
+      tabs[0].click();
+    }
+  }, 100);
+}
+
+function initRadarChart() {
+  console.log('📊 Initializing radar chart...');
+  
+  const canvas = document.getElementById('skillsRadar');
+  if (!canvas) {
+    console.error('❌ Radar chart canvas not found!');
+    return;
+  }
+  
+  const ctx = canvas.getContext('2d');
+  
+  // Check if Chart.js is available
+  if (typeof Chart === 'undefined') {
+    console.error('❌ Chart.js library not loaded!');
+    return;
+  }
+  
+  // Destroy existing chart if any
+  if (window.radarChart) {
+    window.radarChart.destroy();
+    console.log('🔄 Destroyed existing radar chart');
+  }
+  
+  // Create new chart
   const skillsData = {
     labels: ['Languages', 'Data Science', 'Web Development', 'Problem Solving', 'Tools & Frameworks', 'Soft Skills'],
     datasets: [{
@@ -204,17 +335,22 @@ document.addEventListener('DOMContentLoaded', function() {
       pointHoverBorderColor: 'rgba(74, 144, 226, 1)'
     }]
   };
-
-  const radarChart = new Chart(ctx, {
+  
+  window.radarChart = new Chart(ctx, {
     type: 'radar',
     data: skillsData,
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       scales: {
         r: {
           beginAtZero: true,
           max: 100,
           ticks: {
-            stepSize: 20
+            stepSize: 20,
+            callback: function(value) {
+              return value + '%';
+            }
           }
         }
       },
@@ -225,55 +361,135 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+  
+  console.log('✅ Radar chart initialized');
+}
 
-
+function initSkillBubbles() {
+  console.log('🔵 Initializing skill bubbles...');
+  
+  const container = document.querySelector('.skill-bubbles-container');
   const bubbles = document.querySelectorAll('.skill-bubble');
-  const filters = document.querySelectorAll('.filter-btn');
-
-
+  const filters = document.querySelectorAll('.skill-filters .filter-btn');
+  
+  if (!container || !bubbles.length) {
+    console.error('❌ Skill bubbles container or bubbles not found!');
+    return;
+  }
+  
+  console.log(`✅ Found ${bubbles.length} skill bubbles`);
+  
+  // Hide all bubbles first
+  bubbles.forEach(bubble => {
+    bubble.classList.remove('visible');
+  });
+  
+  // Position bubbles
   bubbles.forEach(bubble => {
     const size = parseInt(bubble.dataset.level) * 0.8;
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
-    repositionBubble(bubble);
+    bubble.style.fontSize = `${Math.max(12, size * 0.25)}px`;
+    
+    // Position bubble with animation delay
+    setTimeout(() => {
+      positionBubble(bubble, container, bubbles);
+      bubble.classList.add('visible');
+    }, Math.random() * 500);
   });
-
-
+  
+  // Add filter functionality
   filters.forEach(filter => {
-    filter.addEventListener('click', () => {
-      const category = filter.dataset.filter;
+    filter.addEventListener('click', function() {
+      const category = this.getAttribute('data-filter');
       
+      console.log(`🔍 Filter clicked: ${category}`);
+      
+      // Update active filter
       filters.forEach(f => f.classList.remove('active'));
-      filter.classList.add('active');
-
+      this.classList.add('active');
+      
+      // Hide all bubbles first
       bubbles.forEach(bubble => {
-        if (category === 'all' || bubble.dataset.category === category) {
-          bubble.classList.add('visible');
-        } else {
-          bubble.classList.remove('visible');
-        }
+        bubble.classList.remove('visible');
       });
+      
+      // Show bubbles with animation delay
+      setTimeout(() => {
+        bubbles.forEach((bubble, index) => {
+          if (category === 'all' || bubble.dataset.category === category) {
+            setTimeout(() => {
+              positionBubble(bubble, container, bubbles);
+              bubble.classList.add('visible');
+            }, index * 50);
+          }
+        });
+      }, 300);
     });
   });
-
-
-  function repositionBubble(bubble) {
-    const container = document.querySelector('.skill-bubbles-container');
-    const maxX = container.clientWidth - bubble.clientWidth;
-    const maxY = container.clientHeight - bubble.clientHeight;
-    
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-    
-    bubble.style.left = `${randomX}px`;
-    bubble.style.top = `${randomY}px`;
-  }
-
-
+  
+  // Initialize first filter
+  console.log('🔄 Activating first filter...');
   setTimeout(() => {
-    bubbles.forEach(bubble => bubble.classList.add('visible'));
+    if (filters[0]) {
+      filters[0].click();
+    }
   }, 100);
-});
+  
+  console.log('✅ Skill bubbles initialized');
+}
+
+// Helper function to position a bubble
+function positionBubble(bubble, container, allBubbles) {
+  if (!container) return;
+  
+  const containerRect = container.getBoundingClientRect();
+  const bubbleSize = parseInt(bubble.style.width);
+  
+  // Calculate available space
+  const maxX = containerRect.width - bubbleSize;
+  const maxY = containerRect.height - bubbleSize;
+  
+  let posX = Math.random() * maxX;
+  let posY = Math.random() * maxY;
+  
+  // Simple collision avoidance (basic implementation)
+  let attempts = 0;
+  let collision = true;
+  
+  while (collision && attempts < 30) {
+    collision = false;
+    
+    allBubbles.forEach(otherBubble => {
+      if (otherBubble !== bubble && otherBubble.classList.contains('visible')) {
+        const otherX = parseInt(otherBubble.style.left);
+        const otherY = parseInt(otherBubble.style.top);
+        const otherSize = parseInt(otherBubble.style.width);
+        
+        // Calculate distance between centers
+        const dx = posX - otherX;
+        const dy = posY - otherY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // If too close, flag collision
+        if (distance < (bubbleSize + otherSize) / 1.5) {
+          collision = true;
+        }
+      }
+    });
+    
+    // If collision, try new position
+    if (collision) {
+      posX = Math.random() * maxX;
+      posY = Math.random() * maxY;
+      attempts++;
+    }
+  }
+  
+  // Apply position
+  bubble.style.left = `${posX}px`;
+  bubble.style.top = `${posY}px`;
+}
 
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.projects-section');
@@ -386,262 +602,23 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-function animateSkills() {
-  const skillBars = document.querySelectorAll('.skill-progress');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const progressBar = entry.target.querySelector('.progress-bar');
-        const percentage = progressBar.getAttribute('data-progress');
-        progressBar.style.width = `${percentage}%`;
-      }
-    });
-  }, { threshold: 0.5 });
-
-  skillBars.forEach(bar => observer.observe(bar));
-}
-
-document.addEventListener('DOMContentLoaded', animateSkills);
-
-function initializeProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projects = document.querySelectorAll('.project');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      projects.forEach(project => {
-        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
-          project.classList.remove('hidden');
-        } else {
-          project.classList.add('hidden');
-        }
-      });
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', initializeProjectFilters);
-
-// Skill tabs functionality
+// Initialize everything at once when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  const skillTabs = document.querySelectorAll('.skill-tab');
-  const skillContents = document.querySelectorAll('.skill-content');
+  console.log('Initializing all interactive elements...');
   
-  skillTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Remove active class from all tabs and contents
-      skillTabs.forEach(tab => tab.classList.remove('active'));
-      skillContents.forEach(content => content.classList.remove('active'));
-      
-      // Add active class to clicked tab
-      tab.classList.add('active');
-      
-      // Show corresponding content
-      const tabId = tab.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
-      
-      // If radar chart is selected, make sure it's properly sized
-      if (tabId === 'skill-radar' && window.radarChart) {
-        window.radarChart.resize();
-      }
-      
-      // If bubbles are selected, reposition them
-      if (tabId === 'skill-bubbles') {
-        const bubbles = document.querySelectorAll('.skill-bubble');
-        bubbles.forEach(bubble => repositionBubble(bubble));
-        
-        // Make bubbles visible with a delay
-        setTimeout(() => {
-          bubbles.forEach((bubble, index) => {
-            setTimeout(() => {
-              bubble.classList.add('visible');
-            }, index * 50);
-          });
-        }, 300);
-      }
-    });
-  });
-  
-  // Enhanced radar chart configuration
-  if (document.getElementById('skillsRadar')) {
-    const ctx = document.getElementById('skillsRadar').getContext('2d');
-    const skillsData = {
-      labels: ['Languages', 'Data Science', 'Web Development', 'Problem Solving', 'Tools & Frameworks', 'Soft Skills'],
-      datasets: [{
-        label: 'Skill Level',
-        data: [85, 90, 82, 88, 85, 90],
-        backgroundColor: 'rgba(var(--primary-color-rgb), 0.2)',
-        borderColor: 'rgba(var(--primary-color-rgb), 1)',
-        pointBackgroundColor: 'rgba(var(--primary-color-rgb), 1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(var(--primary-color-rgb), 1)'
-      }]
-    };
-
-    // Check if Chart.js is available
-    if (typeof Chart !== 'undefined') {
-      window.radarChart = new Chart(ctx, {
-        type: 'radar',
-        data: skillsData,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              beginAtZero: true,
-              max: 100,
-              ticks: {
-                stepSize: 20,
-                callback: function(value) {
-                  return value + '%';
-                }
-              },
-              pointLabels: {
-                font: {
-                  size: 14,
-                  weight: 'bold'
-                }
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              display: false
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return `${context.label}: ${context.raw}%`;
-                }
-              }
-            }
-          },
-          animation: {
-            duration: 2000,
-            easing: 'easeOutQuart'
-          }
-        }
-      });
-    } else {
-      console.warn('Chart.js is not loaded. Radar chart will not be displayed.');
-    }
-  }
-  
-  // Enhanced skill bubbles
-  const bubbles = document.querySelectorAll('.skill-bubble');
-  const filters = document.querySelectorAll('.filter-btn');
-
-  // Position bubbles
-  bubbles.forEach(bubble => {
-    const size = parseInt(bubble.dataset.level) * 0.8;
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-    bubble.style.fontSize = `${Math.max(12, size * 0.25)}px`;
-    repositionBubble(bubble);
-  });
-
-  // Filter bubbles
-  filters.forEach(filter => {
-    filter.addEventListener('click', () => {
-      const category = filter.dataset.filter;
-      
-      // Update active filter button
-      filters.forEach(f => f.classList.remove('active'));
-      filter.classList.add('active');
-
-      // Show/hide bubbles with animation
-      bubbles.forEach((bubble, index) => {
-        bubble.classList.remove('visible');
-        
-        setTimeout(() => {
-          if (category === 'all' || bubble.dataset.category === category) {
-            bubble.classList.add('visible');
-            repositionBubble(bubble); // Reposition when showing
-          }
-        }, 300);
-      });
-    });
-  });
-
-  // Improved bubble positioning function with overlap prevention
-  function repositionBubble(bubble) {
-    const container = document.querySelector('.skill-bubbles-container');
-    if (!container) return;
-    
-    const containerRect = container.getBoundingClientRect();
-    const bubbleSize = bubble.offsetWidth;
-    
-    // Calculate available space
-    const maxX = containerRect.width - bubbleSize;
-    const maxY = containerRect.height - bubbleSize;
-    
-    // Position attempt limit to prevent infinite loops
-    let attempts = 0;
-    let validPosition = false;
-    let randomX, randomY;
-    
-    // Try to find non-overlapping position
-    while (!validPosition && attempts < 50) {
-      randomX = Math.random() * maxX;
-      randomY = Math.random() * maxY;
-      
-      validPosition = true;
-      
-      // Check for overlap with other bubbles
-      bubbles.forEach(otherBubble => {
-        if (otherBubble !== bubble && otherBubble.classList.contains('visible')) {
-          const otherRect = otherBubble.getBoundingClientRect();
-          const otherX = otherBubble.offsetLeft;
-          const otherY = otherBubble.offsetTop;
-          const otherSize = otherBubble.offsetWidth;
-          
-          // Calculate distance between bubble centers
-          const distance = Math.sqrt(
-            Math.pow(randomX + bubbleSize/2 - (otherX + otherSize/2), 2) +
-            Math.pow(randomY + bubbleSize/2 - (otherY + otherSize/2), 2)
-          );
-          
-          // If bubbles overlap, position is not valid
-          if (distance < (bubbleSize/2 + otherSize/2)) {
-            validPosition = false;
-          }
-        }
-      });
-      
-      attempts++;
+  // Force the first tab to be active 
+  setTimeout(function() {
+    const firstTab = document.querySelector('.skill-tab');
+    if (firstTab) {
+      console.log('Activating first tab...');
+      firstTab.click();
     }
     
-    // Apply position
-    bubble.style.left = `${randomX}px`;
-    bubble.style.top = `${randomY}px`;
-    
-    // Add subtle animation when repositioning
-    bubble.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-  }
-  
-  // Make bubbles interactive with hover effects
-  bubbles.forEach(bubble => {
-    bubble.addEventListener('mouseenter', () => {
-      bubble.style.zIndex = 10;
-    });
-    
-    bubble.addEventListener('mouseleave', () => {
-      setTimeout(() => {
-        bubble.style.zIndex = 2;
-      }, 300);
-    });
-  });
-  
-  // Add window resize handler to reposition bubbles
-  window.addEventListener('resize', () => {
-    const activeBubbles = document.querySelectorAll('.skill-bubble.visible');
-    activeBubbles.forEach(bubble => repositionBubble(bubble));
-  });
+    // Initialize the filters for skill bubbles
+    const firstFilter = document.querySelector('.skill-filters .filter-btn');
+    if (firstFilter) {
+      console.log('Activating first filter...');
+      firstFilter.click();
+    }
+  }, 500); // Small delay to ensure DOM is fully processed
 });

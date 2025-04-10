@@ -84,8 +84,27 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     
-    <!-- Chart.js for skill radar visualization -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js for skill radar visualization with defer attribute -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Debug script to check if Chart.js loads -->
+    <script>
+      // Check for Chart.js multiple times
+      function checkChartJs() {
+        if (typeof Chart !== 'undefined') {
+          console.log('✅ Chart.js successfully loaded');
+        } else {
+          console.log('❌ Chart.js not loaded yet, will check again shortly...');
+          setTimeout(checkChartJs, 500);
+        }
+      }
+      
+      // Start checking after page loads
+      window.addEventListener('load', function() {
+        console.log('Page loaded, checking for Chart.js...');
+        checkChartJs();
+      });
+    </script>
   </head>
   <body>
     <header id="hero">
@@ -633,5 +652,28 @@
     </button>
 
     <script src="js/script.js"></script>
+    
+    <!-- Force skill tabs initialization -->
+    <script>
+      // Ensure tab initialization
+      window.addEventListener('load', function() {
+        // Wait a bit for everything to be fully loaded
+        setTimeout(function() {
+          console.log('Force initializing skill tabs after page load...');
+          if (typeof initSkillTabs === 'function') {
+            initSkillTabs();
+          }
+        }, 500);
+        
+        // Force click on first tab
+        setTimeout(function() {
+          const firstTab = document.querySelector('.skill-tab');
+          if (firstTab) {
+            console.log('Force clicking first tab...');
+            firstTab.click();
+          }
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
