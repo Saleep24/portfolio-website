@@ -9,7 +9,7 @@
     background: var(--primary-color);
   }
   
-  /* Buttons */
+
   .btn {
     display: inline-block;
     padding: 0.75rem 1.9rem;
@@ -19,7 +19,7 @@
     font-weight: var(--weight-semibold);
     transition: 0.3s;
     text-align: center;
-    min-width: 160px; /* Ensures both buttons have the same width */
+    min-width: 160px; 
   }
   
   .btn-primary, .btn-secondary {
@@ -39,12 +39,11 @@
     color: var(--text-color-two);
   }
   
-  /* add hover to resume button */
+
   .btn-primary:hover {
     background: var(--secondary-color);
   }
-  
-  /* Dark mode toggle */
+
   #switch {
     display: none;
   }
@@ -73,7 +72,7 @@
     transform: rotate(100deg);
   }
   
-  /* Header Container */
+
   .header-container {
     display: flex;
     flex-direction: column;
@@ -104,7 +103,7 @@
     max-width: 700px;
   }
   
-  /* Project cards */
+ 
   .card {
     padding: 1rem;
     background: var(--card-background);
@@ -132,24 +131,24 @@
   .card:hover .project-info {
     opacity: 1;
   }
-  
-  /* Project Images */
-  /* project 1 */
+
+  /* projects */
+
   .card:nth-child(1) {
     background: url(../assets/project/tesla-stock.png) center center/cover;
   }
   
-  /* Project 2 */
+
   .card:nth-child(2) {
     background: url(../assets/project/EasyLib.png) center center/cover;
   }
   
-  /* Project 3 */
+
   .card:nth-child(3) {
     background: url(../assets/project/servers-tips-analysis.png) center center/cover;
   }
   
-  /* Project 4 */
+
   .card:nth-child(4) {
     background: url(../assets/project/Frog-the-ball.png) center center/cover;
   }
@@ -158,12 +157,11 @@
     background: url(../assets/project/HealthCheck.png) center center/cover;
   }
   
-  /* Project 5 */
   .card:nth-child(6) {
     background: url(../assets/project/Lucky-number.png) center center/cover;
   }
   
-  /* Project 6 */
+
   .card:nth-child(7) {
     background: url(../assets/project/Expense-tracker.png) center center/cover;
   }
@@ -181,7 +179,7 @@
   .card:nth-child(10) {
     background: url(../assets/project/mrgrammar.png) center center/cover;
   }
-  /* Button styles for form */
+
   .contact-container .btn {
     padding: 0.7rem 1.8rem;
     border-radius: 5px;
