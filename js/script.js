@@ -1,4 +1,3 @@
-
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -18,19 +17,53 @@ function closeMenu() {
 
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+// Enhanced theme switching function
 function switchTheme(e) {
-  const theme = e.target.checked ? "dark" : "light";
+  // Check if the event exists (function might be called directly)
+  const isChecked = e ? e.target.checked : toggleSwitch.checked;
+  const theme = isChecked ? "dark" : "light";
+  
+  // Apply theme to document
   document.documentElement.setAttribute("data-theme", theme);
+  
+  // Store preference
   localStorage.setItem("theme", theme);
+  
+  // Add visual feedback
+  const themeIcon = document.querySelector('.theme-switch');
+  if (themeIcon) {
+    themeIcon.classList.add('theme-changed');
+    setTimeout(() => {
+      themeIcon.classList.remove('theme-changed');
+    }, 500);
+  }
 }
+
+// Event listener for checkbox change
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-
+// Check for saved user preference
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
   toggleSwitch.checked = currentTheme === "dark";
+} else {
+  // Set default based on user's system preference
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (prefersDarkScheme) {
+    toggleSwitch.checked = true;
+    switchTheme(null); // Apply dark theme
+  }
 }
+
+// Listen for system theme changes
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  if (!localStorage.getItem("theme")) {
+    toggleSwitch.checked = e.matches;
+    switchTheme(null);
+  }
+});
 
 
 const myDate = document.querySelector("#datee");
