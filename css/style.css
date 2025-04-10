@@ -1316,14 +1316,7 @@ footer .socials {
 }
 
 .achievements-container .content-text h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: var(--primary-color);
+  display: none;
 }
 
 .achievements-container .content-text {
@@ -1335,12 +1328,9 @@ footer .socials {
 
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem;
-  margin: 2.5rem 0;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .achievement-card {
@@ -1353,7 +1343,7 @@ footer .socials {
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 5px solid var(--primary-color);
+  border-top: 4px solid var(--primary-color);
 }
 
 .achievement-card::after {
@@ -1376,24 +1366,19 @@ footer .socials {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: 1.8rem;
   position: relative;
   z-index: 1;
 }
 
 .achievement-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  background: rgba(var(--primary-color-rgb), 0.08);
-  border-radius: 50%;
-  margin-bottom: 1.8rem;
-  transition: all 0.4s ease;
-  position: relative;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .achievement-icon::before {
@@ -1422,87 +1407,94 @@ footer .socials {
 }
 
 .achievement-content h3 {
-  color: var(--text-color);
-  font-size: 1.5rem;
-  font-weight: var(--weight-bold);
-  margin-bottom: 1.2rem;
-  position: relative;
-  line-height: 1.3;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 .achievement-date {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-color);
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-}
-
-.achievement-date i {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
 }
 
 .achievement-issuer {
-  color: var(--text-color);
-  font-size: 1.1rem;
-  margin-bottom: 1.8rem;
-  opacity: 0.85;
-  line-height: 1.6;
-  flex: 1;
-  font-weight: var(--weight-small);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn-certificate {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.8rem 1.8rem;
-  background: rgba(var(--primary-color-rgb), 0.9);
-  color: white !important;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  box-shadow: 0 5px 20px rgba(var(--primary-color-rgb), 0.25);
-  margin-top: auto;
-  border: 2px solid transparent;
-  overflow: hidden;
   position: relative;
-  z-index: 1;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+  z-index: 5;
 }
 
-.btn-certificate::before {
-  content: '';
+/* Certificate preview container */
+.certificate-preview {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 100%;
-  background: var(--text-color);
-  transition: width 0.3s ease;
-  z-index: -1;
-}
-
-.btn-certificate i {
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
-}
-
-.btn-certificate:hover {
-  color: white !important;
-  border-color: transparent;
-}
-
-.btn-certificate:hover::before {
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 4;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  transform: scale(0.9);
 }
 
-.btn-certificate:hover i {
-  transform: translateX(5px);
+.certificate-preview img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(var(--primary-color-rgb), 0.25);
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  border: 3px solid var(--primary-color);
+}
+
+/* Show certificate preview on button hover */
+.btn-certificate:hover + .certificate-preview,
+.certificate-preview:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.btn-certificate:hover + .certificate-preview img,
+.certificate-preview:hover img {
+  transform: translateY(0);
+}
+
+/* Click instruction text */
+.certificate-preview::after {
+  content: 'Click to view full certificate';
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.btn-certificate:hover + .certificate-preview::after,
+.certificate-preview:hover::after {
+  transform: translateY(0);
+}
+
+/* Make the preview also clickable to the certificate */
+.certificate-preview {
+  cursor: pointer;
 }
 
 /* Dark mode enhancements */
@@ -1789,4 +1781,35 @@ footer .socials {
   .skill-bubbles-container {
     height: 350px;
   }
+}
+
+/* Restore button hover effects */
+.btn-certificate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--text-color);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-certificate i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-certificate:hover {
+  color: white !important;
+  border-color: transparent;
+}
+
+.btn-certificate:hover::before {
+  width: 100%;
+}
+
+.btn-certificate:hover i {
+  transform: translateX(5px);
 }
