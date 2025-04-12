@@ -1223,6 +1223,48 @@ footer .socials {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Different colors for different skill categories */
+.skill-bubble[data-category="languages"] {
+  background: linear-gradient(145deg, #4a90e2, #2979ff);
+  box-shadow: 0 5px 15px rgba(41, 121, 255, 0.3);
+}
+
+.skill-bubble[data-category="data-science"] {
+  background: linear-gradient(145deg, #9c27b0, #673ab7);
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+}
+
+.skill-bubble[data-category="web-dev"] {
+  background: linear-gradient(145deg, #4caf50, #009688);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.skill-bubble[data-category="tools"] {
+  background: linear-gradient(145deg, #f44336, #e91e63);
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+}
+
+/* Hover effects for different categories */
+.skill-bubble[data-category="languages"]:hover {
+  box-shadow: 0 8px 25px rgba(41, 121, 255, 0.5);
+  border: 2px solid rgba(41, 121, 255, 0.3);
+}
+
+.skill-bubble[data-category="data-science"]:hover {
+  box-shadow: 0 8px 25px rgba(156, 39, 176, 0.5);
+  border: 2px solid rgba(156, 39, 176, 0.3);
+}
+
+.skill-bubble[data-category="web-dev"]:hover {
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+  border: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.skill-bubble[data-category="tools"]:hover {
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.5);
+  border: 2px solid rgba(244, 67, 54, 0.3);
+}
+
 .skill-bubble.visible {
   opacity: 1;
   transform: scale(1);
@@ -1817,7 +1859,62 @@ footer .socials {
   transition: all 0.5s ease;
 }
 
-/* Make the preview also clickable to the certificate */
+
 .certificate-preview {
   cursor: pointer;
+}
+
+
+.filter-btn[data-filter="languages"].active {
+  background: linear-gradient(145deg, #4a90e2, #2979ff);
+  box-shadow: 0 5px 15px rgba(41, 121, 255, 0.3);
+}
+
+.filter-btn[data-filter="data-science"].active {
+  background: linear-gradient(145deg, #9c27b0, #673ab7);
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+}
+
+.filter-btn[data-filter="web-dev"].active {
+  background: linear-gradient(145deg, #4caf50, #009688);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.filter-btn[data-filter="tools"].active {
+  background: linear-gradient(145deg, #f44336, #e91e63);
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+}
+
+
+.filter-btn[data-filter="languages"] {
+  border-bottom: 3px solid rgba(41, 121, 255, 0.3);
+}
+
+.filter-btn[data-filter="data-science"] {
+  border-bottom: 3px solid rgba(156, 39, 176, 0.3);
+}
+
+.filter-btn[data-filter="web-dev"] {
+  border-bottom: 3px solid rgba(76, 175, 80, 0.3);
+}
+
+.filter-btn[data-filter="tools"] {
+  border-bottom: 3px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Enhanced hover state for filter buttons */
+.filter-btn[data-filter="languages"]:hover:not(.active) {
+  background: rgba(41, 121, 255, 0.1);
+}
+
+.filter-btn[data-filter="data-science"]:hover:not(.active) {
+  background: rgba(156, 39, 176, 0.1);
+}
+
+.filter-btn[data-filter="web-dev"]:hover:not(.active) {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.filter-btn[data-filter="tools"]:hover:not(.active) {
+  background: rgba(244, 67, 54, 0.1);
 }
