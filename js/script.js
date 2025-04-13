@@ -359,7 +359,7 @@ function initRadarChart() {
 }
 
 function initSkillBubbles() {
-  console.log('🔵 Initializing skill bubbles...');
+  console.log('🔵 Initializing skill bubbles with category colors...');
   
   const container = document.querySelector('.skill-bubbles-container');
   const bubbles = document.querySelectorAll('.skill-bubble');
@@ -372,67 +372,81 @@ function initSkillBubbles() {
   
   console.log(`✅ Found ${bubbles.length} skill bubbles`);
   
-
+  // Hide all bubbles initially
   bubbles.forEach(bubble => {
     bubble.classList.remove('visible');
   });
   
-
+  // Calculate size and position for each bubble
   bubbles.forEach(bubble => {
-
+    // Get bubble text and skill level
     const text = bubble.textContent.trim();
-
     const skillLevel = parseInt(bubble.dataset.level);
+    const category = bubble.dataset.category;
     
-
-    const textWidth = text.length * 10; 
+    // Calculate size based on text length and skill level
+    const textWidth = text.length * 10;
     
-
+    // Calculate base size from skill level and text width
     let size = Math.max(textWidth * 1.2, skillLevel * 0.9);
-
-    size = Math.max(size, 70); 
-    size = Math.min(size, 150); 
     
-
+    // Ensure minimum and maximum size
+    size = Math.max(size, 70); 
+    size = Math.min(size, 150);
+    
+    // Set bubble size
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
     
-
+    // Calculate font size based on text length and bubble size
     const fontSize = Math.max(10, Math.min(16, size / (Math.max(text.length / 1.5, 3))));
     bubble.style.fontSize = `${fontSize}px`;
     
-
+    // Add padding for longer text
     bubble.style.padding = `${Math.max(8, text.length * 0.5)}px`;
     
-
+    // Add a subtle animation delay for staggered appearance
     setTimeout(() => {
       positionBubble(bubble, container, bubbles);
       bubble.classList.add('visible');
     }, Math.random() * 500);
   });
   
-
+  // Filter button functionality
   filters.forEach(filter => {
+    // Add initial highlight to match button color with category
+    const filterCategory = filter.getAttribute('data-filter');
+    if (filterCategory !== 'all') {
+      filter.style.borderBottom = `2px solid ${getCategoryColor(filterCategory)}`;
+    }
+    
     filter.addEventListener('click', function() {
       const category = this.getAttribute('data-filter');
       
       console.log(`🔍 Filter clicked: ${category}`);
       
-
+      // Update active state
       filters.forEach(f => f.classList.remove('active'));
       this.classList.add('active');
       
-  
+      // Hide all bubbles first
       bubbles.forEach(bubble => {
         bubble.classList.remove('visible');
       });
       
+      // Show matching bubbles with staggered animation
       setTimeout(() => {
         bubbles.forEach((bubble, index) => {
           if (category === 'all' || bubble.dataset.category === category) {
             setTimeout(() => {
               positionBubble(bubble, container, bubbles);
               bubble.classList.add('visible');
+              
+              // Add a subtle scale animation
+              bubble.style.transform = 'scale(1.05)';
+              setTimeout(() => {
+                bubble.style.transform = 'scale(1)';
+              }, 300);
             }, index * 50);
           }
         });
@@ -440,7 +454,7 @@ function initSkillBubbles() {
     });
   });
   
-
+  // Activate the first filter by default
   console.log('🔄 Activating first filter...');
   setTimeout(() => {
     if (filters[0]) {
@@ -448,9 +462,24 @@ function initSkillBubbles() {
     }
   }, 100);
   
-  console.log('✅ Skill bubbles initialized');
+  console.log('✅ Skill bubbles initialized with category colors');
 }
 
+// Helper function to get color based on category
+function getCategoryColor(category) {
+  switch(category) {
+    case 'languages':
+      return '#2196f3';
+    case 'data-science':
+      return '#9c27b0';
+    case 'web-dev':
+      return '#e91e63';
+    case 'tools':
+      return '#00bcd4';
+    default:
+      return '#4a90e2';
+  }
+}
 
 function positionBubble(bubble, container, allBubbles) {
   if (!container) return;

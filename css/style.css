@@ -1254,6 +1254,43 @@ footer .socials {
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin: 0.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.filter-btn[data-filter="languages"]::after {
+  background: rgba(33, 150, 243, 0.5);
+  transform: scaleX(0.3);
+}
+
+.filter-btn[data-filter="data-science"]::after {
+  background: rgba(156, 39, 176, 0.5);
+  transform: scaleX(0.3);
+}
+
+.filter-btn[data-filter="web-dev"]::after {
+  background: rgba(233, 30, 99, 0.5);
+  transform: scaleX(0.3);
+}
+
+.filter-btn[data-filter="tools"]::after {
+  background: rgba(0, 188, 212, 0.5);
+  transform: scaleX(0.3);
+}
+
+.filter-btn:hover::after {
+  transform: scaleX(1);
 }
 
 .filter-btn.active {
@@ -1820,4 +1857,87 @@ footer .socials {
 /* Make the preview also clickable to the certificate */
 .certificate-preview {
   cursor: pointer;
+}
+
+/* Category-specific colors for skill bubbles */
+.skill-bubble[data-category="languages"] {
+  background: linear-gradient(145deg, #4a90e2, #2196f3);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.skill-bubble[data-category="data-science"] {
+  background: linear-gradient(145deg, #9c27b0, #673ab7);
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+}
+
+.skill-bubble[data-category="web-dev"] {
+  background: linear-gradient(145deg, #e91e63, #f44336);
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+.skill-bubble[data-category="tools"] {
+  background: linear-gradient(145deg, #00bcd4, #009688);
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* Hover effects for each category */
+.skill-bubble[data-category="languages"]:hover {
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.5);
+  border: 2px solid rgba(33, 150, 243, 0.5);
+}
+
+.skill-bubble[data-category="data-science"]:hover {
+  box-shadow: 0 8px 25px rgba(156, 39, 176, 0.5);
+  border: 2px solid rgba(156, 39, 176, 0.5);
+}
+
+.skill-bubble[data-category="web-dev"]:hover {
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+  border: 2px solid rgba(233, 30, 99, 0.5);
+}
+
+.skill-bubble[data-category="tools"]:hover {
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+  border: 2px solid rgba(0, 188, 212, 0.5);
+}
+
+/* Filter button colors to match skill bubble categories */
+.filter-btn[data-filter="languages"].active {
+  background: #2196f3;
+  color: white;
+}
+
+.filter-btn[data-filter="data-science"].active {
+  background: #9c27b0;
+  color: white;
+}
+
+.filter-btn[data-filter="web-dev"].active {
+  background: #e91e63;
+  color: white;
+}
+
+.filter-btn[data-filter="tools"].active {
+  background: #00bcd4;
+  color: white;
+}
+
+/* Enhanced animation for bubble appearance */
+.skill-bubble.visible {
+  animation: bubbleAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes bubbleAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-10deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
