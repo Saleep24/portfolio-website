@@ -1367,7 +1367,14 @@ footer .socials {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+@media (min-width: 992px) {
+  .achievements-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .achievement-card {
