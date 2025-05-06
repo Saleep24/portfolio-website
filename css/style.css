@@ -1971,15 +1971,15 @@ footer .socials {
 }
 
 .blog-card:nth-child(1) {
-  background-image: url('../assets/project/tesla-stock.png');
+  background-image: url('../assets/project/economic-war.png') !important;
 }
 
 .blog-card:nth-child(2) {
-  background-image: url('../assets/project/EasyLib.png');
+  background-image: url('../assets/project/news-socialmedia.png') !important;
 }
 
 .blog-card:nth-child(3) {
-  background-image: url('../assets/project/servers-tips-analysis.png');
+  background-image: url('../assets/project/hattiesburg-realestate.png') !important;
 }
 
 .blog-card-content {
