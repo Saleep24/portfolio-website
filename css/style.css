@@ -1963,8 +1963,8 @@ footer .socials {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.7)
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.8)
   );
   z-index: 1;
   transition: background 0.3s ease;
@@ -1991,7 +1991,7 @@ footer .socials {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.5rem;
+  padding: 1.8rem;
 }
 
 .blog-info {
@@ -2003,22 +2003,22 @@ footer .socials {
 }
 
 .blog-bio {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .blog-bio h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: var(--weight-bold);
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  line-height: 1.25;
   color: var(--text-color-two);
 }
 
 .blog-description {
-  font-size: 0.95rem;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  opacity: 0.85;
 }
 
 .blog-read-more {
@@ -2039,7 +2039,7 @@ footer .socials {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   z-index: 1;
 }
 
@@ -2071,14 +2071,14 @@ footer .socials {
   }
   
   .blog-card {
-    padding-bottom: 75% !important; /* Slightly less square on mobile */
+    padding-bottom: 85% !important;
   }
   
   .blog-bio h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
   
   .blog-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
