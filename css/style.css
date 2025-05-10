@@ -1996,10 +1996,14 @@ footer .socials {
 
 .blog-info {
   opacity: 1;
-  color: var(--text-color-two);
+  color: var(--text-color);
   transition: opacity 0.3s ease;
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .blog-bio {
@@ -2011,14 +2015,15 @@ footer .socials {
   font-weight: var(--weight-bold);
   margin-bottom: 0.8rem;
   line-height: 1.25;
-  color: var(--text-color-two);
+  color: var(--text-color);
 }
 
 .blog-description {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   line-height: 1.4;
-  opacity: 0.85;
+  color: var(--text-color);
+  opacity: 0.9;
 }
 
 .blog-read-more {
@@ -2044,7 +2049,8 @@ footer .socials {
 }
 
 .blog-card:hover .blog-info {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .blog-card:hover .blog-bio h3 {
