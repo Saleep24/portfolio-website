@@ -1944,14 +1944,15 @@ footer .socials {
 .blog-card {
   position: relative;
   height: 0;
-  padding-bottom: 100% !important; /* Make it square */
-  overflow: hidden;
+  padding-bottom: 120% !important; /* Increased height for more content space */
+  overflow: visible; /* Allow content to overflow if needed */
   display: flex;
   flex-direction: column;
   background-color: var(--card-background);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-size: cover !important;
   background-position: center !important;
+  border-radius: 12px; /* Added border radius for consistency */
 }
 
 .blog-card::before {
@@ -1967,7 +1968,8 @@ footer .socials {
     rgba(0, 0, 0, 0.8)
   );
   z-index: 1;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 12px; /* Match card border radius */
 }
 
 .blog-card:nth-child(1) {
@@ -1993,6 +1995,7 @@ footer .socials {
   justify-content: flex-end;
   padding: 1.8rem;
   z-index: 2;
+  overflow: visible; /* Allow content to overflow */
 }
 
 .blog-info {
@@ -2002,34 +2005,37 @@ footer .socials {
   position: relative;
   z-index: 2;
   background: rgba(255, 255, 255, 0.9);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem; /* Increased padding for more space */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
   transform: translateY(0);
-  margin-top: 30%; /* Pushes the white box down */
+  margin-top: auto; /* Push to bottom instead of fixed percentage */
+  margin-bottom: 1.5rem; /* Space from bottom */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: none; /* Remove any max height constraints */
+  min-height: auto; /* Allow natural height */
 }
 
 .blog-bio {
-  padding: 0.5rem 0;
+  padding: 0;
 }
 
 .blog-bio h3 {
   font-size: 1.3rem;
   font-weight: var(--weight-bold);
-  margin-bottom: 0.8rem;
-  line-height: 1.25;
+  margin-bottom: 1rem;
+  line-height: 1.3;
   color: var(--text-color);
-  padding-top: 0.5rem; /* Add space above the title */
+  padding-top: 0; /* Remove top padding as we have padding in parent */
   transition: color 0.3s ease;
 }
 
 .blog-description {
   font-size: 0.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
   color: var(--text-color);
   opacity: 0.9;
   display: -webkit-box;
@@ -2066,19 +2072,13 @@ footer .socials {
 }
 
 .blog-card:hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.75);
   z-index: 1;
 }
 
 .blog-card:hover .blog-info {
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   transform: translateY(-10px); /* Slide up animation on hover */
 }
 
@@ -2101,7 +2101,7 @@ footer .socials {
   background: rgba(26, 26, 26, 0.85);
   color: var(--text-color-two);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .blog-bio h3 {
@@ -2137,28 +2137,32 @@ footer .socials {
 @media (max-width: 992px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .blog-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .blog-card {
-    padding-bottom: 85% !important;
+    padding-bottom: 140% !important; /* More height on mobile */
   }
   
   .blog-info {
-    margin-top: 20%; /* Less space on mobile */
+    padding: 1.5rem;
+    margin-bottom: 1rem;
   }
   
   .blog-description {
     -webkit-line-clamp: 2; /* Show fewer lines on mobile */
+    margin-bottom: 1.2rem;
   }
   
   .blog-bio h3 {
     font-size: 1.15rem;
+    margin-bottom: 0.8rem;
   }
 }
