@@ -1992,18 +1992,21 @@ footer .socials {
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.8rem;
+  z-index: 2;
 }
 
 .blog-info {
   opacity: 1;
   color: var(--text-color);
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
   z-index: 2;
   background: rgba(255, 255, 255, 0.9);
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  margin-top: 30%; /* Pushes the white box down */
 }
 
 .blog-bio {
@@ -2016,6 +2019,7 @@ footer .socials {
   margin-bottom: 0.8rem;
   line-height: 1.25;
   color: var(--text-color);
+  padding-top: 0.5rem; /* Add space above the title */
 }
 
 .blog-description {
@@ -2024,6 +2028,10 @@ footer .socials {
   line-height: 1.4;
   color: var(--text-color);
   opacity: 0.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .blog-read-more {
@@ -2051,40 +2059,35 @@ footer .socials {
 .blog-card:hover .blog-info {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px); /* Slide up animation on hover */
 }
 
 .blog-card:hover .blog-bio h3 {
   color: var(--primary-color);
 }
 
-.blog-card .btn {
-  min-width: 120px;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
+/* Dark mode compatibility */
+[data-theme="dark"] .blog-info {
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--text-color-two);
 }
 
-/* Media Queries for Blog Section */
-@media (max-width: 992px) {
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+[data-theme="dark"] .blog-bio h3,
+[data-theme="dark"] .blog-description {
+  color: var(--text-color-two);
 }
 
+[data-theme="dark"] .blog-card:hover .blog-info {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .blog-card {
-    padding-bottom: 85% !important;
-  }
-  
-  .blog-bio h3 {
-    font-size: 1.15rem;
+  .blog-info {
+    margin-top: 20%; /* Less space on mobile */
   }
   
   .blog-description {
-    font-size: 0.85rem;
+    -webkit-line-clamp: 2; /* Show fewer lines on mobile */
   }
 }
