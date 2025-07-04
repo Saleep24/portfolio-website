@@ -92,9 +92,9 @@
       // Check for Chart.js multiple times
       function checkChartJs() {
         if (typeof Chart !== 'undefined') {
-          console.log('✅ Chart.js successfully loaded');
+          console.log('Chart.js successfully loaded');
         } else {
-          console.log('❌ Chart.js not loaded yet, will check again shortly...');
+          console.log('Chart.js not loaded yet, will check again shortly...');
           setTimeout(checkChartJs, 500);
         }
       }
@@ -694,18 +694,16 @@ test -->
       </div>
     </div>
 
-    <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" aria-label="Back to Top">
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <script src="js/script.js"></script>
     
-    <!-- Force skill tabs initialization -->
+
     <script>
-      // Ensure tab initialization
+
       window.addEventListener('load', function() {
-        // Wait a bit for everything to be fully loaded
         setTimeout(function() {
           console.log('Force initializing skill tabs after page load...');
           if (typeof initSkillTabs === 'function') {
@@ -713,7 +711,6 @@ test -->
           }
         }, 500);
         
-        // Force click on first tab
         setTimeout(function() {
           const firstTab = document.querySelector('.skill-tab');
           if (firstTab) {
