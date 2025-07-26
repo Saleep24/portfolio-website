@@ -743,14 +743,19 @@ footer .socials {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: none;
+  border: none;
+  display: none;
 }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+.project-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 0;
+  transition: all 0.3s ease;
 }
+
+
 
 .project-info {
   padding: 1.5rem;
@@ -803,7 +808,7 @@ footer .socials {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .project-image img {
+.card:hover .project-icon {
   transform: scale(1.1);
 }
 
@@ -896,6 +901,7 @@ footer .socials {
 .skill-card i {
   font-size: 2.5rem;
   background: linear-gradient(45deg, var(--primary-color), #2196f3);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1.5rem;
@@ -1969,7 +1975,7 @@ footer .socials {
   );
   z-index: 1;
   transition: all 0.3s ease;
-  border-radius: 12px; /* Match card border radius */
+  border-radius: 12px;
 }
 
 .blog-card:nth-child(1) {
@@ -2039,6 +2045,7 @@ footer .socials {
   color: var(--text-color);
   opacity: 0.9;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -2148,7 +2155,7 @@ footer .socials {
   }
   
   .blog-card {
-    padding-bottom: 140% !important; /* More height on mobile */
+    padding-bottom: 140% !important; 
   }
   
   .blog-info {
@@ -2157,7 +2164,8 @@ footer .socials {
   }
   
   .blog-description {
-    -webkit-line-clamp: 2; /* Show fewer lines on mobile */
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
     margin-bottom: 1.2rem;
   }
   
