@@ -47,19 +47,10 @@ if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
   toggleSwitch.checked = currentTheme === "dark";
 } else {
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (prefersDarkScheme) {
-    toggleSwitch.checked = true;
-    switchTheme(null); 
-  }
-}
 
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-  if (!localStorage.getItem("theme")) {
-    toggleSwitch.checked = e.matches;
-    switchTheme(null);
-  }
-});
+  document.documentElement.setAttribute("data-theme", "light");
+  toggleSwitch.checked = false;
+}
 
 
 const myDate = document.querySelector("#datee");
