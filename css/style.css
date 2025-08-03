@@ -834,7 +834,8 @@ footer .socials {
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 2.5rem;
 }
 
 
@@ -984,7 +985,7 @@ footer .socials {
 .stripe-bio {
   width: 100%;
   margin: 1.5rem auto;
-  padding: 0 2rem 3rem 2rem;
+  padding: 0 2rem 1rem 2rem;
   display: flex;
   justify-content: center;
 }
@@ -1249,6 +1250,10 @@ footer .socials {
 
 .project-card:hover .project-image img {
   transform: scale(1.05);
+}
+
+.project-card:first-child .project-image img {
+  object-position: center 32%;
 }
 
 .project-overlay {
