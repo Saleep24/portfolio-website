@@ -1232,7 +1232,7 @@ footer .socials {
 .project-image {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 200px;
   overflow: hidden;
   background: var(--bg-secondary);
   display: flex;
@@ -1312,7 +1312,7 @@ footer .socials {
 }
 
 .project-content {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
 }
 
 .project-content h3 {
@@ -1330,36 +1330,7 @@ footer .socials {
   margin-bottom: var(--spacing-md);
 }
 
-.project-actions {
-  margin-top: var(--spacing-md);
-  padding-top: var(--spacing-sm);
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
 
-.project-action-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: var(--primary-color);
-  color: white;
-  border-radius: var(--border-radius);
-  font-size: 0.875rem;
-  font-weight: var(--weight-medium);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.project-action-link:hover {
-  background: var(--secondary-color);
-  transform: translateY(-1px);
-  color: white;
-  box-shadow: var(--shadow);
-}
 
 .tech-stack {
   display: flex;
@@ -1382,6 +1353,28 @@ footer .socials {
   background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+}
+
+.tech-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--primary-color);
+}
+
+.tech-link:hover {
+  background: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
 }
 
 [data-theme="dark"] .stripe-bio {
@@ -1479,6 +1472,17 @@ footer .socials {
 [data-theme="dark"] .tech-tag:hover {
   background: var(--primary-color);
   color: white;
+}
+
+[data-theme="dark"] .tech-link {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .tech-link:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .all-projects-container {
