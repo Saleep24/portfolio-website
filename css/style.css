@@ -2,46 +2,42 @@
 
 
 :root {
-
-  --primary-color: #4a90e2;
-  --secondary-color: #5cb85c;
-  --bg-primary: #f2f2f2;
-  --text-color: #333333;
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --bg-primary: #ffffff;
+  --text-color: #1a1a1a;
+  --text-color-light: #6b7280;
   --text-color-two: #ffffff;
-  --bg-secondary: #222222;
-  --card-background: #e6e6e6;
-  --bg-secondary-two: #1a1a1a;
-
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-
-
-  --weight-small: 400;
+  --bg-secondary: #f8fafc;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --weight-normal: 400;
+  --weight-medium: 500;
   --weight-semibold: 600;
-  --weight-bold: 800;
-
-  --width-small: 600px;
-  --width-medium: 1100px;
-  --width-large: 1300px;
-
-
-  --bg-primary-rgb: 242, 242, 242;
-  --text-color-rgb: 51, 51, 51;
-  --primary-color-rgb: 74, 144, 226;
+  --weight-bold: 700;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
 }
 
 [data-theme="dark"] {
-  --primary-color: #4a90e2;
-  --secondary-color: #5cb85c;
-  --bg-primary: #1a1a1a;
-  --text-color: #f2f2f2;
-  --text-color-two: #333333;
-  --bg-secondary: #f2f2f2;
-  --card-background: #222222;
-  --bg-secondary-two: #e6e6e6;
-  --shadow: 0 2px 10px rgba(95, 95, 95, 0.2);
-
-
-  --bg-primary-rgb: 26, 26, 26;
+  --primary-color: #60a5fa;
+  --secondary-color: #3b82f6;
+  --bg-primary: #0f172a;
+  --text-color: #f8fafc;
+  --text-color-light: #94a3b8;
+  --text-color-two: #0f172a;
+  --bg-secondary: #1e293b;
+  --card-background: #1e293b;
+  --border-color: #334155;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -75,8 +71,10 @@ a {
 body {
   background: var(--bg-primary);
   color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  font-weight: var(--weight-normal);
+  letter-spacing: -0.01em;
 }
 
 
@@ -159,11 +157,15 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
-  background: rgba(var(--bg-primary-rgb), 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .navbar .container {
@@ -189,10 +191,11 @@ body {
   position: relative;
   margin: 0;
   padding: 0.5rem 0;
-  font-size: 0.9rem;
-  font-weight: var(--weight-semibold);
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: var(--weight-medium);
+  color: var(--text-color-light);
+  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
 }
 
 .navbar .nav-link::after {
@@ -207,7 +210,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .navbar .nav-link:hover::after {
