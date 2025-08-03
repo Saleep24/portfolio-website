@@ -1234,6 +1234,10 @@ footer .socials {
   width: 100%;
   height: 240px;
   overflow: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-image img {
@@ -1253,16 +1257,22 @@ footer .socials {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
 }
 
 .project-card:hover .project-overlay {
   opacity: 1;
+}
+
+.project-image:empty .project-overlay {
+  opacity: 1;
+  background: var(--primary-color);
 }
 
 .project-links {
@@ -1282,11 +1292,23 @@ footer .socials {
   font-weight: var(--weight-medium);
   transition: all 0.2s ease;
   text-decoration: none;
+  cursor: pointer !important;
+  z-index: 10;
+  position: relative;
 }
 
 .project-link:hover {
   background: var(--secondary-color);
   transform: translateY(-1px);
+  color: white;
+}
+
+.project-image {
+  cursor: pointer;
+}
+
+.project-overlay {
+  cursor: default;
 }
 
 .project-content {
@@ -1306,6 +1328,37 @@ footer .socials {
   color: var(--text-color-light);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
+}
+
+.project-actions {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.project-action-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+  color: white;
+  box-shadow: var(--shadow);
 }
 
 .tech-stack {
@@ -1426,6 +1479,37 @@ footer .socials {
 [data-theme="dark"] .tech-tag:hover {
   background: var(--primary-color);
   color: white;
+}
+
+.all-projects-container {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.all-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .all-projects-container {
+  background: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .all-projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+  }
 }
 
 .highlight-light {
