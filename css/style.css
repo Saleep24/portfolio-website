@@ -410,7 +410,6 @@ body {
     margin-bottom: 1rem;
   }
 
-  /* Mobile responsive aesthetic bio styling */
   .stripe-bio {
     padding: 0 1rem;
     margin: 2rem auto;
@@ -572,7 +571,7 @@ body {
     margin-bottom: 0.8rem;
   }
 
-  /* Small screen aesthetic bio styling */
+
   .stripe-bio {
     padding: 0 0.5rem;
     margin: 1.5rem auto;
@@ -979,7 +978,6 @@ footer .socials {
 }
 
 
-/* Stripe-Inspired Bio Design */
 .stripe-bio {
   width: 100%;
   margin: 1.5rem auto;
@@ -1168,7 +1166,6 @@ footer .socials {
   background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
 }
 
-/* Experience card specific styling */
 .experience-card {
   min-width: 380px;
   padding: 3rem 3.25rem;
@@ -1179,7 +1176,6 @@ footer .socials {
   transform: translateY(-8px) scale(1.07);
 }
 
-/* Dark theme support */
 [data-theme="dark"] .stripe-bio {
   color: #f8fafc;
 }
@@ -1465,7 +1461,7 @@ footer .socials {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode compatibility */
+
 [data-theme="dark"] .blog-post {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1910,7 +1906,7 @@ footer .socials {
   transform: translateX(3px);
 }
 
-/* Dark mode compatibility */
+
 [data-theme="dark"] .achievement-card {
   border-color: rgba(255, 255, 255, 0.1);
   background-color: rgba(34, 34, 34, 0.8);
@@ -1920,7 +1916,7 @@ footer .socials {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .achievements-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2018,7 +2014,7 @@ footer .socials {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Skill Content Panels - Enhanced */
+
 .skill-content {
   display: none;
   opacity: 0;
@@ -2045,7 +2041,7 @@ footer .socials {
   }
 }
 
-/* Enhanced Radar Chart Container */
+
 .radar-chart-container {
   width: 100%;
   max-width: 600px;
@@ -2063,7 +2059,7 @@ footer .socials {
   box-shadow: 0 15px 30px rgba(var(--primary-color-rgb), 0.15);
 }
 
-/* Enhanced Skill Bubbles */
+
 .skill-bubbles-container {
   position: relative;
   width: 100%;
@@ -2116,7 +2112,7 @@ footer .socials {
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-/* Enhanced Skill Filters */
+
 .skill-filters {
   display: flex;
   justify-content: center;
@@ -2150,7 +2146,7 @@ footer .socials {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode compatibility */
+
 [data-theme="dark"] .skill-tab {
   background-color: rgba(30, 30, 30, 0.8);
 }
@@ -2165,7 +2161,7 @@ footer .socials {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .skill-tab {
     padding: 0.6rem 1.2rem;
@@ -2199,7 +2195,7 @@ footer .socials {
   }
 }
 
-/* Restore button hover effects */
+
 .btn-certificate::before {
   content: '';
   position: absolute;
@@ -2230,7 +2226,7 @@ footer .socials {
   transform: translateX(5px);
 }
 
-/* Remove click instruction text */
+
 .certificate-preview::after {
   content: '';
   position: absolute;
@@ -2245,12 +2241,12 @@ footer .socials {
   transition: all 0.5s ease;
 }
 
-/* Make the preview also clickable to the certificate */
+
 .certificate-preview {
   cursor: pointer;
 }
 
-/* Category-specific colors for skill bubbles */
+
 .skill-bubble[data-category="languages"] {
   background: linear-gradient(145deg, #4a90e2, #2196f3);
   box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
@@ -2271,7 +2267,7 @@ footer .socials {
   box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
 }
 
-/* Hover effects for each category */
+
 .skill-bubble[data-category="languages"]:hover {
   box-shadow: 0 8px 25px rgba(33, 150, 243, 0.5);
   border: 2px solid rgba(33, 150, 243, 0.5);
@@ -2292,7 +2288,7 @@ footer .socials {
   border: 2px solid rgba(0, 188, 212, 0.5);
 }
 
-/* Filter button colors to match skill bubble categories */
+
 .filter-btn[data-filter="languages"].active {
   background: #2196f3;
   color: white;
@@ -2313,7 +2309,7 @@ footer .socials {
   color: white;
 }
 
-/* Enhanced animation for bubble appearance */
+
 .skill-bubble.visible {
   animation: bubbleAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -2333,7 +2329,6 @@ footer .socials {
   }
 }
 
-/* Blog Cards Styling */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2344,15 +2339,15 @@ footer .socials {
 .blog-card {
   position: relative;
   height: 0;
-  padding-bottom: 120% !important; /* Increased height for more content space */
-  overflow: visible; /* Allow content to overflow if needed */
+  padding-bottom: 120% !important; 
+  overflow: visible; 
   display: flex;
   flex-direction: column;
   background-color: var(--card-background);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-size: cover !important;
   background-position: center !important;
-  border-radius: 12px; /* Added border radius for consistency */
+  border-radius: 12px; 
 }
 
 .blog-card::before {
@@ -2395,7 +2390,7 @@ footer .socials {
   justify-content: flex-end;
   padding: 1.8rem;
   z-index: 2;
-  overflow: visible; /* Allow content to overflow */
+  overflow: visible;
 }
 
 .blog-info {
@@ -2405,17 +2400,17 @@ footer .socials {
   position: relative;
   z-index: 2;
   background: rgba(255, 255, 255, 0.9);
-  padding: 1.8rem; /* Increased padding for more space */
+  padding: 1.8rem; 
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); 
   transform: translateY(0);
-  margin-top: auto; /* Push to bottom instead of fixed percentage */
-  margin-bottom: 1.5rem; /* Space from bottom */
+  margin-top: auto; 
+  margin-bottom: 1.5rem;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  max-height: none; /* Remove any max height constraints */
-  min-height: auto; /* Allow natural height */
+  max-height: none; 
+  min-height: auto; 
 }
 
 .blog-bio {
@@ -2428,7 +2423,7 @@ footer .socials {
   margin-bottom: 1rem;
   line-height: 1.3;
   color: var(--text-color);
-  padding-top: 0; /* Remove top padding as we have padding in parent */
+  padding-top: 0; 
   transition: color 0.3s ease;
 }
 
@@ -2480,7 +2475,7 @@ footer .socials {
 .blog-card:hover .blog-info {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  transform: translateY(-10px); /* Slide up animation on hover */
+  transform: translateY(-10px); 
 }
 
 .blog-card:hover .blog-bio h3 {
@@ -2497,7 +2492,7 @@ footer .socials {
   transform: translateX(3px);
 }
 
-/* Dark mode compatibility */
+
 [data-theme="dark"] .blog-info {
   background: rgba(26, 26, 26, 0.85);
   color: var(--text-color-two);
@@ -2519,11 +2514,11 @@ footer .socials {
 }
 
 [data-theme="dark"] .blog-card:hover .blog-bio h3 {
-  color: #4dabf7; /* Lighter blue for dark mode */
+  color: #4dabf7; 
 }
 
 [data-theme="dark"] .blog-read-more {
-  background: #4dabf7; /* Lighter blue for dark mode */
+  background: #4dabf7;
   color: #1a1a1a;
   box-shadow: 0 2px 10px rgba(77, 171, 247, 0.3);
 }
@@ -2534,7 +2529,6 @@ footer .socials {
   box-shadow: 0 5px 15px rgba(245, 245, 245, 0.2);
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -84,12 +84,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     
-    <!-- Chart.js for skill radar visualization with defer attribute -->
+
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Debug script to check if Chart.js loads -->
+
     <script>
-      // Check for Chart.js multiple times
+
       function checkChartJs() {
         if (typeof Chart !== 'undefined') {
           console.log('Chart.js successfully loaded');
@@ -99,7 +99,7 @@
         }
       }
       
-      // Start checking after page loads
+
       window.addEventListener('load', function() {
         console.log('Page loaded, checking for Chart.js...');
         checkChartJs();
@@ -228,14 +228,14 @@
         <h2>Skills</h2>
       </div>
       
-      <!-- Skill Navigation Tabs -->
+
       <div class="skill-tabs">
         <button class="skill-tab active" data-tab="skill-bars">Progress Bars</button>
         <button class="skill-tab" data-tab="skill-radar">Radar Chart</button>
         <button class="skill-tab" data-tab="skill-bubbles">Skill Cloud</button>
       </div>
       
-      <!-- Skill Progress Bars (Original) -->
+
       <div class="skill-content active" id="skill-bars">
         <div class="skills-grid">
           <div class="skill-card" data-aos="fade-up">
@@ -315,14 +315,14 @@
         </div>
       </div>
       
-      <!-- Radar Chart Visualization -->
+
       <div class="skill-content" id="skill-radar">
         <div class="radar-chart-container">
           <canvas id="skillsRadar"></canvas>
         </div>
       </div>
       
-      <!-- Interactive Skill Bubbles -->
+
       <div class="skill-content" id="skill-bubbles">
         <div class="skill-filters">
           <button class="filter-btn active" data-filter="all">All Skills</button>
@@ -333,26 +333,26 @@
         </div>
         
         <div class="skill-bubbles-container">
-          <!-- Languages -->
+
           <div class="skill-bubble" data-category="languages" data-level="90">Python</div>
           <div class="skill-bubble" data-category="languages" data-level="85">JavaScript</div>
           <div class="skill-bubble" data-category="languages" data-level="75">C++</div>
           <div class="skill-bubble" data-category="languages" data-level="80">SQL</div>
           
-          <!-- Data Science -->
+
           <div class="skill-bubble" data-category="data-science" data-level="95">NumPy/Pandas</div>
           <div class="skill-bubble" data-category="data-science" data-level="85">Scikit-learn</div>
           <div class="skill-bubble" data-category="data-science" data-level="80">TensorFlow</div>
           <div class="skill-bubble" data-category="data-science" data-level="75">Data Viz</div>
           <div class="skill-bubble" data-category="data-science" data-level="85">Stats Analysis</div>
           
-          <!-- Web Development -->
+
           <div class="skill-bubble" data-category="web-dev" data-level="90">HTML/CSS</div>
           <div class="skill-bubble" data-category="web-dev" data-level="80">React</div>
           <div class="skill-bubble" data-category="web-dev" data-level="75">Node.js</div>
           <div class="skill-bubble" data-category="web-dev" data-level="85">Responsive</div>
           
-          <!-- Tools & Frameworks -->
+
           <div class="skill-bubble" data-category="tools" data-level="90">Git</div>
           <div class="skill-bubble" data-category="tools" data-level="85">Docker</div>
           <div class="skill-bubble" data-category="tools" data-level="80">AWS</div>
@@ -368,8 +368,7 @@
       <div class="content-text">
         <h2>Featured Projects</h2>
       </div>
-<!-- 
-test -->
+
       <article class="project">
         <a href="https://github.com/Saleep24/Influence-of-news-and-social-media-on-stock-market" target="_blank" class="card" data-title="Influence of news and social media on Tesla stock price" data-description="Analyzed the correlation between social media sentiment and Tesla stock price movements">
           <div class="project-image">
