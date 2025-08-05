@@ -339,7 +339,13 @@ body {
 
 
 #footer {
-  background: #111111;
+  background-color: #222;
+  color: #f0f0f0; 
+  padding: 1.2rem 0 1rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 400;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #footer .container {
@@ -675,36 +681,92 @@ body {
 footer {
   background-color: #222;
   color: #f0f0f0; 
-  padding: 1.5rem 0;
+  padding: 1.2rem 0 1rem 0;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 400;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 footer p {
-  margin: 0.5rem 0;
+  margin: 0 0 0.8rem 0;
+  opacity: 0.85;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 footer .socials {
-  margin-top: 0.75rem;
+  margin-top: 0;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  padding: 0.3rem 0;
 }
 
 footer .socials a {
   color: #f0f0f0;
-  font-size: 1.25rem;
-  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+footer .socials a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+footer .socials a:hover::before {
+  left: 100%;
 }
 
 footer .socials a:hover {
-  color: #3498db; 
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+footer .socials a:nth-child(1):hover {
+  background: linear-gradient(135deg, #1877f2, #42a5f5);
+  border-color: #1877f2;
+  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.35);
+}
+
+footer .socials a:nth-child(2):hover {
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  border-color: #0077b5;
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.35);
+}
+
+footer .socials a:nth-child(3):hover {
+  background: linear-gradient(135deg, #20beff, #00d4ff);
+  border-color: #20beff;
+  box-shadow: 0 6px 20px rgba(32, 190, 255, 0.35);
 }
 
 footer .socials i {
   display: inline-block;
   vertical-align: middle;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  position: relative;
+}
+
+footer .socials a:hover i {
+  transform: scale(1.15);
 }
 
 
