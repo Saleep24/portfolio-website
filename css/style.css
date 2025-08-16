@@ -644,8 +644,12 @@ body {
 
 [data-theme="dark"] .highlight {
   color: #ffffff !important;
-  font-weight: 800;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  text-shadow: none;
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 /* Modern Bio Section */
@@ -1734,8 +1738,12 @@ footer .socials {
 .highlight {
   color: #000000 !important;
   position: relative;
-  font-weight: 800;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  text-shadow: none;
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #000000 !important;
 }
 
 .highlight::after {
