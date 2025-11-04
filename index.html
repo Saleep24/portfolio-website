@@ -108,10 +108,29 @@
   </head>
   <body>
     <header id="hero">
+      <!-- Animated Background -->
+      <div class="hero-background">
+        <div class="particles-container">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="geometric-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
       <nav class="navbar">
         <div class="container">
           <h1 id="logo">
-            <a href="https://saleepshrestha.com.np/"
+            <a href="#"
               ><img src="./assets/logo.png" alt="Saleep Shrestha Logo"
             /></a>
           </h1>
@@ -146,78 +165,96 @@
 
       <section class="header-container">
         <div class="hero-content">
-          <img
-            class="profile-image"
-            src="assets/headshot-saleep.png"
-            alt="Profile Image of Saleep Shrestha"
-          />
+          <!-- Enhanced Profile Image -->
+          <div class="profile-container">
+            <div class="profile-glow"></div>
+            <img
+              class="profile-image"
+              src="assets/headshot-saleep.png"
+              alt="Profile Image of Saleep Shrestha"
+            />
+            <div class="profile-ring"></div>
+          </div>
+
+          <!-- Enhanced Typing Section -->
           <div class="typing-container">
             <h1>Hi, I'm <span class="highlight">Saleep Shrestha</span></h1>
-            <h2 class="tagline">Data, Technology and Innovation.</h2>
+            <h2 class="tagline">
+              <span class="tagline-text">Data, Technology and Innovation.</span>
+              <span class="tagline-cursor">|</span>
+            </h2>
           </div>
-          <div class="stripe-bio">
-            <div class="bio-sections">
-              <div class="bio-grid">
-                <div class="bio-card-aesthetic">
-                  <div class="card-header">
-                    <div class="card-icon">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <h3>Background</h3>
-                  </div>
-                  <div class="card-content">
-                    <p>I'm a Computer Science junior at the University of Southern Mississippi with a passion for solving complex problems using <span class="highlight-aesthetic">data</span>, <span class="highlight-aesthetic">machine learning</span>, <span class="highlight-aesthetic"> AI</span>, and actively exploring <span class="highlight-aesthetic">algorithmic trading</span> </p>
-                  </div>
-                  <div class="card-decoration"></div>
-                </div>
 
-                <div class="bio-card-aesthetic experience-card">
-                  <div class="card-header">
-                    <div class="card-icon">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 16V8A2 2 0 0 0 19 6H5A2 2 0 0 0 3 8V16A2 2 0 0 0 5 18H19A2 2 0 0 0 21 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 6L12 13L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Redesigned Bio Section -->
+          <div class="bio-modern">
+            <div class="bio-card-minimal">
+              <div class="bio-content">
+                <p class="bio-intro">
+                  Computer Science junior at <span class="highlight-modern">University of Southern Mississippi</span> 
+                  passionate about <span class="highlight-modern">Data Science</span>, 
+                  <span class="highlight-modern">AI</span>, and 
+                  <span class="highlight-modern">Algorithmic Trading</span>
+                </p>
+                
+                <div class="bio-highlights">
+                  <div class="highlight-item">
+                    <div class="highlight-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 16V8A2 2 0 0 0 19 6H5A2 2 0 0 0 3 8V16A2 2 0 0 0 5 18H19A2 2 0 0 0 21 16Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 6L12 13L21 6" stroke="currentColor" stroke-width="2"/>
                       </svg>
                     </div>
-                    <h3>Experience</h3>
+                    <span>Software Engineer Associate at Illumibot</span>
                   </div>
-                  <div class="card-content">
-                    <p>Currently working as a <span class="highlight-aesthetic">Software Engineer Associate</span> at Illumibot and co-founding <span class="highlight-aesthetic">Exium</span>. Previously worked on <span class="highlight-aesthetic">H4D Recruit Vision</span> project with the US Marine Corps, and developed <span class="highlight-aesthetic">GIS based mapping system</span></p>
-                  </div>
-                  <div class="card-decoration"></div>
-                </div>
-
-                <div class="bio-card-aesthetic">
-                  <div class="card-header">
-                    <div class="card-icon">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  
+                  <div class="highlight-item">
+                    <div class="highlight-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
                       </svg>
                     </div>
-                    <h3>Looking For</h3>
+                    <span>Co-founding Exium</span>
                   </div>
-                  <div class="card-content">
-                    <p><span class="highlight-aesthetic">2025/2026 internships</span> in <span class="highlight-aesthetic">Software Engineering</span>, <span class="highlight-aesthetic">Data Science</span>, or <span class="highlight-aesthetic">Quantitative Research</span> role where I can learn, contribute, and make a real impacts</p>
+                  
+                  <div class="highlight-item">
+                    <div class="highlight-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <span>Seeking 2025/2026 Internships</span>
                   </div>
-                  <div class="card-decoration"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="cta-buttons">
+
+          <!-- Enhanced CTA Buttons -->
+          <div class="cta-buttons-modern">
             <a
               href="https://www.linkedin.com/in/saleepshrestha/"
-              class="btn btn-primary"
+              class="btn-modern btn-primary-modern"
               target="_blank"
-            >Connect Me</a>
-            <a href="#projects" class="btn btn-secondary">View My Work</a>
+            >
+              <span class="btn-text">Connect with Me</span>
+              <div class="btn-shine"></div>
+            </a>
+            <a href="#projects" class="btn-modern btn-secondary-modern">
+              <span class="btn-text">View My Work</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </a>
           </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+          <span class="scroll-text">Scroll to explore</span>
         </div>
       </section>
     </header>
