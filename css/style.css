@@ -4222,4 +4222,200 @@ footer .socials {
     height: 45px;
     font-size: 1rem;
   }
-}
+}.container {
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 1rem 2rem;
+  }
+  
+  h1::selection, h2::selection {
+    color: #111;
+    background: var(--primary-color);
+  }
+  
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+  }
+  
+  .btn-primary, .btn-secondary {
+    margin: 5px 0;
+    background-color: var(--bg-secondary);
+    color: var(--text-color-two);
+  }
+  
+  .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+
+  .btn-primary:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+  }
+
+  #switch {
+    display: none;
+  }
+  
+  .toggle-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .toggle-icons > img {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 30px;
+  }
+  
+  .moon {
+    transform: rotate(10deg);
+  }
+  
+  #switch:checked + .toggle-icons .moon {
+    transform: rotate(250deg);
+  }
+  
+  #switch:checked + .toggle-icons .sun {
+    transform: rotate(100deg);
+  }
+  
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
+    padding: 1rem;
+  }
+  
+  .header-container > div {
+    margin-top: 1rem;
+  }
+  
+  .content-text {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .content-text h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .content-text p {
+    padding: 0.5rem;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  
+ 
+  .card {
+    padding: 2rem;
+    background: var(--card-background);
+    color: var(--text-color);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+  
+  .card a {
+    color: var(--text-color-two);
+    transition: 0.25s ease-in-out;
+    font-size: 1.1rem;
+    margin-right: 0.3rem;
+  }
+  
+  .card a:hover {
+    color: var(--primary-color);
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+  }
+  
+  .card:hover .project-info {
+    opacity: 1;
+  }
+
+  /* projects */
+
+  .card:nth-child(1) {
+    background: url(../assets/project/tesla-stock.png) center center/cover;
+  }
+  
+
+  
+
+  .card:nth-child(2) {
+    background: url(../assets/project/servers-tips-analysis.png) center center/cover;
+  }
+  
+
+  .card:nth-child(3) {
+    background: url(../assets/project/Frog-the-ball.png) center center/cover;
+  }
+
+  .card:nth-child(4) {
+    background: url(../assets/project/HealthCheck.png) center center/cover;
+  }
+  
+  .card:nth-child(5) {
+    background: url(../assets/project/Lucky-number.png) center center/cover;
+  }
+  
+
+  .card:nth-child(6) {
+    background: url(../assets/project/Travel-guide.png) center center/cover;
+  }
+
+  .card:nth-child(7) {
+    background: url(../assets/project/Exium-logo.jpeg) center center/cover;
+  }
+
+
+  .card:nth-child(8) {
+    background: url(../assets/project/mrgrammar.png) center center/cover;
+  }
+
+  .contact-container .btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  
