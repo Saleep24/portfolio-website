@@ -334,7 +334,12 @@ body {
   overflow: hidden;
 }
 
-/* Animated Background */
+body:has(.blog-posts) #hero {
+  min-height: auto;
+  height: auto;
+  padding-top: 6rem;
+}
+
 .hero-background {
   position: absolute;
   top: 0;
@@ -2740,8 +2745,8 @@ footer .socials {
 
 
 .blog-posts {
-  margin-top: 2rem;
-  padding: 0 2rem;
+  margin-top: 0;
+  padding: 2rem 2rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -2943,10 +2948,27 @@ footer .socials {
   color: white;
 }
 
-@media (max-width: 768px) {
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  body:has(.blog-posts) #hero {
+    padding-top: 5.5rem;
+  }
+  
   .blog-posts {
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 2rem 2rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust spacing for blog pages on mobile */
+  body:has(.blog-posts) #hero {
+    padding-top: 5rem;
+  }
+  
+  .blog-posts {
+    padding: 1.5rem 1rem;
+    margin-top: 0;
   }
   
   .blog-grid {
@@ -3449,6 +3471,15 @@ footer .socials {
 }
 
 @media (max-width: 480px) {
+  /* Adjust spacing for blog pages on small mobile */
+  body:has(.blog-posts) #hero {
+    padding-top: 4.5rem;
+  }
+  
+  .blog-posts {
+    padding: 1rem 0.8rem;
+  }
+  
   .achievements-container {
     padding: 3rem 1.2rem;
   }
