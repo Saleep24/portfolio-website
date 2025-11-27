@@ -818,6 +818,7 @@ body:has(.blog-posts) #hero {
   overflow: hidden;
   border: 2px solid transparent;
   cursor: pointer;
+  background-origin: border-box;
 }
 
 .btn-primary-modern {
@@ -894,11 +895,9 @@ body:has(.blog-posts) #hero {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  z-index: 3;
-  margin: 0.5rem 0 1rem 0;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 10;
+  margin-top: 3rem;
+  width: 100%;
   text-align: center;
   animation: scrollBounce 2s infinite;
 }
@@ -932,10 +931,10 @@ body:has(.blog-posts) #hero {
 
 @keyframes scrollBounce {
   0%, 100% {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateY(-10px);
   }
 }
 
@@ -1152,7 +1151,7 @@ body:has(.blog-posts) #hero {
 
   /* Scroll Indicator */
   .scroll-indicator {
-    margin: 1rem 0;
+    margin-top: 2rem;
   }
 
   .scroll-text {
