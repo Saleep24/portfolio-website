@@ -670,3 +670,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 500); 
 });
 
+
+// Lenis Smooth Scroll
+console.log("Lenis: Initializing with custom settings...");
+const lenis = new Lenis({
+  lerp: 0.07, // Lower values create a smoother, more 'floaty' scroll
+  smoothWheel: true, // Enables smooth scrolling for mouse wheel events
+});
+console.log("Lenis: Instance created:", lenis);
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+console.log("Lenis: Animation frame loop started.");
