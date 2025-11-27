@@ -895,7 +895,7 @@ body:has(.blog-posts) #hero {
   justify-content: center;
   gap: 0.5rem;
   z-index: 3;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0 1rem 0;
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
@@ -1074,7 +1074,7 @@ body:has(.blog-posts) #hero {
   }
 
   .header-container {
-    padding: 6rem 1rem 3rem;
+    padding: 6rem 1rem 2rem;
     text-align: center;
     min-height: calc(100vh - 100px);
     justify-content: flex-start;
@@ -1377,7 +1377,7 @@ body:has(.blog-posts) #hero {
   }
 
   .header-container {
-    padding: 5rem 0.5rem 2rem;
+    padding: 5rem 0.5rem 1rem;
     min-height: calc(100vh - 80px);
     justify-content: flex-start;
   }
@@ -1680,7 +1680,7 @@ footer .socials a:hover i {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 8rem 2rem 4rem;
+  padding: 8rem 2rem 2rem;
   min-height: calc(100vh - 120px);
   justify-content: center;
 }
