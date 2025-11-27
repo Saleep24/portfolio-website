@@ -1,0 +1,335 @@
+/* Featured Projects Spotlight */
+#featured-projects-spotlight {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  background-color: var(--bg-primary);
+  scrollbar-width: none; /* Firefox */
+}
+
+#featured-projects-spotlight::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+#featured-projects-spotlight .featured-spotlight-inner {
+  min-height: 100vh;
+}
+
+/* Slide Layout */
+.project-slide {
+  min-height: 100vh;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  padding: 2rem 8vw;
+  position: relative;
+  box-sizing: border-box;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-slide-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Text Column */
+.project-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-slide.active .project-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-kicker {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+  font-weight: var(--weight-bold);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.project-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: var(--weight-bold);
+}
+
+.project-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-color-light);
+  margin-bottom: 1.5rem;
+  font-weight: var(--weight-medium);
+}
+
+.project-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Tech Chips */
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.tech-chip {
+  background-color: rgba(102, 126, 234, 0.1);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: var(--weight-medium);
+  transition: all 0.3s ease;
+}
+
+.tech-chip:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Links/Buttons */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Media Column */
+.project-media {
+  position: relative;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+
+.project-slide.active .project-media {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  background-color: var(--card-background);
+  aspect-ratio: 16/9;
+}
+
+.clickable-media {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clickable-media:hover {
+  transform: scale(1.02);
+}
+
+.project-video,
+.project-iframe,
+.project-image-static {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  border: none;
+}
+
+/* Split Image Row */
+.project-image-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.project-image-split-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image-split {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Modal Styles (Apple/Safari UI) */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.video-modal-overlay.open .video-modal-container {
+  transform: scale(1);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.video-modal-close svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 3;
+}
+
+.video-modal-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  outline: none;
+}
+
+/* Layout Variations */
+.project-slide--layout-a .project-text {
+  order: 1;
+}
+.project-slide--layout-a .project-media {
+  order: 2;
+}
+
+.project-slide--layout-b .project-text {
+  order: 2;
+}
+.project-slide--layout-b .project-media {
+  order: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  #featured-projects-spotlight {
+    height: auto;
+    scroll-snap-type: none;
+    overflow-y: visible;
+  }
+
+  .project-slide {
+    height: auto;
+    min-height: auto;
+    padding: 2rem 1.5rem;
+    scroll-snap-align: none;
+  }
+
+  .project-slide-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .project-text {
+    order: 1 !important;
+    text-align: left;
+    opacity: 1; /* Reset animation state for simpler mobile experience if needed */
+    transform: none;
+  }
+
+  .project-media {
+    order: 2 !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-title {
+    font-size: 2.5rem;
+  }
+  
+  .project-video-wrapper {
+    box-shadow: var(--shadow);
+  }
+  
+  .video-modal-close {
+    top: -40px;
+    right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .project-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .project-slide {
+    padding: 1.5rem 1.2rem;
+  }
+}
