@@ -276,10 +276,10 @@
 /* Responsive */
 @media (max-width: 1024px) {
   #featured-projects-spotlight {
-    height: 100vh; /* Fallback */
-    height: 100dvh;
-    scroll-snap-type: y mandatory;
-    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    scroll-snap-type: none;
+    overflow: visible;
   }
 
   .project-slide {
