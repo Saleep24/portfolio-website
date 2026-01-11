@@ -1678,7 +1678,7 @@ footer .socials a:hover i {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 8rem 2rem 2rem;
+  padding: 8rem 2rem 0;
   min-height: calc(100vh - 120px);
   justify-content: center;
 }
@@ -4452,3 +4452,161 @@ footer .socials {
     font-size: 0.9rem;
   }
   
+/* Creative Experience Section */
+.experience-section {
+  padding: 1rem 1rem 2rem;
+  background-color: var(--bg-primary);
+}
+
+.experience-section .content-text {
+  margin-bottom: 2rem;
+}
+
+.experience-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.exp-card-link {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.exp-card-horizontal {
+  display: flex;
+  background: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-height: 280px;
+}
+
+.exp-card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.exp-image-container {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.exp-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.exp-logo-contain {
+  object-fit: contain;
+  padding: 3rem;
+  background: #ffffff;
+  border-right: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .exp-logo-contain {
+  background: #ffffff;
+}
+
+.exp-logo-arroyo {
+  background-color: #000000 !important;
+}
+
+.exp-card-horizontal:hover .exp-bg-image {
+  transform: scale(1.05);
+}
+
+.exp-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+}
+
+.exp-card-horizontal:hover .exp-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.exp-content-horizontal {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exp-role-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.exp-company-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-color-light);
+}
+
+.exp-company-name {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.exp-summary {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.exp-summary p {
+  margin-bottom: 0.75rem;
+}
+
+.exp-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.exp-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .exp-card-horizontal {
+    flex-direction: column;
+  }
+  
+  .exp-image-container {
+    flex: 0 0 200px;
+  }
+  
+  .exp-content-horizontal {
+    padding: 1.5rem;
+  }
+  
+  .exp-role-title {
+    font-size: 1.5rem;
+  }
+}
