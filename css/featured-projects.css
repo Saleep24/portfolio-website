@@ -23,7 +23,7 @@
   scroll-snap-align: start;
   display: flex;
   align-items: center;
-  padding: 2rem 8vw;
+  padding: 1rem 8vw;
   position: relative;
   box-sizing: border-box;
   background-color: var(--bg-primary);
