@@ -720,38 +720,34 @@ body:has(.blog-posts) #hero {
 .highlight-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: rgba(102, 126, 234, 0.05);
+  padding: 0.85rem 1.5rem;
+  background: rgba(102, 126, 234, 0.08);
   border-radius: 12px;
-  border: 1px solid rgba(102, 126, 234, 0.15);
-  transition: all 0.3s ease;
-  max-width: 400px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 450px;
   width: 100%;
+  text-align: center;
 }
 
 .highlight-item:hover {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.25);
-  transform: translateX(5px);
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .highlight-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: rgba(59, 130, 246, 0.1);
-  border-radius: 8px;
-  color: #3b82f6;
-  flex-shrink: 0;
+  display: none;
 }
 
 .highlight-item span {
-  color: #4a5568;
-  font-size: 0.95rem;
-  font-weight: 500;
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 [data-theme="dark"] .bio-card-minimal {
@@ -768,23 +764,23 @@ body:has(.blog-posts) #hero {
 }
 
 [data-theme="dark"] .highlight-item {
-  background: rgba(15, 23, 42, 0.8);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(96, 165, 250, 0.2);
 }
 
 [data-theme="dark"] .highlight-item span {
-  color: #e2e8f0;
-  font-weight: 500;
+  color: #f8fafc;
+  font-weight: 600;
 }
 
 [data-theme="dark"] .highlight-icon {
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
+  display: none;
 }
 
 [data-theme="dark"] .highlight-item:hover {
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .highlight-item:hover span {
@@ -1419,23 +1415,26 @@ body:has(.blog-posts) #hero {
   .bio-highlights {
     gap: 0.75rem;
     margin-bottom: 1rem;
+    align-items: center;
   }
 
   .highlight-item {
-    padding: 0.5rem;
-    flex-direction: column;
+    padding: 0.75rem 1rem;
     text-align: center;
+    justify-content: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 320px;
   }
 
   .highlight-icon {
-    width: 24px;
-    height: 24px;
+    display: none;
   }
 
   .highlight-item span {
-    font-size: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   /* Ultra-responsive buttons */
