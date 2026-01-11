@@ -60,6 +60,25 @@ const featuredProjects = [
         icon: "fab fa-chrome"
       }
     ]
+  },
+  {
+    id: "acuity-claim",
+    title: "AcuityClaim",
+    subtitle: "Healthcare Revenue Cycle Automation",
+    description:
+      "A modern web platform that helps hospitals streamline insurance claim denial management. It automates the analysis of claim files and denial letters using AI to identify issues and generate appeals, reducing manual work and accelerating revenue recovery.",
+    imageSrc: null,
+    videoSrc: "assets/project/AcuityClaim.mov",
+    modalVideoSrc: "assets/project/AcuityClaim.mov",
+    isVideoEmbed: false,
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    links: [
+      {
+        label: "Watch Demo",
+        action: "modal",
+        icon: "fas fa-play-circle"
+      }
+    ]
   }
 ];
 
@@ -128,7 +147,7 @@ function renderFeaturedProjects() {
           <video
             class="project-video"
             src="${project.videoSrc}"
-            poster="${project.imageSrc}"
+            ${project.imageSrc ? `poster="${project.imageSrc}"` : ''}
             autoplay
             muted
             loop
