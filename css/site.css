@@ -859,6 +859,7 @@ body {
   margin: 0;
   background: var(--footer);
   color: #e6ecff;
+  transition: background-color 1s ease, color 1s ease, border-color 1s ease;
 }
 
 .footer-inner {
@@ -875,6 +876,7 @@ body {
 .footer-brand p,
 .footer-col p {
   margin: 0;
+  transition: color 1s ease;
 }
 
 .footer-name,
@@ -901,44 +903,50 @@ body {
 
 .footer-col a {
   color: rgba(230, 236, 255, 0.78);
+  transition: color 1s ease;
 }
 
 .footer-col a:hover {
   color: #fff;
 }
 
+.footer-stage {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+}
+
 .footer-art {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: 440px;
+  height: 100%;
+  transition: transform 1.1s ease, opacity 0.9s ease;
 }
 
 .footer-wordmark {
-  display: none;
   margin: 0;
   position: absolute;
   left: 50%;
   bottom: -0.22em;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(40px);
+  opacity: 0;
   font-size: 300px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.05em;
   white-space: nowrap;
   color: var(--ink);
-  opacity: 0.06;
   user-select: none;
   pointer-events: none;
+  transition: transform 1.1s ease, opacity 0.9s ease;
 }
 
 .site-footer[data-variant="wordmark"] {
   background: var(--canvas);
   color: var(--ink);
   border-top: 1px solid var(--line);
-}
-
-.site-footer[data-variant="wordmark"] .footer-inner {
-  padding-bottom: 260px;
 }
 
 .site-footer[data-variant="wordmark"] .footer-name,
@@ -956,11 +964,13 @@ body {
 }
 
 .site-footer[data-variant="wordmark"] .footer-art {
-  display: none;
+  transform: translateY(80px);
+  opacity: 0;
 }
 
 .site-footer[data-variant="wordmark"] .footer-wordmark {
-  display: block;
+  transform: translateX(-50%) translateY(0);
+  opacity: 0.07;
 }
 
 @media (max-width: 900px) {
@@ -986,15 +996,12 @@ body {
   .footer-brand {
     grid-column: span 2;
   }
-  .footer-art {
+  .footer-stage {
     height: 200px;
   }
   .footer-wordmark {
     font-size: 110px;
     bottom: -0.18em;
-  }
-  .site-footer[data-variant="wordmark"] .footer-inner {
-    padding-bottom: 100px;
   }
 }
 

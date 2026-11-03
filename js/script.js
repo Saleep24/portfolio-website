@@ -79,9 +79,16 @@ if (contactForm) contactForm.addEventListener("submit", async function (event) {
 
 const footer = document.querySelector(".site-footer");
 if (footer) {
-  const visits = Number(localStorage.getItem("visits") || 0) + 1;
-  localStorage.setItem("visits", visits);
-  footer.dataset.variant = visits % 2 ? "art" : "wordmark";
+  footer.dataset.variant = "art";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    let timer;
+    const flip = () => { footer.dataset.variant = footer.dataset.variant === "art" ? "wordmark" : "art"; };
+    new IntersectionObserver((entries) => {
+      clearInterval(timer);
+      if (entries[0].isIntersecting) timer = setInterval(flip, 6000);
+    }, { threshold: 0.4 }).observe(footer);
+  }
 }
 
 
