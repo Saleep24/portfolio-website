@@ -68,6 +68,9 @@ if (tileVideos.length && !reduceMotion) {
     sync();
   }, { threshold: 0.5 });
   tileVideos.forEach((video) => watcher.observe(video));
+  if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+    tileVideos.forEach((video) => video.removeAttribute("controls"));
+  }
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     tileVideos.forEach((video) => {
       const tile = video.closest(".tile");
