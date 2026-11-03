@@ -48,9 +48,8 @@ if (currentTheme) {
   toggleSwitch.checked = currentTheme === "dark";
 } else {
 
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-  toggleSwitch.checked = prefersDark;
+  document.documentElement.setAttribute("data-theme", "dark");
+  toggleSwitch.checked = true;
 }
 
 
