@@ -93,6 +93,21 @@ if (siteHeader) {
   onScroll();
 }
 
+const tileVideos = document.querySelectorAll(".tile video");
+if (tileVideos.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const watcher = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+  tileVideos.forEach((video) => watcher.observe(video));
+}
+
 const footer = document.querySelector(".site-footer");
 if (footer) {
   footer.dataset.variant = "art";
