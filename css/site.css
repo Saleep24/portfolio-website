@@ -385,6 +385,10 @@ body {
   overflow: hidden;
 }
 
+.entry-logo:hover {
+  border-color: var(--line-strong);
+}
+
 .entry-logo img {
   width: 34px;
   height: 34px;
