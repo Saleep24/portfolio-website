@@ -455,12 +455,19 @@ body {
 }
 
 .bento {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bento-row {
+  display: flex;
   gap: 24px;
 }
 
 .tile {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -468,11 +475,21 @@ body {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface);
+  transition: flex-grow 0.4s ease, border-color 0.2s ease;
 }
 
-.tile-8 { grid-column: span 8; }
-.tile-6 { grid-column: span 6; }
-.tile-4 { grid-column: span 4; }
+.bento-row-lead .tile:first-child {
+  flex-grow: 2;
+}
+
+.tile:hover {
+  flex-grow: 2;
+  border-color: var(--line-strong);
+}
+
+.bento-row:not(.bento-row-lead) .tile:hover {
+  flex-grow: 1.5;
+}
 
 .tile video {
   display: block;
@@ -483,12 +500,8 @@ body {
   background: #000;
 }
 
-.tile-6 video {
+.bento-row:not(.bento-row-lead) video {
   height: 340px;
-}
-
-.tile-4 video {
-  object-position: left center;
 }
 
 .tile-text {
@@ -545,6 +558,17 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.more img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  margin-bottom: 8px;
+}
+
 .more h3 {
   margin: 0;
   font-size: 17px;
@@ -565,15 +589,15 @@ body {
 }
 
 @media (max-width: 900px) {
-  .tile-8, .tile-6, .tile-4 {
-    grid-column: span 12;
+  .bento-row {
+    flex-direction: column;
   }
   .tile {
     padding: 14px;
     border-radius: 14px;
   }
   .tile video,
-  .tile-6 video {
+  .bento-row:not(.bento-row-lead) video {
     height: 220px;
   }
   .tile-text {
