@@ -706,6 +706,47 @@ body {
   }
 }
 
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.post:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.post:hover span {
+  color: var(--accent);
+}
+
+.post time {
+  flex: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .post {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 17px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
