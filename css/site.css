@@ -1125,6 +1125,8 @@ body {
   .contact-form button {
     width: 100%;
     justify-content: center;
+    height: 44px;
+    font-size: 15px;
   }
   #form-status {
     text-align: center;
