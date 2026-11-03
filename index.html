@@ -1,119 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head> 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saleep Shrestha's Portfolio</title>
-    <meta name="title" content="Saleep Shrestha's Portfolio" />
-    <meta
-      name="description"
-      content="Explore the portfolio of Saleep Shrestha."
-    />
-    <meta 
-      name="keywords" 
-      content="Saleep Shrestha, Portfolio, Data Science, AI, Algorithmic Trading, Software Engineer, Web Developer, Python, JavaScript" 
-    />
-
-
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://github.com/Saleep24/"
-    />
-    <meta property="og:title" content="Saleep Shrestha's Portfolio" />
-    <meta
-      property="og:description"
-      content="Explore the portfolio of Saleep Shrestha."
-    />
-    <meta
-      property="og:image"
-      content="assets/headshot-saleep.png"
-    />
-
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://github.com/Saleep24/"
-    />
-    <meta property="twitter:title" content="Saleep Shrestha's Portfolio" />
-    <meta
-      property="twitter:description"
-      content="Explore the portfolio of Saleep Shrestha."
-    />
-    <meta
-      property="twitter:image"
-      content="assets/headshot-saleep.png"
-    />
-
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/logo.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/logo.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/logo.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="assets/favicon/logo.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/favicon/logo.png"
-    />
-    <link rel="icon" type="image/x-icon" href="assets/favicon/logo.png" />
-    <link rel="manifest" href="assets/favicon/logo.png" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-      media="print" 
-      onload="this.media='all'"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/site.css" />
-    
-    
-
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-
-    <script>
-
-      function checkChartJs() {
-        if (typeof Chart !== 'undefined') {
-          console.log('Chart.js successfully loaded');
-        } else {
-          console.log('Chart.js not loaded yet, will check again shortly...');
-          setTimeout(checkChartJs, 500);
-        }
-      }
-      
-
-      window.addEventListener('load', function() {
-        console.log('Page loaded, checking for Chart.js...');
-        checkChartJs();
-      });
-    </script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saleep Shrestha</title>
+  <meta name="description" content="Software Engineer (Client-Facing) at illumibot and IBM Z Ambassador. Experience, projects and writing.">
+  <link rel="canonical" href="https://saleepshrestha.com.np/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saleepshrestha.com.np/">
+  <meta property="og:title" content="Saleep Shrestha">
+  <meta property="og:description" content="Software Engineer (Client-Facing) at illumibot and IBM Z Ambassador. Experience, projects and writing.">
+  <meta property="og:image" content="https://saleepshrestha.com.np/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon/logo.png">
+  <link rel="apple-touch-icon" href="assets/favicon/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-name" href="#top">
@@ -312,6 +216,18 @@
           <p>Lets health assistants track operational processes step by step. React and Python.</p>
           <a href="https://github.com/Saleep24/HealthCheck" target="_blank" rel="noopener">GitHub</a>
         </article>
+        <article>
+          <img src="assets/project/server-tips.webp" alt="Server tips analysis chart">
+          <h3>Server Tips Analysis</h3>
+          <p>Data analysis of restaurant tips against time, day and demographics.</p>
+          <a href="https://www.kaggle.com/code/saleepshrestha/server-s-tips-analysis" target="_blank" rel="noopener">Kaggle</a>
+        </article>
+        <article>
+          <img class="fit-top" src="assets/project/frog-the-ball.webp" alt="Frog the Ball game">
+          <h3>Frog the Ball</h3>
+          <p>Scratch game where a frog catches falling balls.</p>
+          <a href="https://scratch.mit.edu/projects/822223025/" target="_blank" rel="noopener">Play</a>
+        </article>
       </div>
     </section>
 
@@ -423,28 +339,6 @@
         <p class="footer-wordmark" aria-hidden="true">saleep</p>
       </div>
     </footer>
-
     <script src="js/script.js"></script>
-    
-
-    <script>
-
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          console.log('Force initializing skill tabs after page load...');
-          if (typeof initSkillTabs === 'function') {
-            initSkillTabs();
-          }
-        }, 500);
-        
-        setTimeout(function() {
-          const firstTab = document.querySelector('.skill-tab');
-          if (firstTab) {
-            console.log('Force clicking first tab...');
-            firstTab.click();
-          }
-        }, 1000);
-      });
-    </script>
   </body>
 </html>

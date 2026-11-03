@@ -1,134 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sentiment swings | Saleep Shrestha</title>
-    <meta name="title" content="Machine Learning in Financial Markets: A New Era of Trading | Saleep Shrestha" />
-    <meta name="description" content="How artificial intelligence and machine learning are revolutionizing trading strategies and market analysis." />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://github.com/Saleep24/" />
-    <meta property="og:title" content="Machine Learning in Financial Markets: A New Era of Trading | Saleep Shrestha" />
-    <meta property="og:description" content="How artificial intelligence and machine learning are revolutionizing trading strategies and market analysis." />
-    <meta property="og:image" content="" />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://github.com/Saleep24/" />
-    <meta property="twitter:title" content="Machine Learning in Financial Markets: A New Era of Trading | Saleep Shrestha" />
-    <meta property="twitter:description" content="How artificial intelligence and machine learning are revolutionizing trading strategies and market analysis." />
-    <meta property="twitter:image" content="" />
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
-  </head>
-  <body>
-    <header id="hero">  
-      <nav class="navbar">
-        <div class="container">
-          <h1 id="logo">
-            <a href="https://saleepshrestha.com.np/"
-              ><img src="./assets/logo.png" alt="Saleep Shrestha Logo"
-            /></a>
-          </h1>
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="index.html#projects">PROJECTS</a></li>
-            <li><a class="nav-link" href="blog.html">BLOG</a></li>
-            <li><a class="nav-link" href="index.html#contact">CONTACT</a></li>
-            <li>
-              <a class="nav-link btn btn-primary" href="assets/Saleep Shrestha resume.pdf" target="_blank">
-                RESUME <i class="fas fa-arrow-right"></i>
-              </a>
-            </li>
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                <img class="moon" src="assets/moon.svg" />
-                <img class="sun" src="assets/sun.svg" />
-              </label>
-            </div>
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentiment Swings: How News and Social Media Influence Financial Markets</title>
+  <meta name="description" content="How financial headlines and viral posts shape investor behavior and market momentum.">
+  <link rel="canonical" href="https://saleepshrestha.com.np/blog-post2.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://saleepshrestha.com.np/blog-post2.html">
+  <meta property="og:title" content="Sentiment Swings: How News and Social Media Influence Financial Markets">
+  <meta property="og:description" content="How financial headlines and viral posts shape investor behavior and market momentum.">
+  <meta property="og:image" content="https://saleepshrestha.com.np/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon/logo.png">
+  <link rel="apple-touch-icon" href="assets/favicon/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="index.html">
+          <svg class="mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" aria-hidden="true">
+            <path d="M27 2H31A18 18 0 0 1 49 20V43A7 7 0 0 1 42 50H27A18 18 0 0 1 9 32V20A18 18 0 0 1 27 2Z"></path>
+            <path d="M69 2H73A18 18 0 0 1 91 20V32A18 18 0 0 1 73 50H58A7 7 0 0 1 51 43V20A18 18 0 0 1 69 2Z"></path>
+            <path d="M27 50H42A7 7 0 0 1 49 57V80A18 18 0 0 1 31 98H27A18 18 0 0 1 9 80V68A18 18 0 0 1 27 50Z"></path>
+            <path d="M58 50H73A18 18 0 0 1 91 68V80A18 18 0 0 1 73 98H69A18 18 0 0 1 51 80V57A7 7 0 0 1 58 50Z"></path>
+          </svg>
+          Saleep Shrestha
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="Site">
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Writing</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="site-nav-button" href="assets/Saleep Shrestha resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <div class="theme">
+            <span class="theme-label">Appearance</span>
+            <input type="checkbox" id="switch">
+            <label class="theme-toggle" for="switch" aria-label="Switch between light and dark">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            </label>
           </div>
+        </nav>
+        <div class="site-actions">
+          <button class="menu-button" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+            <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </button>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <section class="blog-posts container">
-
-      <article class="blog-post">
-        <div class="blog-header">
-          <div class="title-row">
-            <button onclick="history.back()" class="back-button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <h1 class="blog-title">Sentiment swings: How news and social media influences the financial markets</h1>
-          </div>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> March 20, 2024</span>
-            <span><i class="far fa-clock"></i> 12 min read</span>
-            <span><i class="far fa-folder"></i> Technology</span>
-          </div>
-        </div>
-        <div class="blog-content">
-          <p>
-            In today's fast-paced digital age, financial markets are not only driven by economic indicators and corporate performance but also by the instantaneous circulation of news through various channels. Imagine you’re scrolling through X (formerly Twitter), sipping your morning coffee when suddenly, a tweet from Elon Musk catches your attention: “One word: Doge." How would you react? Most of us would rush to put in buy orders for Dogecoin before it skyrocketed from $0.12 to $0.147, gaining around 22%	 in just two hours. Back in the 1900s, traders had to be physically present on the floor of the bustling stock exchange or have brokers buy for them. Nowadays, in the world of fast-paced internet and the ease of trading financial derivatives, popularity has shifted to internet influencers who can manipulate retail traders more easily. News has always played and continues to play a significant role in influencing financial markets. From traditional newspapers and televised interviews to modern online news portals, podcasts, and social media platforms, it is now easier to manipulate the psychology of retail traders through instantaneous news, creating a Fear of Missing Out (FOMO) effect. However, while traditional media provides information that influences long-term investment strategies in the US stock market, social media influencers, with their focus on hype and emotional manipulation, primarily impact short-term stock price fluctuations, particularly for companies with high volatility and a large number of retail investors.
-          </p>
-          <p>
-            Traditionally, financial news outlets such as CNBC and Bloomberg, along with established publications such as The Wall Street Journal, have been the primary sources of information for investors on Wall Street and around the world. These media outlets are proven and trusted to provide quick market announcements, in-depth analysis, company reports, and other indicators among the investor's community (Kolakowski). And especially among the investor community, hedge funds, which account to just 8% of all financial professionals reading financial news, are the first one to consume any financial news (Fedyk 3). This also supports the importance of consuming news among investors. But just amounting to 8% of all financial news readers, hedge funds accessing the news can significantly increase the volume in the stock market, influencing the market (Fedyk 3). However, the stock market does not revolve around hedge funds only. As everything in the economy follows the law of supply and demand, so does the stock market. If more people want to buy a stock, its market price increases, whereas if more people are trying to sell a stock, it price falls (Beers). But what causes people to buy or share a stock? As stated by a research paper, “positive sentiments have a significant positive effect on cumulative abnormal returns, whereas negative sentiments have a significant negative effect on cumulative abnormal returns on stock performance” (Raman, Raji, et al. 5). Negative news, such as bad earning reports, unfortunate occurrence, normally cause people to sell the stocks, decreasing the stock price, whereas positives news, such as good earnings reports, an announcement of new products, corporate acquisition, and positive economic indicator, causes people to buy stocks, increasing the stock price in long run (Beers).
-          </p>
-          <p>
-            To understand the influence of news media on the stock performance, I have closely monitored the news articles released from media houses such as CNBC and The Wall Street and the stock performance of Tesla, Inc. (TSLA) simultaneously for the period of one year (January 2022 – December 2022). Where, I have analyzed the news articles using sentiment analysis and its predictive relationship to the stock market movement using a library of python programming language, Arabica. Finding dataset for the financial news and also under that related to Tesla and Elon Musk was challenging task for me, because I couldn’t get any dataset on the internet. So, I decided to scrap (extract or filter data into spreadsheet) the news articles related to Tesla and Elon Musk for the year 2022 (because my dataset for Elon Musk’s tweet was only for the year 2022) using python programming language. I collected the news articles, from a news database, ProQuest, which was recommended by USM library and staffs. Then after that I made my own dataset and fed into Arabica to graph the sentiment of News articles using sentiment analysis (Arabica is a simple yet popular python library that gives us overview about the sentiment of any data based on the dataset we provide it and gives us result in the form of line graph). And to my surprise, the graph for the sentiment analysis of news articles and the stock price of Tesla were kind of similar to each other. The stock price of Tesla was increasing (as shown by data) when the sentiment of the news articles was positive, and conversely the stock price of Tesla was decreasing when the sentiment of the news article was negative. This finding proves that financial news media have relation with the stock market. However, during November of 2022, I could analyze the different relation with the sentiment graph and the movement of Tesla stock. In November the news sentiment was positive, but the stock price was decreasing, but only for that period, however after the January of 2023, Tesla stock skyrocketed from $113 to $208 gaining over 85% in the short span of a month. This result can be analyzed that it further proves my initial claim that traditional news articles such as financial news, news articles and earning report not only influence the stock market, but also long-term investment strategies in the US stock market.          
-          </p>
-          <p>
-            While traditional media influence the sentiment of the stock market, social media also does influence the sentiment of the stock market. In fact, social media has given rise to a new class of influencers who shape the market sentiments through unconventional means. Generally, these influencers lack formal training in finance but command a large followings of retail investors across platforms like Twitter and Reddit. Many of the influencers rely on emotion manipulation creating hype and Fear of Missing out (FOMO) effect among audience, rather than relying on expertise and knowledge. The claim made in the posts of the influencers often lack credibility, but make a bold, attention-grabbing claims because they have a large number of followers who are easily influenced by the decisions of them and path they follow. For example, back in 2018 when Kylie Jenner famously tweeted her displeasure with the recent snapchat update, Snapchat Inc (SNAP) lost $1.3 Billion in market capitalization overnight (Smith and O’Hare 2). In 2020, when Elon Musk tweeted, “Tesla stock price is too high imo” and that single tweet wiped out nearly $15 billion, or 12% of Tesla Inc (TSLA) market valuation in a day (Smith and O’Hare 2). Similarly, back in 2013, when a hacked Associate Press News account tweeted the false news that President Barack Obama had been injured in an explosion at the White house, it wiped out $135.5 billion of market capitalization of the Dow Jones Industrial Average and the S&P 500 index (Smith and O’Hare 2). These findings show the relation between tweets from influencers and stock market performance, especially for short period of time. Research conducted on the previous president Trump’s impact on ten publicly traded companies between November 2016 and January 2017 also found out that, “A positive content in the tweet elicited positive abnormal returns in the company, and negative content prompted negative abnormal returns. The effect lasted less than one day for the most part and that within 5 days, there was no significant effect. The tweets led to an increase in Google search activity around the company, as well as an increase in volume of trading” (Smith and O’Hare 2). This is a very important finding that also support my paper. The author of the paper speculated that the tweet may have led the small retail traders to react to the president’s tweet of that time and also the impact was short term and also acknowledges that the larger traders, such as private equity funds or hedge funds, would see the tweet but not consider it important. The paper also found out some interesting findings about the Trump’s tweets during his president tenure. The tweet where he mentioned 58 companies before and after his election showed no significant effect on the stock price (Smith and O’Hare 3). However, the tweet affected the exchange rate between the Russian ruble and US dollar. The tweet also had also strong negative impact when the sentiment of the tweet was negative, but there was no impact when the tweets were positive (Smith and O’Hare 3). This finding from the paper also somewhat proves that social media sometimes (not always but depending on condition) influence the short-term stock market fluctuations.          
-          </p>
-          <p>
-            There is a complex and uncertain relation between tweets in Twitter and stock market performance, but researchers found out that if they could analyze the behavior and sentiment of people from the tweet, then they could somewhat accurately predict or analyze the impact of it on the financial market. They found out that when the sentiment among the twitter users were calm, then the data could help predict the stock market changes accurately for 2-6 days (Smith and O’Hare 3). The researchers also claim in their paper that dataset they are taking to train their models will also impact the result of the impact. However, the world most powerful asset management company, JP Morgan, claims that market reacts to tweets containing certain key words, such as ‘China’, ‘Billion’ and ‘Democrats’ (Smith and O’Hare 4). This statement claims that by analyzing the collective sentiment of users, it is possible to gain valuable insights into the potential impact on the stock market. And also, the use of machine learning models and sentiment analysis has the potential to provide investors and financial analysts with valuable tools to predict stock market movements more accurately and respond proactively.          
-          </p>
-          <p>
-            To understand the impact of social media, especially the tweets, I have also used machine learning model and sentiment analysis for a period of one year (January 2022 to December 2022) in my research. Initially, I collected a dataset containing all the tweets from Elon Musk for the year 2022 on Kaggle (a database popular for web scraping), but the data was limited to October only. Then I used library of python programming language, Arabica, for sentiment analysis of the tweets from Elon Musk. Arabica is a python library for exploratory data analysis specifically designed for the time sentiment text data, which I used to accurately trace graph based on data for my research. But the data from my result was not what I expected or say what I expected before the staring of this research essay. My data showed that the sentiment of Elon’s tweet had negative relation with the performance of Tesla in the stock market, for the year 2022. In simple words, share price of Tesla decreased when Elon said something indicating positivity in Twitter (X) and vice versa. The data from my study showed that at the starting of the year 2022, Musk’s tweet sentiments were positive, but conversely Tesla stock was decreasing since the beginning of 2022 to near April. Elon’s tweet sentiment was most positive during the July of 2022 (data only recorded for entire 2022 year), where the Tesla stock was lower than average. But after October of 2022, the graph of sentiment was exponentially decreasing, but at the same time, Tesla stock price was also decreasing. I think it was because, I didn’t have enough data related to Elon’s tweet for the month of November and December of 20222 at the time while I was training the model. I think my result was converse also because my model was trained on dataset for all the tweets of Elon Musk, while in the case of News, I filtered out just the financial news related to Tesla and Elon Musk.
-          </p>
-          <p>
-            To understand the impact of traditional news media and social media through different point of view and more accurately, I also decided to conduct a survey regarding the investment decisions based on traditional news and Twitter among general participants. After getting the data from sentiment analysis of tweets from Elon Musk, the result from the survey didn’t surprise me. Even though the result showed completely different from what I initially assumed for the influence of social media, it had similar result with that of graph that I got from sentiment analysis through using Machine Learning. The survey showed that on average, the people would less likely, 3.5 (on scale of 1-10, 10 being most likely) buy Tesla stock if Elon tweets to buy it. Initially I assumed that people would buy a stock if that company CEO tweeted to buy it or show positive sentiment through social media posts, which is also not completely false because an article from Harvard Business Review also claims similar argument, “CEOs’ observed personality traits do have important consequences for their firms’ stock volatility (i.e., risk) and shareholder returns” (Harrison et al.). Which also claims that CEO’s sentiment in the social media influence the stock market. But the article also found out that “For the firms of highly extroverted CEOs, there was a negative relationship between stock risk and shareholder returns” (Harrison et al.). If Elon is considered as an extroverted then this data is not entirely false, in fact the finding from the survey supports the data that I obtained from doing sentiment analysis. But the other result, from the survey, about the traditional news media, it was also supporting my claim that news does influence the stock market long term performance of the stock market and have positive relation with the stock price, where the participant voted 6 (on the scale of 1-10, 10 being most likely) for question how likely are you to buy Tesla stock if you see some news article mentioning Tesla introducing a upgraded version of Full Self-Driving (FSD). This data shows that on average, the participant is more likely to buy Tesla stock based on positive sentiment of the news related to Tesla. The data from the sentiment analysis and survey narrows down to a same argument that traditional news media does influence the stock market in making investment decision. In my survey I also asked the participant to rate the credibility of financial news outlets such as The Wall Street Journal, New York times, CNBC and social media such as Twitter and Reddit. The result shows that on the scale of 1 to 10 (10 being most credible), on average participant found the news source to be above average credible being 5.96. Whereas, in case for credibility of news obtained from social media, they found the news less credible than average with credibility score of 3.9. The research survey also showed that 85.7% of the participant found the traditional news sources (Newspaper, News Channels and earning reports) more information for making long term investment decision in the stock market.
-          </p>
-          <p>
-            Narrowing down everything, this research highlights the complex interplay between news media, social media and the financial market, revealing the intertwined influences they exert in the investor’s behavior and stock market performance. While established financial news outlets, with their focus on the in-depth analysis and market fundamentals, guide long term investment strategies, the rapid and often emotionally influencing nature of the social media primarily impacts short term stock price fluctuations, but that also depends upon type of stock and influencers. The rise of social media and its impact on financial market is a serious mushroom problem in today’s fast paced world. Investors, especially the retail traders, should be able to differentiate the credible information from hype and misinformation created in the social media so that to take informed financial decision in the stock market. The application of sentiment analysis in this research also demonstrates the potential as a valuable tool for analyzing market sentiment and predicting potential trend in the stock market. By analyzing the collective emotions and opinions expressed in news articles and tweets, I also gained valuable insights into the psychological factors driving investors behavior. While the relation between news sentiment, social media sentiment and stock performance is not always corresponding and true, the data and findings from the sentiment analysis can be coupled with other indicators to potentially develop an accurate stock predictive model and enhance our stock market understanding in near future. After completing of this research, I was also able to create a dataset containing scrapped data of financial news related to Tesla and Elon Musk and publish in one of the most popular open-source platforms for data science community, Kaggle. I also hope to refine and retrain the data using new and complete latest dataset and hopefully publish my research paper to entire Finance, Data Science and Machine Learning community in near future.
-          </p>
-          <p>
-
-          </p>
-        </div>
-        <div class="blog-tags">
-          <span class="blog-tag">Finance</span>
-          <span class="blog-tag">Stock Market</span>
-          <span class="blog-tag">Sentiment Analysis</span>
-          <span class="blog-tag">Social Media</span>
-        </div>
+    <main>
+      <article class="prose">
+        <h1>Sentiment Swings: How News and Social Media Influence Financial Markets</h1>
+        <time datetime="2024-03-20">March 20, 2024</time>
+        <p>In today's fast-paced digital age, financial markets are not only driven by economic indicators and corporate performance but also by the instantaneous circulation of news through various channels. Imagine you're scrolling through X (formerly Twitter), sipping your morning coffee when suddenly, a tweet from Elon Musk catches your attention: “One word: Doge." How would you react? Most of us would rush to put in buy orders for Dogecoin before it skyrocketed from $0.12 to $0.147, gaining around 22% in just two hours. Back in the 1900s, traders had to be physically present on the floor of the bustling stock exchange or have brokers buy for them. Nowadays, in the world of fast-paced internet and the ease of trading financial derivatives, popularity has shifted to internet influencers who can manipulate retail traders more easily. News has always played and continues to play a significant role in influencing financial markets. From traditional newspapers and televised interviews to modern online news portals, podcasts, and social media platforms, it is now easier to manipulate the psychology of retail traders through instantaneous news, creating a Fear of Missing Out (FOMO) effect. However, while traditional media provides information that influences long-term investment strategies in the US stock market, social media influencers, with their focus on hype and emotional manipulation, primarily impact short-term stock price fluctuations, particularly for companies with high volatility and a large number of retail investors.</p>
+        <p>Traditionally, financial news outlets such as CNBC and Bloomberg, along with established publications such as The Wall Street Journal, have been the primary sources of information for investors on Wall Street and around the world. These media outlets are proven and trusted to provide quick market announcements, in-depth analysis, company reports, and other indicators among the investor's community (Kolakowski). And especially among the investor community, hedge funds, which account to just 8% of all financial professionals reading financial news, are the first one to consume any financial news (Fedyk 3). This also supports the importance of consuming news among investors. But just amounting to 8% of all financial news readers, hedge funds accessing the news can significantly increase the volume in the stock market, influencing the market (Fedyk 3). However, the stock market does not revolve around hedge funds only. As everything in the economy follows the law of supply and demand, so does the stock market. If more people want to buy a stock, its market price increases, whereas if more people are trying to sell a stock, it price falls (Beers). But what causes people to buy or share a stock? As stated by a research paper, “positive sentiments have a significant positive effect on cumulative abnormal returns, whereas negative sentiments have a significant negative effect on cumulative abnormal returns on stock performance” (Raman, Raji, et al. 5). Negative news, such as bad earning reports, unfortunate occurrence, normally cause people to sell the stocks, decreasing the stock price, whereas positives news, such as good earnings reports, an announcement of new products, corporate acquisition, and positive economic indicator, causes people to buy stocks, increasing the stock price in long run (Beers).</p>
+        <p>To understand the influence of news media on the stock performance, I have closely monitored the news articles released from media houses such as CNBC and The Wall Street and the stock performance of Tesla, Inc. (TSLA) simultaneously for the period of one year (January 2022 – December 2022). Where, I have analyzed the news articles using sentiment analysis and its predictive relationship to the stock market movement using a library of python programming language, Arabica. Finding dataset for the financial news and also under that related to Tesla and Elon Musk was challenging task for me, because I couldn't get any dataset on the internet. So, I decided to scrap (extract or filter data into spreadsheet) the news articles related to Tesla and Elon Musk for the year 2022 (because my dataset for Elon Musk's tweet was only for the year 2022) using python programming language. I collected the news articles, from a news database, ProQuest, which was recommended by USM library and staffs. Then after that I made my own dataset and fed into Arabica to graph the sentiment of News articles using sentiment analysis (Arabica is a simple yet popular python library that gives us overview about the sentiment of any data based on the dataset we provide it and gives us result in the form of line graph). And to my surprise, the graph for the sentiment analysis of news articles and the stock price of Tesla were kind of similar to each other. The stock price of Tesla was increasing (as shown by data) when the sentiment of the news articles was positive, and conversely the stock price of Tesla was decreasing when the sentiment of the news article was negative. This finding proves that financial news media have relation with the stock market. However, during November of 2022, I could analyze the different relation with the sentiment graph and the movement of Tesla stock. In November the news sentiment was positive, but the stock price was decreasing, but only for that period, however after the January of 2023, Tesla stock skyrocketed from $113 to $208 gaining over 85% in the short span of a month. This result can be analyzed that it further proves my initial claim that traditional news articles such as financial news, news articles and earning report not only influence the stock market, but also long-term investment strategies in the US stock market.</p>
+        <p>While traditional media influence the sentiment of the stock market, social media also does influence the sentiment of the stock market. In fact, social media has given rise to a new class of influencers who shape the market sentiments through unconventional means. Generally, these influencers lack formal training in finance but command a large followings of retail investors across platforms like Twitter and Reddit. Many of the influencers rely on emotion manipulation creating hype and Fear of Missing out (FOMO) effect among audience, rather than relying on expertise and knowledge. The claim made in the posts of the influencers often lack credibility, but make a bold, attention-grabbing claims because they have a large number of followers who are easily influenced by the decisions of them and path they follow. For example, back in 2018 when Kylie Jenner famously tweeted her displeasure with the recent snapchat update, Snapchat Inc (SNAP) lost $1.3 Billion in market capitalization overnight (Smith and O'Hare 2). In 2020, when Elon Musk tweeted, “Tesla stock price is too high imo” and that single tweet wiped out nearly $15 billion, or 12% of Tesla Inc (TSLA) market valuation in a day (Smith and O'Hare 2). Similarly, back in 2013, when a hacked Associate Press News account tweeted the false news that President Barack Obama had been injured in an explosion at the White house, it wiped out $135.5 billion of market capitalization of the Dow Jones Industrial Average and the S&P 500 index (Smith and O'Hare 2). These findings show the relation between tweets from influencers and stock market performance, especially for short period of time. Research conducted on the previous president Trump's impact on ten publicly traded companies between November 2016 and January 2017 also found out that, “A positive content in the tweet elicited positive abnormal returns in the company, and negative content prompted negative abnormal returns. The effect lasted less than one day for the most part and that within 5 days, there was no significant effect. The tweets led to an increase in Google search activity around the company, as well as an increase in volume of trading” (Smith and O'Hare 2). This is a very important finding that also support my paper. The author of the paper speculated that the tweet may have led the small retail traders to react to the president's tweet of that time and also the impact was short term and also acknowledges that the larger traders, such as private equity funds or hedge funds, would see the tweet but not consider it important. The paper also found out some interesting findings about the Trump's tweets during his president tenure. The tweet where he mentioned 58 companies before and after his election showed no significant effect on the stock price (Smith and O'Hare 3). However, the tweet affected the exchange rate between the Russian ruble and US dollar. The tweet also had also strong negative impact when the sentiment of the tweet was negative, but there was no impact when the tweets were positive (Smith and O'Hare 3). This finding from the paper also somewhat proves that social media sometimes (not always but depending on condition) influence the short-term stock market fluctuations.</p>
+        <p>There is a complex and uncertain relation between tweets in Twitter and stock market performance, but researchers found out that if they could analyze the behavior and sentiment of people from the tweet, then they could somewhat accurately predict or analyze the impact of it on the financial market. They found out that when the sentiment among the twitter users were calm, then the data could help predict the stock market changes accurately for 2-6 days (Smith and O'Hare 3). The researchers also claim in their paper that dataset they are taking to train their models will also impact the result of the impact. However, the world most powerful asset management company, JP Morgan, claims that market reacts to tweets containing certain key words, such as ‘China', ‘Billion' and ‘Democrats' (Smith and O'Hare 4). This statement claims that by analyzing the collective sentiment of users, it is possible to gain valuable insights into the potential impact on the stock market. And also, the use of machine learning models and sentiment analysis has the potential to provide investors and financial analysts with valuable tools to predict stock market movements more accurately and respond proactively.</p>
+        <p>To understand the impact of social media, especially the tweets, I have also used machine learning model and sentiment analysis for a period of one year (January 2022 to December 2022) in my research. Initially, I collected a dataset containing all the tweets from Elon Musk for the year 2022 on Kaggle (a database popular for web scraping), but the data was limited to October only. Then I used library of python programming language, Arabica, for sentiment analysis of the tweets from Elon Musk. Arabica is a python library for exploratory data analysis specifically designed for the time sentiment text data, which I used to accurately trace graph based on data for my research. But the data from my result was not what I expected or say what I expected before the staring of this research essay. My data showed that the sentiment of Elon's tweet had negative relation with the performance of Tesla in the stock market, for the year 2022. In simple words, share price of Tesla decreased when Elon said something indicating positivity in Twitter (X) and vice versa. The data from my study showed that at the starting of the year 2022, Musk's tweet sentiments were positive, but conversely Tesla stock was decreasing since the beginning of 2022 to near April. Elon's tweet sentiment was most positive during the July of 2022 (data only recorded for entire 2022 year), where the Tesla stock was lower than average. But after October of 2022, the graph of sentiment was exponentially decreasing, but at the same time, Tesla stock price was also decreasing. I think it was because, I didn't have enough data related to Elon's tweet for the month of November and December of 20222 at the time while I was training the model. I think my result was converse also because my model was trained on dataset for all the tweets of Elon Musk, while in the case of News, I filtered out just the financial news related to Tesla and Elon Musk.</p>
+        <p>To understand the impact of traditional news media and social media through different point of view and more accurately, I also decided to conduct a survey regarding the investment decisions based on traditional news and Twitter among general participants. After getting the data from sentiment analysis of tweets from Elon Musk, the result from the survey didn't surprise me. Even though the result showed completely different from what I initially assumed for the influence of social media, it had similar result with that of graph that I got from sentiment analysis through using Machine Learning. The survey showed that on average, the people would less likely, 3.5 (on scale of 1-10, 10 being most likely) buy Tesla stock if Elon tweets to buy it. Initially I assumed that people would buy a stock if that company CEO tweeted to buy it or show positive sentiment through social media posts, which is also not completely false because an article from Harvard Business Review also claims similar argument, “CEOs' observed personality traits do have important consequences for their firms' stock volatility (i.e., risk) and shareholder returns” (Harrison et al.). Which also claims that CEO's sentiment in the social media influence the stock market. But the article also found out that “For the firms of highly extroverted CEOs, there was a negative relationship between stock risk and shareholder returns” (Harrison et al.). If Elon is considered as an extroverted then this data is not entirely false, in fact the finding from the survey supports the data that I obtained from doing sentiment analysis. But the other result, from the survey, about the traditional news media, it was also supporting my claim that news does influence the stock market long term performance of the stock market and have positive relation with the stock price, where the participant voted 6 (on the scale of 1-10, 10 being most likely) for question how likely are you to buy Tesla stock if you see some news article mentioning Tesla introducing a upgraded version of Full Self-Driving (FSD). This data shows that on average, the participant is more likely to buy Tesla stock based on positive sentiment of the news related to Tesla. The data from the sentiment analysis and survey narrows down to a same argument that traditional news media does influence the stock market in making investment decision. In my survey I also asked the participant to rate the credibility of financial news outlets such as The Wall Street Journal, New York times, CNBC and social media such as Twitter and Reddit. The result shows that on the scale of 1 to 10 (10 being most credible), on average participant found the news source to be above average credible being 5.96. Whereas, in case for credibility of news obtained from social media, they found the news less credible than average with credibility score of 3.9. The research survey also showed that 85.7% of the participant found the traditional news sources (Newspaper, News Channels and earning reports) more information for making long term investment decision in the stock market.</p>
+        <p>Narrowing down everything, this research highlights the complex interplay between news media, social media and the financial market, revealing the intertwined influences they exert in the investor's behavior and stock market performance. While established financial news outlets, with their focus on the in-depth analysis and market fundamentals, guide long term investment strategies, the rapid and often emotionally influencing nature of the social media primarily impacts short term stock price fluctuations, but that also depends upon type of stock and influencers. The rise of social media and its impact on financial market is a serious mushroom problem in today's fast paced world. Investors, especially the retail traders, should be able to differentiate the credible information from hype and misinformation created in the social media so that to take informed financial decision in the stock market. The application of sentiment analysis in this research also demonstrates the potential as a valuable tool for analyzing market sentiment and predicting potential trend in the stock market. By analyzing the collective emotions and opinions expressed in news articles and tweets, I also gained valuable insights into the psychological factors driving investors behavior. While the relation between news sentiment, social media sentiment and stock performance is not always corresponding and true, the data and findings from the sentiment analysis can be coupled with other indicators to potentially develop an accurate stock predictive model and enhance our stock market understanding in near future. After completing of this research, I was also able to create a dataset containing scrapped data of financial news related to Tesla and Elon Musk and publish in one of the most popular open-source platforms for data science community, Kaggle. I also hope to refine and retrain the data using new and complete latest dataset and hopefully publish my research paper to entire Finance, Data Science and Machine Learning community in near future.</p>
       </article>
-    </section>
+    </main>
 
-    <footer>
-      <p>&copy; <span id="datee">2026</span> Saleep Shrestha. All rights reserved.</p>
-      <div class="socials">
-        <a href="https://github.com/Saleep24/" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/saleepshrestha/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.kaggle.com/saleepshrestha" target="_blank"><i class="fab fa-kaggle"></i></a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-name">Saleep Shrestha</p>
+          <p><a href="mailto:info@saleepshrestha.com.np">info@saleepshrestha.com.np</a></p>
+        </div>
+        <div class="footer-col">
+          <p>Site</p>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Writing</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p>Elsewhere</p>
+          <a href="https://github.com/Saleep24/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/saleepshrestha/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.kaggle.com/saleepshrestha" target="_blank" rel="noopener">Kaggle</a>
+        </div>
+        <div class="footer-col">
+          <p>Files</p>
+          <a href="assets/Saleep Shrestha resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+      <div class="footer-stage">
+      <svg class="footer-art" viewBox="0 0 1440 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <pattern id="hatch" width="1" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#1534C9" opacity="0.55"></rect></pattern>
+            <pattern id="water" width="64" height="10" patternUnits="userSpaceOnUse"><rect width="36" height="1" fill="#E6ECFF" opacity="0.4"></rect><rect x="40" y="5" width="18" height="1" fill="#E6ECFF" opacity="0.25"></rect></pattern>
+          </defs>
+          <path d="M0 262 L110 228 L190 244 L290 196 L360 214 L430 176 L520 192 L600 150 L650 168 L700 128 L735 110 L760 134 L800 96 L830 124 L870 108 L920 140 L1000 118 L1080 156 L1160 132 L1240 168 L1320 146 L1440 176 L1440 440 L0 440 Z" fill="#4F6BE8"></path>
+          <path d="M0 304 L80 290 L170 300 L250 262 L340 284 L440 254 L530 276 L640 240 L720 262 L820 236 L900 258 L1000 230 L1100 262 L1200 244 L1300 268 L1380 250 L1440 262 L1440 440 L0 440 Z" fill="#9FB3F5"></path>
+          <path d="M0 348 L100 334 L200 346 L300 326 L420 342 L520 320 L640 338 L760 318 L880 336 L1000 316 L1120 334 L1240 318 L1360 332 L1440 322 L1440 440 L0 440 Z" fill="#E6ECFF"></path>
+          <rect x="0" y="96" width="1440" height="284" fill="url(#hatch)"></rect>
+          <rect x="0" y="372" width="1440" height="68" fill="#1534C9"></rect>
+          <rect x="0" y="376" width="1440" height="60" fill="url(#water)"></rect>
+          <path d="M612 352 L628 344 L644 352" fill="none" stroke="#1534C9" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M560 338 L572 332 L584 338" fill="none" stroke="#1534C9" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1040 216 L1050 210 L1060 216" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1076 204 L1084 199 L1092 204" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1008 230 L1016 225 L1024 230" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <p class="footer-wordmark" aria-hidden="true">saleep</p>
       </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="js/script.js"></script>
   </body>
-</html> 
+</html>
