@@ -901,12 +901,14 @@ body {
   font-size: 15px;
 }
 
-.footer-col a {
+.footer-col a,
+.footer-brand a {
   color: rgba(230, 236, 255, 0.78);
   transition: color 1s ease;
 }
 
-.footer-col a:hover {
+.footer-col a:hover,
+.footer-brand a:hover {
   color: #fff;
 }
 
@@ -955,10 +957,12 @@ body {
 }
 
 .site-footer[data-variant="wordmark"] .footer-brand p:not(.footer-name),
+.site-footer[data-variant="wordmark"] .footer-brand a,
 .site-footer[data-variant="wordmark"] .footer-col a {
   color: var(--ink-2);
 }
 
+.site-footer[data-variant="wordmark"] .footer-brand a:hover,
 .site-footer[data-variant="wordmark"] .footer-col a:hover {
   color: var(--ink);
 }
