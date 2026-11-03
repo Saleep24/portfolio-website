@@ -59,9 +59,7 @@ body {
   padding: 28px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px 32px;
-  flex-wrap: wrap;
+  gap: 32px;
   transition: padding 0.3s ease;
 }
 
@@ -95,8 +93,18 @@ body {
   display: flex;
   align-items: center;
   gap: 28px;
-  flex-wrap: wrap;
+  margin-left: auto;
   font-size: 15px;
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-actions a.site-nav-button {
+  color: var(--ink);
 }
 
 .site-nav a {
@@ -321,19 +329,50 @@ body {
     padding-right: 20px;
   }
   .site-header-inner {
-    padding-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name actions" "nav nav";
+    gap: 12px 16px;
+    padding-top: 14px;
     padding-bottom: 12px;
   }
   .site-header.is-scrolled .site-header-inner {
     padding-top: 10px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
+  }
+  .site-name {
+    grid-area: name;
+    min-width: 0;
+  }
+  .site-actions {
+    grid-area: actions;
+  }
+  .site-nav {
+    grid-area: nav;
+    margin: 0;
+    gap: 20px;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .site-nav-button,
+  .theme-toggle {
+    height: 36px;
+  }
+  .site-nav-button {
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  .theme-toggle {
+    width: 36px;
   }
   .chapter,
   #contact {
     scroll-margin-top: 96px;
-  }
-  .site-nav {
-    gap: 18px;
   }
   .logo-row {
     gap: 28px;
