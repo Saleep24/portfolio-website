@@ -43,8 +43,8 @@ body {
   z-index: 50;
   width: 100%;
   background: color-mix(in srgb, var(--canvas) 72%, transparent);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease;
 }
@@ -56,16 +56,10 @@ body {
 .site-header-inner {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 28px 40px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   gap: 32px;
-  transition: padding 0.3s ease;
-}
-
-.site-header.is-scrolled .site-header-inner {
-  padding-top: 14px;
-  padding-bottom: 14px;
 }
 
 .chapter,
@@ -366,10 +360,6 @@ body {
     gap: 0 12px;
     padding-top: 12px;
     padding-bottom: 12px;
-  }
-  .site-header.is-scrolled .site-header-inner {
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
   .site-name {
     min-width: 0;
