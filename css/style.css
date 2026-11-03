@@ -796,9 +796,27 @@ img, svg, video {
     font-size: 20px;
   }
   .more {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 16px;
     padding-top: 24px;
+  }
+  .more article {
+    gap: 6px;
+    padding: 18px 0;
+  }
+  .more img {
+    height: 110px;
+    margin-bottom: 4px;
+  }
+  .more h3 {
+    font-size: 15px;
+  }
+  .more p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .more a {
+    font-size: 14px;
   }
 }
 
