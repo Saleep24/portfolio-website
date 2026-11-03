@@ -15,7 +15,7 @@ Open http://localhost:8000.
 ```
 index.html         home page: hero, experience, projects, recognition, writing, contact
 blog.html          list of posts
-blog-post-*.html   one file per post
+blog-post1.html    one file per post, numbered
 css/style.css      all styles; design tokens are the :root block at the top
 js/script.js       theme toggle, phone menu, contact form, video autoplay, footer crossfade
 assets/            headshot, logos, badges, certificates, resume, demo videos with poster frames

@@ -1,26 +1,27 @@
 const toggleSwitch = document.querySelector("#switch");
-const savedTheme = localStorage.getItem("theme");
-document.documentElement.setAttribute("data-theme", savedTheme || "dark");
-toggleSwitch.checked = (savedTheme || "dark") === "dark";
-toggleSwitch.addEventListener("change", () => {
-  const theme = toggleSwitch.checked ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-});
+if (toggleSwitch) {
+  toggleSwitch.checked = document.documentElement.dataset.theme !== "light";
+  toggleSwitch.addEventListener("change", () => {
+    const theme = toggleSwitch.checked ? "dark" : "light";
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  });
+}
 
 const siteHeader = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-button");
-const setMenu = (open) => {
-  siteHeader.classList.toggle("menu-open", open);
-  menuButton.setAttribute("aria-expanded", String(open));
-};
-menuButton.addEventListener("click", () => setMenu(!siteHeader.classList.contains("menu-open")));
-siteHeader.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
-document.addEventListener("keydown", (event) => { if (event.key === "Escape") setMenu(false); });
-
-const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+if (siteHeader && menuButton) {
+  const setMenu = (open) => {
+    siteHeader.classList.toggle("menu-open", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+  };
+  menuButton.addEventListener("click", () => setMenu(!siteHeader.classList.contains("menu-open")));
+  siteHeader.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") setMenu(false); });
+  const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -45,13 +46,21 @@ if (contactForm) contactForm.addEventListener("submit", async (event) => {
 const tileVideos = [...document.querySelectorAll(".tile video")];
 if (tileVideos.length && !reduceMotion) {
   const inView = new Set();
+  const userPaused = new Set();
   let hovered = null;
+  let scripted = false;
   const sync = () => {
+    scripted = true;
     tileVideos.forEach((video) => {
-      const shouldPlay = hovered ? video === hovered : inView.has(video);
+      const shouldPlay = (hovered ? video === hovered : inView.has(video)) && !userPaused.has(video);
       if (shouldPlay) video.play().catch(() => {}); else video.pause();
     });
+    scripted = false;
   };
+  tileVideos.forEach((video) => {
+    video.addEventListener("pause", () => { if (!scripted && !video.ended) userPaused.add(video); });
+    video.addEventListener("play", () => { if (!scripted) userPaused.delete(video); });
+  });
   const watcher = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) inView.add(entry.target); else inView.delete(entry.target);
@@ -69,10 +78,9 @@ if (tileVideos.length && !reduceMotion) {
 }
 
 const footer = document.querySelector(".site-footer");
-footer.dataset.variant = "art";
-if (!reduceMotion) {
+if (footer && !reduceMotion) {
   let timer;
-  const flip = () => { footer.dataset.variant = footer.dataset.variant === "art" ? "wordmark" : "art"; };
+  const flip = () => { footer.dataset.variant = footer.dataset.variant === "wordmark" ? "art" : "wordmark"; };
   new IntersectionObserver((entries) => {
     clearInterval(timer);
     if (entries[0].isIntersecting) timer = setInterval(flip, 6000);

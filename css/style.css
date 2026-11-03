@@ -54,11 +54,6 @@ img, svg, video {
   max-width: 100%;
 }
 
-.chapter-first {
-  padding-top: 48px;
-  padding-bottom: 120px;
-}
-
 .prose {
   max-width: 720px;
   margin: 0 auto;
@@ -101,6 +96,7 @@ img, svg, video {
   top: 0;
   z-index: 50;
   width: 100%;
+  background: var(--canvas);
   background: color-mix(in srgb, var(--canvas) 72%, transparent);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -121,8 +117,7 @@ img, svg, video {
   gap: 32px;
 }
 
-.chapter,
-#contact {
+.chapter {
   scroll-margin-top: 72px;
 }
 
@@ -154,10 +149,6 @@ img, svg, video {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.site-actions a.site-nav-button {
-  color: var(--ink);
 }
 
 .menu-button,
@@ -337,8 +328,9 @@ img, svg, video {
 
 .hero-figure img {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: min(400px, 100%);
+  aspect-ratio: 1;
+  height: auto;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -371,9 +363,7 @@ img, svg, video {
   filter: grayscale(1);
 }
 
-.logo-row .logo-dark-ink { filter: grayscale(1); }
-[data-theme="dark"] .logo-row .logo-dark-ink { filter: grayscale(1) invert(1); }
-[data-theme="dark"] .logo-row .logo-dark-ink { mix-blend-mode: screen; }
+[data-theme="dark"] .logo-row .logo-dark-ink { filter: grayscale(1) invert(1); mix-blend-mode: screen; }
 .logo-row .logo-light-ink { height: 64px; filter: grayscale(1) invert(1); }
 [data-theme="dark"] .logo-row .logo-light-ink { filter: grayscale(1); }
 .logo-row .logo-green { height: 56px; filter: grayscale(1) brightness(0.45); }
@@ -400,7 +390,6 @@ img, svg, video {
   }
   .hero-figure img {
     width: 260px;
-    height: 260px;
   }
   .hero-actions .button-primary,
   .hero-actions .button-quiet {
@@ -475,8 +464,7 @@ img, svg, video {
   .theme-toggle {
     width: 36px;
   }
-  .chapter,
-  #contact {
+  .chapter {
     scroll-margin-top: 96px;
   }
   .logo-row {
@@ -523,8 +511,8 @@ img, svg, video {
   margin: 0;
 }
 
-.entry-dates {
-  margin-top: 4px !important;
+.entry .entry-dates {
+  margin-top: 4px;
   font-size: 14px;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
@@ -1059,12 +1047,12 @@ img, svg, video {
   transition: color 1s ease;
 }
 
-.footer-name,
-.footer-col p {
+.site-footer .footer-name,
+.site-footer .footer-col > p {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 12px !important;
+  margin-bottom: 12px;
 }
 
 .footer-brand p:not(.footer-name) {
@@ -1203,6 +1191,11 @@ img, svg, video {
     font-size: 110px;
     bottom: -0.18em;
   }
+}
+
+.chapter.chapter-first {
+  padding-top: 48px;
+  padding-bottom: 120px;
 }
 
 @keyframes menu-in {
