@@ -48,9 +48,8 @@ if (currentTheme) {
   toggleSwitch.checked = currentTheme === "dark";
 } else {
 
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-  toggleSwitch.checked = prefersDark;
+  document.documentElement.setAttribute("data-theme", "dark");
+  toggleSwitch.checked = true;
 }
 
 
@@ -92,6 +91,32 @@ if (siteHeader) {
   const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+}
+
+const tileVideos = [...document.querySelectorAll(".tile video")];
+if (tileVideos.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const inView = new Set();
+  let hovered = null;
+  const sync = () => {
+    tileVideos.forEach((video) => {
+      const shouldPlay = hovered ? video === hovered : inView.has(video);
+      if (shouldPlay) video.play().catch(() => {}); else video.pause();
+    });
+  };
+  const watcher = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) inView.add(entry.target); else inView.delete(entry.target);
+    });
+    sync();
+  }, { threshold: 0.5 });
+  tileVideos.forEach((video) => watcher.observe(video));
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    tileVideos.forEach((video) => {
+      const tile = video.closest(".tile");
+      tile.addEventListener("mouseenter", () => { hovered = video; sync(); });
+      tile.addEventListener("mouseleave", () => { hovered = null; sync(); });
+    });
+  }
 }
 
 const footer = document.querySelector(".site-footer");
