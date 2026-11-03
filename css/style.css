@@ -739,10 +739,15 @@ img, svg, video {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  object-position: center;
   border-radius: 10px;
   border: 1px solid var(--line);
   background: #fff;
   margin-bottom: 8px;
+}
+
+.more img.fit-top {
+  object-position: top;
 }
 
 .more h3 {
