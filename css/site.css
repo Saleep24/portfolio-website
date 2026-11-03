@@ -202,14 +202,11 @@ body {
 .hero {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 24px 40px 48px;
-  min-height: calc(100svh - 96px);
-  box-sizing: border-box;
+  padding: 72px 40px 48px;
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 32px;
   align-items: center;
-  align-content: center;
 }
 
 .hero h1 {
@@ -292,7 +289,7 @@ body {
 .logo-strip {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 40px 40px 0;
+  padding: 24px 40px 0;
 }
 
 .logo-strip p {
@@ -333,31 +330,20 @@ body {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 12px 20px 28px;
-    min-height: calc(100svh - 64px);
-  }
-  .hero h1 {
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 18px;
-  }
-  .hero-actions {
-    padding-top: 20px;
+    padding: 24px 20px 32px;
   }
   .hero-figure {
     order: -1;
-    min-height: 240px;
+    min-height: 300px;
   }
   .hero-figure::before {
-    width: 280px;
-    height: 280px;
-    margin: -140px 0 0 -140px;
+    width: 320px;
+    height: 320px;
+    margin: -160px 0 0 -160px;
   }
   .hero-figure img {
-    width: 220px;
-    height: 220px;
+    width: 260px;
+    height: 260px;
   }
   .hero-actions .button-primary,
   .hero-actions .button-quiet {
