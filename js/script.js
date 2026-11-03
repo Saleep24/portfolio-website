@@ -1,7 +1,7 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", mobileMenu);
+if (hamburger) hamburger.addEventListener("click", mobileMenu);
 function mobileMenu() {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
@@ -16,7 +16,7 @@ function closeMenu() {
 }
 
 
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const toggleSwitch = document.querySelector('#switch');
 
 
 function switchTheme(e) {
@@ -48,8 +48,9 @@ if (currentTheme) {
   toggleSwitch.checked = currentTheme === "dark";
 } else {
 
-  document.documentElement.setAttribute("data-theme", "light");
-  toggleSwitch.checked = false;
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+  toggleSwitch.checked = prefersDark;
 }
 
 
