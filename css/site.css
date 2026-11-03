@@ -334,8 +334,8 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 200px 340px minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: 440px minmax(0, 1fr);
+  gap: 48px;
   padding: 32px 0;
   border-top: 1px solid var(--line);
 }
@@ -349,15 +349,10 @@ body {
 }
 
 .entry-dates {
-  font-size: 15px;
+  margin-top: 4px !important;
+  font-size: 14px;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
-}
-
-.entry-when {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .entry-role {
