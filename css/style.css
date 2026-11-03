@@ -680,7 +680,7 @@ img, svg, video {
   height: 420px;
   object-fit: cover;
   border-radius: 10px;
-  background: #000;
+  background: var(--surface) center / cover no-repeat;
 }
 
 .bento-row:not(.bento-row-lead) video {
