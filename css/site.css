@@ -207,9 +207,9 @@ body {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 7fr 5fr;
+  grid-template-rows: 1fr auto;
   gap: 32px;
   align-items: center;
-  align-content: center;
 }
 
 .hero h1 {
@@ -290,9 +290,9 @@ body {
 }
 
 .logo-strip {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 40px 40px 0;
+  grid-column: 1 / -1;
+  align-self: end;
+  padding-top: 24px;
 }
 
 .logo-strip p {
@@ -332,40 +332,53 @@ body {
 
 @media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    padding: 12px 20px 28px;
+    padding: 12px 20px 0;
     min-height: calc(100svh - 64px);
   }
+  .logo-strip {
+    margin-top: auto;
+    padding-top: 22px;
+  }
+  .logo-strip p {
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .logo-row {
+    padding-bottom: 20px;
+  }
   .hero h1 {
-    margin-bottom: 16px;
+    font-size: 38px;
+    margin-bottom: 14px;
   }
   .hero p {
-    font-size: 18px;
+    font-size: 17px;
   }
   .hero-actions {
-    padding-top: 20px;
+    padding-top: 18px;
+    gap: 10px;
   }
   .hero-figure {
     order: -1;
-    min-height: 240px;
+    min-height: 190px;
   }
   .hero-figure::before {
-    width: 280px;
-    height: 280px;
-    margin: -140px 0 0 -140px;
+    width: 260px;
+    height: 260px;
+    margin: -130px 0 0 -130px;
   }
   .hero-figure img {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
   .hero-actions .button-primary,
   .hero-actions .button-quiet {
     flex: 1 1 100%;
     justify-content: center;
   }
-  .site-header-inner,
-  .logo-strip {
+  .site-header-inner {
     padding-left: 20px;
     padding-right: 20px;
   }
