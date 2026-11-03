@@ -77,6 +77,13 @@ if (contactForm) contactForm.addEventListener("submit", async function (event) {
   button.disabled = false;
 });
 
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
 const footer = document.querySelector(".site-footer");
 if (footer) {
   footer.dataset.variant = "art";

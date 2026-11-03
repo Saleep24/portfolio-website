@@ -38,7 +38,19 @@ body {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   width: 100%;
+  background: color-mix(in srgb, var(--canvas) 72%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--line);
 }
 
 .site-header-inner {
@@ -50,6 +62,17 @@ body {
   justify-content: space-between;
   gap: 24px 32px;
   flex-wrap: wrap;
+  transition: padding 0.3s ease;
+}
+
+.site-header.is-scrolled .site-header-inner {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.chapter,
+#contact {
+  scroll-margin-top: 72px;
 }
 
 .site-name {
@@ -298,8 +321,16 @@ body {
     padding-right: 20px;
   }
   .site-header-inner {
-    padding-top: 20px;
+    padding-top: 16px;
     padding-bottom: 12px;
+  }
+  .site-header.is-scrolled .site-header-inner {
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+  .chapter,
+  #contact {
+    scroll-margin-top: 96px;
   }
   .site-nav {
     gap: 18px;
