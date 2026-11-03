@@ -482,13 +482,14 @@ body {
   flex-grow: 2;
 }
 
-.tile:hover {
-  flex-grow: 2;
-  border-color: var(--line-strong);
-}
-
-.bento-row:not(.bento-row-lead) .tile:hover {
-  flex-grow: 1.5;
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover {
+    flex-grow: 2;
+    border-color: var(--line-strong);
+  }
+  .bento-row:not(.bento-row-lead) .tile:hover {
+    flex-grow: 1.5;
+  }
 }
 
 .tile video {
