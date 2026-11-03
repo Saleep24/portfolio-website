@@ -1,15 +1,39 @@
 const featuredProjects = [
   {
+    id: "mrgrammar",
+    title: "MrGrammar",
+    subtitle: "Creator · Chrome Extension · Mar 2025 - Present",
+    description:
+      "A Manifest V3 Chrome extension that corrects selected text in place across Gmail, Outlook, Slack, LinkedIn, and Google Docs. A serverless proxy on Vercel keeps API keys off the client, calls Gemini with automatic Groq fallback, and enforces rate limits with Upstash Redis. Rejects unknown origins, fails closed, and inserts model output only as text, with automated tests.",
+    imageSrc: "assets/project/mrgrammar.png",
+    videoSrc: "assets/project/Mr%20Grammar.mov",
+    isVideoEmbed: false,
+    mediaClickLink: "https://chromewebstore.google.com/detail/jpecnjmadbehcdpnlfdoobfbohajpdel?utm_source=item-share-cb",
+    tech: ["JavaScript", "Chrome Extension", "Gemini API", "Vercel", "Redis"],
+    links: [
+      {
+        label: "Chrome Web Store",
+        href: "https://chromewebstore.google.com/detail/jpecnjmadbehcdpnlfdoobfbohajpdel?utm_source=item-share-cb",
+        icon: "fab fa-chrome"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Saleep24/MrGrammar",
+        icon: "fab fa-github"
+      }
+    ]
+  },
+  {
     id: "h4d-recruit-vision",
     title: "Hacking For Defense",
-    subtitle: "US Marine Corps · Developer · Researcher",
+    subtitle: "US Marine Corps · Team Lead · Data Engineer · Jan - May 2025",
     description:
-      "Developed a GIS-based congressional district mapping system for the U.S. Marine Corps that automatically geocodes addresses, assigns recruits to districts, and visualizes trends for planning. It helps the Congress analyze territories and allocate resources more efficiently.",
+      "Led a Hacking for Defense team for the U.S. Marine Corps, running 90+ stakeholder interviews across the USMC, US Army, the Pentagon, Esri, and Palantir to turn recruiting workflow bottlenecks into an MVP. Engineered a Python ETL geospatial pipeline with Census TIGER shapefiles, Bing Maps, and ArcGIS that geocodes 30,000+ recruit addresses and aligns them with congressional districts, automating district-level reports for Congress and Power BI dashboards used by the Marine Corps.",
     imageSrc: ["assets/project/H4D.jpeg", "assets/project/saleep%20tank.jpeg"],
-    videoSrc: null, // Showing image only in the card
+    videoSrc: null,
     modalVideoSrc: "assets/project/RecruitVisionJourney.mp4",
     isVideoEmbed: false,
-    tech: ["Python", "GIS", "Data Analysis", "Mapping"],
+    tech: ["Python", "ETL", "ArcGIS", "Power BI"],
     links: [
       {
         label: "Journey Video",
@@ -20,44 +44,6 @@ const featuredProjects = [
         label: "LinkedIn",
         href: "https://www.linkedin.com/posts/saleepshrestha_h4d-ds4d-marinecorps-activity-7323896829975158784-xP4_?utm_source=share&utm_medium=member_desktop&rcm=ACoAADHtAuQBp2ES-2cY5NApH-x2JX4tc4fkCFE",
         icon: "fab fa-linkedin"
-      }
-    ]
-  },
-  {
-    id: "exium",
-    title: "Exium",
-    subtitle: "Co-founder · Full-stack Dev",
-    description:
-      "Built a modern proctoring and learning-gamification platform that helps students study smarter while ensuring academic integrity. The system offers secure exam monitoring, AI-driven feedback, and engaging game-style learning tools to improve performance and motivation.",
-    imageSrc: "assets/project/Exium-logo.jpeg",
-    videoSrc: "assets/project/Exium%20Demo%20Video.mp4",
-    modalVideoSrc: "assets/project/Exium%20Demo%20Video.mp4",
-    isVideoEmbed: false,
-    tech: ["React", "Node.js", "TypeScript", "Cloud"],
-    links: [
-      {
-        label: "View Demo",
-        action: "modal",
-        icon: "fas fa-play-circle"
-      }
-    ]
-  },
-  {
-    id: "mrgrammar",
-    title: "MrGrammar",
-    subtitle: "AI Grammar Agent · Chrome Extension",
-    description:
-      "A lightweight browser extension that fixes grammar and polishes text with one-click using OpenAI’s latest models. Works with Linkedin, Gmail, Slack, Google Docs, Word and many more",
-    imageSrc: "assets/project/mrgrammar.png",
-    videoSrc: "assets/project/Mr%20Grammar.mov",
-    isVideoEmbed: false,
-    mediaClickLink: "https://chromewebstore.google.com/detail/jpecnjmadbehcdpnlfdoobfbohajpdel?utm_source=item-share-cb",
-    tech: ["JavaScript", "Chrome Extension", "OpenAI API"],
-    links: [
-      {
-        label: "Chrome Web Store",
-        href: "https://chromewebstore.google.com/detail/jpecnjmadbehcdpnlfdoobfbohajpdel?utm_source=item-share-cb",
-        icon: "fab fa-chrome"
       }
     ]
   },
@@ -75,6 +61,25 @@ const featuredProjects = [
     links: [
       {
         label: "Watch Demo",
+        action: "modal",
+        icon: "fas fa-play-circle"
+      }
+    ]
+  },
+  {
+    id: "exium",
+    title: "Exium",
+    subtitle: "Co-founder · Full-stack Dev",
+    description:
+      "Built a modern proctoring and learning-gamification platform that helps students study smarter while ensuring academic integrity. The system offers secure exam monitoring, AI-driven feedback, and engaging game-style learning tools to improve performance and motivation.",
+    imageSrc: "assets/project/Exium-logo.jpeg",
+    videoSrc: "assets/project/Exium%20Demo%20Video.mp4",
+    modalVideoSrc: "assets/project/Exium%20Demo%20Video.mp4",
+    isVideoEmbed: false,
+    tech: ["React", "Node.js", "TypeScript", "Cloud"],
+    links: [
+      {
+        label: "View Demo",
         action: "modal",
         icon: "fas fa-play-circle"
       }

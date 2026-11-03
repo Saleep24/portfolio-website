@@ -55,7 +55,7 @@ if (currentTheme) {
 
 const myDate = document.querySelector("#datee");
 const currentYear = new Date().getFullYear();
-myDate.innerHTML = currentYear;
+if (myDate) myDate.innerHTML = currentYear;
 
 
 const contactForm = document.getElementById("contactForm");
@@ -63,7 +63,7 @@ const submitLoader = document.getElementById("submit-loader");
 const successMessage = document.getElementById("message-success");
 const warningMessage = document.getElementById("message-warning");
 
-contactForm.addEventListener("submit", function (event) {
+if (contactForm) contactForm.addEventListener("submit", function (event) {
   event.preventDefault();
   submitLoader.style.display = "block";
   successMessage.style.display = "none";
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 
-    typeWord(words[0]);
+    if (document.getElementById('typing-text')) typeWord(words[0]);
 });
 
 
@@ -541,7 +541,7 @@ function positionBubble(bubble, container, allBubbles) {
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.projects-section');
   let scrollPosition = window.pageYOffset;
-  parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+  if (parallax) parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
 });
 
 document.querySelectorAll('.project-card').forEach(card => {
@@ -559,7 +559,7 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-document.querySelector('.close').addEventListener('click', function() {
+document.querySelector('.close')?.addEventListener('click', function() {
   document.getElementById('projectModal').style.display = 'none';
 });
 
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const subjectError = document.getElementById('subjectError');
   const messageError = document.getElementById('messageError');
 
-  form.addEventListener('submit', function(event) {
+  if (form) form.addEventListener('submit', function(event) {
     let valid = true;
 
 
@@ -670,19 +670,3 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 500); 
 });
 
-
-// Lenis Smooth Scroll
-console.log("Lenis: Initializing with custom settings...");
-const lenis = new Lenis({
-  lerp: 0.07, // Lower values create a smoother, more 'floaty' scroll
-  smoothWheel: true, // Enables smooth scrolling for mouse wheel events
-});
-console.log("Lenis: Instance created:", lenis);
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-console.log("Lenis: Animation frame loop started.");
