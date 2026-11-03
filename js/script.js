@@ -78,6 +78,16 @@ if (contactForm) contactForm.addEventListener("submit", async function (event) {
 });
 
 const siteHeader = document.querySelector(".site-header");
+const menuButton = document.querySelector(".menu-button");
+if (siteHeader && menuButton) {
+  const setMenu = (open) => {
+    siteHeader.classList.toggle("menu-open", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+  };
+  menuButton.addEventListener("click", () => setMenu(!siteHeader.classList.contains("menu-open")));
+  siteHeader.querySelectorAll(".site-nav a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") setMenu(false); });
+}
 if (siteHeader) {
   const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
   window.addEventListener("scroll", onScroll, { passive: true });

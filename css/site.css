@@ -107,6 +107,33 @@ body {
   color: var(--ink);
 }
 
+.nav-resume,
+.menu-button {
+  display: none;
+}
+
+.menu-button {
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-close { display: none; }
+.site-header.menu-open .icon-menu { display: none; }
+.site-header.menu-open .icon-close { display: block; }
+
 .site-nav a {
   color: var(--ink-2);
 }
@@ -329,11 +356,11 @@ body {
     padding-right: 20px;
   }
   .site-header-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "name actions" "nav nav";
-    gap: 12px 16px;
-    padding-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 12px;
+    padding-top: 12px;
     padding-bottom: 12px;
   }
   .site-header.is-scrolled .site-header-inner {
@@ -341,23 +368,35 @@ body {
     padding-bottom: 10px;
   }
   .site-name {
-    grid-area: name;
     min-width: 0;
   }
-  .site-actions {
-    grid-area: actions;
+  .site-actions .site-nav-button {
+    display: none;
+  }
+  .menu-button {
+    display: inline-flex;
   }
   .site-nav {
-    grid-area: nav;
-    margin: 0;
-    gap: 20px;
-    font-size: 14px;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-  }
-  .site-nav::-webkit-scrollbar {
     display: none;
+    order: 2;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 12px 0 4px;
+    font-size: 17px;
+  }
+  .site-header.menu-open .site-nav {
+    display: flex;
+    animation: menu-in 0.2s ease;
+  }
+  .site-nav a {
+    padding: 13px 0;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .site-nav .nav-resume {
+    display: block;
   }
   .site-nav-button,
   .theme-toggle {
@@ -1077,6 +1116,11 @@ body {
     font-size: 110px;
     bottom: -0.18em;
   }
+}
+
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
