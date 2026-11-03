@@ -107,9 +107,13 @@ body {
   color: var(--ink);
 }
 
-.nav-resume,
-.menu-button {
+.menu-button,
+.theme-label {
   display: none;
+}
+
+.site-nav .theme {
+  margin-left: -16px;
 }
 
 .menu-button {
@@ -370,9 +374,6 @@ body {
   .site-name {
     min-width: 0;
   }
-  .site-actions .site-nav-button {
-    display: none;
-  }
   .menu-button {
     display: inline-flex;
   }
@@ -395,8 +396,24 @@ body {
     border-top: 1px solid var(--line);
     color: var(--ink);
   }
-  .site-nav .nav-resume {
-    display: block;
+  .site-nav a.site-nav-button {
+    height: auto;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: 13px 0;
+    font-weight: 400;
+    font-size: 17px;
+  }
+  .site-nav .theme {
+    margin: 0;
+    justify-content: space-between;
+    padding: 10px 0 6px;
+    border-top: 1px solid var(--line);
+  }
+  .theme-label {
+    display: inline;
+    color: var(--ink);
   }
   .site-nav-button,
   .theme-toggle {
