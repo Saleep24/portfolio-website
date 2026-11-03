@@ -89,6 +89,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/featured-projects.css" />
+    <link rel="stylesheet" href="css/site.css" />
     
     
 
@@ -114,129 +115,49 @@
     </script>
   </head>
   <body>
-    <header id="hero">
-      <!-- Animated Background -->
-      <div class="hero-background">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="#top">Saleep Shrestha</a>
+        <nav class="site-nav" aria-label="Site">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Writing</a>
+          <a href="#contact">Contact</a>
+          <a class="site-nav-button" href="assets/Saleep Shrestha resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <div class="theme">
+            <input type="checkbox" id="switch">
+            <label class="theme-toggle" for="switch" aria-label="Switch between light and dark">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            </label>
+          </div>
+        </nav>
       </div>
-
-      <nav class="navbar">
-        <div class="container">
-          <h1 id="logo">
-            <a href="#"
-              ><img src="./assets/logo.png" alt="Saleep Shrestha Logo"
-            /></a>
-          </h1>
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="#experience">EXPERIENCE</a></li>
-            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
-            <li><a class="nav-link" href="#blog">BLOG</a></li>
-            <li><a class="nav-link" href="#contact">CONTACT</a></li>
-            <li>
-              <a
-                class="nav-link btn btn-primary"
-                href="assets/Saleep Shrestha resume.pdf"
-                target="_blank"
-                rel="noopener"
-                >RESUME <i class="fas fa-arrow-right"></i
-              ></a>
-            </li>
-
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                <img class="moon" src="assets/moon.svg" />
-                <img class="sun" src="assets/sun.svg" />
-              </label>
-            </div>
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        </div>
-      </nav>
-
-      <section class="header-container">
-        <div class="hero-content">
-          <!-- Enhanced Profile Image -->
-          <div class="profile-container">
-            <div class="profile-glow"></div>
-            <img
-              class="profile-image"
-              src="assets/headshot-saleep.png"
-              alt="Profile Image of Saleep Shrestha"
-            />
-            <div class="profile-ring"></div>
-          </div>
-
-          <!-- Enhanced Typing Section -->
-          <div class="typing-container">
-            <h1>Hi, I'm <span class="highlight">Saleep Shrestha</span></h1>
-            <h2 class="tagline">
-              <span class="tagline-text">Data, Technology and Innovation.</span>
-              <span class="tagline-cursor">|</span>
-            </h2>
-          </div>
-
-          <!-- Redesigned Bio Section -->
-          <div class="bio-modern">
-            <div class="bio-card-minimal">
-              <div class="bio-content">
-                <p class="bio-intro">
-                  Computer science senior at the University of Southern Mississippi (3.97 GPA, Honors Discovery Scholar, 5x President's List) and IBM Z Ambassador, building AI agents, full-stack products, and client-facing tools across startups, healthcare, and research.
-                </p>
-                
-                <div class="bio-highlights">
-                  <div class="highlight-item">
-                    <a href="https://illumibot.ai/" target="_blank" rel="noopener">
-                      <span>Software Engineer (Client-Facing) at illumibot</span>
-                    </a>
-                  </div>
-                  
-                  <div class="highlight-item">
-                    <a href="https://www.linkedin.com/posts/saleepshrestha_ibmz-mainframe-ibmzambassador-activity-7391895439975002112-IXZi?utm_source=share&utm_medium=member_desktop&rcm=ACoAADHtAuQBp2ES-2cY5NApH-x2JX4tc4fkCFE" target="_blank" rel="noopener">
-                      <span>IBM Z Ambassador</span>
-                    </a>
-                  </div>
-                  
-                  <div class="highlight-item">
-                    <span>B.S. Computer Science, Class of 2027</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Enhanced CTA Buttons -->
-          <div class="cta-buttons-modern">
-            <a
-              href="https://www.linkedin.com/in/saleepshrestha/"
-              class="btn-modern btn-primary-modern"
-              target="_blank"
-              rel="noopener"
-            >
-              <span class="btn-text">Connect with Me</span>
-              <div class="btn-shine"></div>
-            </a>
-            <a href="#projects" class="btn-modern btn-secondary-modern">
-              <span class="btn-text">View My Work</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-          <div class="scroll-mouse">
-            <div class="scroll-wheel"></div>
-          </div>
-          <span class="scroll-text">Scroll to explore</span>
-        </div>
-      </section>
     </header>
+
+    <section id="top" class="hero">
+      <div class="hero-text">
+        <h1>I build AI products and the systems behind them.</h1>
+        <p>Software Engineer (Client-Facing) at illumibot and IBM Z Ambassador. Computer science at Southern Miss, class of 2027.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#projects">See projects</a>
+          <a class="button-quiet" href="mailto:info@saleepshrestha.com.np">Email me</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img src="assets/headshot.webp" alt="Saleep Shrestha" width="440" height="440">
+      </div>
+    </section>
+
+    <section class="logo-strip" aria-label="Experience with">
+      <p>Experience with</p>
+      <div class="logo-row">
+        <img class="logo-green" src="assets/experience/illumibot-wordmark.png" alt="illumibot">
+        <img class="logo-dark-ink" src="assets/experience/ibmz.png" alt="IBM Z">
+        <img class="logo-dark-ink" src="assets/experience/usm-logo.png" alt="The University of Southern Mississippi">
+        <span class="logo-word">ArroyoDev</span>
+      </div>
+    </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience-section container">
