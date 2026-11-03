@@ -454,6 +454,142 @@ body {
   }
 }
 
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.tile-8 { grid-column: span 8; }
+.tile-6 { grid-column: span 6; }
+.tile-4 { grid-column: span 4; }
+
+.tile video {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #000;
+}
+
+.tile-6 video {
+  height: 340px;
+}
+
+.tile-4 video {
+  object-position: left center;
+}
+
+.tile-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.tile h3 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.tile p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.tile-links {
+  display: flex;
+  gap: 18px;
+  flex: none;
+  padding-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tile-links a,
+.more a {
+  color: var(--accent);
+}
+
+.more {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 40px;
+}
+
+.more article {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.more h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.more p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.more a {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .tile-8, .tile-6, .tile-4 {
+    grid-column: span 12;
+  }
+  .tile {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .tile video,
+  .tile-6 video {
+    height: 220px;
+  }
+  .tile-text {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tile h3 {
+    font-size: 20px;
+  }
+  .more {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 24px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
