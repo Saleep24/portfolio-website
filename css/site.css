@@ -260,7 +260,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   min-height: 520px;
 }
 
@@ -278,8 +278,8 @@ body {
 
 .hero-figure img {
   position: relative;
-  width: 440px;
-  height: 440px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
   border-radius: 50%;
 }
