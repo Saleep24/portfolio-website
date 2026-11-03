@@ -204,7 +204,7 @@ body {
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 32px;
-  align-items: center;
+  align-items: start;
 }
 
 .hero h1 {
@@ -260,8 +260,8 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  min-height: 520px;
+  align-items: flex-start;
+  margin-top: 4px;
 }
 
 .hero-figure::before {
@@ -269,17 +269,17 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 560px;
-  height: 560px;
-  margin: -280px 0 0 -280px;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
   border-radius: 50%;
   background: radial-gradient(closest-side, var(--glow), rgba(59, 123, 255, 0) 72%);
 }
 
 .hero-figure img {
   position: relative;
-  width: 440px;
-  height: 440px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
   border-radius: 50%;
 }
