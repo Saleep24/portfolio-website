@@ -615,6 +615,138 @@ body {
   }
 }
 
+.recognition {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.badges {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.badges a {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: transform 0.2s ease;
+}
+
+.badges a:hover {
+  transform: translateY(-2px);
+}
+
+.badges img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.honors {
+  display: flex;
+  flex-direction: column;
+}
+
+.honor {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.honor + .honor {
+  border-top: 1px solid var(--line);
+}
+
+.honor:first-child {
+  padding-top: 0;
+}
+
+.honor img {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.honor h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.honor a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.honor-links {
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .recognition {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.post:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.post:hover span {
+  color: var(--accent);
+}
+
+.post time {
+  flex: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .post {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 17px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
