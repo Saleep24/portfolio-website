@@ -93,19 +93,30 @@ if (siteHeader) {
   onScroll();
 }
 
-const tileVideos = document.querySelectorAll(".tile video");
+const tileVideos = [...document.querySelectorAll(".tile video")];
 if (tileVideos.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const inView = new Set();
+  let hovered = null;
+  const sync = () => {
+    tileVideos.forEach((video) => {
+      const shouldPlay = hovered ? video === hovered : inView.has(video);
+      if (shouldPlay) video.play().catch(() => {}); else video.pause();
+    });
+  };
   const watcher = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      const video = entry.target;
-      if (entry.isIntersecting) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
+      if (entry.isIntersecting) inView.add(entry.target); else inView.delete(entry.target);
     });
+    sync();
   }, { threshold: 0.5 });
   tileVideos.forEach((video) => watcher.observe(video));
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    tileVideos.forEach((video) => {
+      const tile = video.closest(".tile");
+      tile.addEventListener("mouseenter", () => { hovered = video; sync(); });
+      tile.addEventListener("mouseleave", () => { hovered = null; sync(); });
+    });
+  }
 }
 
 const footer = document.querySelector(".site-footer");
