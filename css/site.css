@@ -454,6 +454,167 @@ body {
   }
 }
 
+.bento {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bento-row {
+  display: flex;
+  gap: 24px;
+}
+
+.tile {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  transition: flex-grow 0.4s ease, border-color 0.2s ease;
+}
+
+.bento-row-lead .tile:first-child {
+  flex-grow: 2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover {
+    flex-grow: 2;
+    border-color: var(--line-strong);
+  }
+  .bento-row:not(.bento-row-lead) .tile:hover {
+    flex-grow: 1.5;
+  }
+}
+
+.tile video {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #000;
+}
+
+.bento-row:not(.bento-row-lead) video {
+  height: 340px;
+}
+
+.tile-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.tile h3 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.tile p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.tile-links {
+  display: flex;
+  gap: 18px;
+  flex: none;
+  padding-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tile-links a,
+.more a {
+  color: var(--accent);
+}
+
+.more {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 40px;
+}
+
+.more article {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.more img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+.more h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.more p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.more a {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .bento-row {
+    flex-direction: column;
+  }
+  .tile {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .tile video,
+  .bento-row:not(.bento-row-lead) video {
+    height: 220px;
+  }
+  .tile-text {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tile h3 {
+    font-size: 20px;
+  }
+  .more {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 24px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
