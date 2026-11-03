@@ -142,6 +142,7 @@
       </div>
     </header>
 
+    <main>
     <section id="top" class="hero">
       <div class="hero-text">
         <h1>I build AI products and the systems behind them.</h1>
@@ -350,100 +351,71 @@
     </section>
 
 
-    <section id="contact" class="contact-container container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Contact</h2>
+    <section id="contact" class="chapter contact">
+      <h2>Let's build something.</h2>
+      <p class="contact-lead">Email is the fastest way to reach me.</p>
+      <div class="contact-actions">
+        <a class="button-primary" href="mailto:info@saleepshrestha.com.np">info@saleepshrestha.com.np</a>
+        <a class="button-quiet" href="https://www.linkedin.com/in/saleepshrestha/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      
-
-      <form id="contactForm" method="POST" action="https://formspree.io/f/mayznvpp">
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Your Name"
-          minlength="2"
-          required
-        />
-        <span class="error-message" id="nameError"></span>
-
-        <input
-          type="email"
-          name="_replyto"
-          id="email"
-          placeholder="Your Email"
-          required
-        />
-        <span class="error-message" id="emailError"></span>
-
-        <input
-          type="text"
-          name="_subject"
-          id="subject"
-          placeholder="Subject"
-        />
-        <span class="error-message" id="subjectError"></span>
-
-        <textarea
-          name="message"
-          id="message"
-          rows="5"
-          placeholder="Your Message"
-          required
-        ></textarea>
-        <span class="error-message" id="messageError"></span>
-
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        
-
-        <div id="submit-loader" style="display: none;">
-          <div class="text-loader">Sending...</div>
-          <div class="s-loader">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-          </div>
+      <form id="contactForm" class="contact-form" method="POST" action="https://formspree.io/f/mayznvpp">
+        <input type="hidden" name="_subject" value="Message from saleepshrestha.com.np">
+        <label>Name <input type="text" name="name" required autocomplete="name"></label>
+        <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <div class="contact-form-row">
+          <button type="submit" class="button-primary">Send message</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
         </div>
       </form>
-
-
-      <div id="message-warning" style="display: none;">
-        Something went wrong. Please try again.
-      </div>
-      <div id="message-success" style="display: none;">
-        <i class="fa fa-check"></i> Your message was sent, thank you!
-      </div>
     </section>
+  </main>
 
-    <footer>
-      <p>&copy; <span id="datee">2026</span> Saleep Shrestha. All rights reserved.</p>
-      <div class="socials">
-        <a href="https://github.com/Saleep24/" target="_blank" rel="noopener"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/saleepshrestha/" target="_blank" rel="noopener"
-          ><i class="fab fa-linkedin"></i
-        ></a>
-        <a href="https://www.kaggle.com/saleepshrestha" target="_blank" rel="noopener"
-          ><i class="fab fa-kaggle"></i
-        ></a>
-      </div>
-    </footer>
-
-
-    <div id="projectModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="modal-body">
-
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-name">Saleep Shrestha</p>
+          <p><a href="mailto:info@saleepshrestha.com.np">info@saleepshrestha.com.np</a></p>
+        </div>
+        <div class="footer-col">
+          <p>Site</p>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Writing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p>Elsewhere</p>
+          <a href="https://github.com/Saleep24/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/saleepshrestha/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.kaggle.com/saleepshrestha" target="_blank" rel="noopener">Kaggle</a>
+        </div>
+        <div class="footer-col">
+          <p>Files</p>
+          <a href="assets/Saleep Shrestha resume.pdf" target="_blank" rel="noopener">Resume</a>
         </div>
       </div>
-    </div>
-
-    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+      <div class="footer-stage">
+      <svg class="footer-art" viewBox="0 0 1440 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <pattern id="hatch" width="1" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#1534C9" opacity="0.55"></rect></pattern>
+            <pattern id="water" width="64" height="10" patternUnits="userSpaceOnUse"><rect width="36" height="1" fill="#E6ECFF" opacity="0.4"></rect><rect x="40" y="5" width="18" height="1" fill="#E6ECFF" opacity="0.25"></rect></pattern>
+          </defs>
+          <path d="M0 262 L110 228 L190 244 L290 196 L360 214 L430 176 L520 192 L600 150 L650 168 L700 128 L735 110 L760 134 L800 96 L830 124 L870 108 L920 140 L1000 118 L1080 156 L1160 132 L1240 168 L1320 146 L1440 176 L1440 440 L0 440 Z" fill="#4F6BE8"></path>
+          <path d="M0 304 L80 290 L170 300 L250 262 L340 284 L440 254 L530 276 L640 240 L720 262 L820 236 L900 258 L1000 230 L1100 262 L1200 244 L1300 268 L1380 250 L1440 262 L1440 440 L0 440 Z" fill="#9FB3F5"></path>
+          <path d="M0 348 L100 334 L200 346 L300 326 L420 342 L520 320 L640 338 L760 318 L880 336 L1000 316 L1120 334 L1240 318 L1360 332 L1440 322 L1440 440 L0 440 Z" fill="#E6ECFF"></path>
+          <rect x="0" y="96" width="1440" height="284" fill="url(#hatch)"></rect>
+          <rect x="0" y="372" width="1440" height="68" fill="#1534C9"></rect>
+          <rect x="0" y="376" width="1440" height="60" fill="url(#water)"></rect>
+          <path d="M612 352 L628 344 L644 352" fill="none" stroke="#1534C9" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M560 338 L572 332 L584 338" fill="none" stroke="#1534C9" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1040 216 L1050 210 L1060 216" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1076 204 L1084 199 L1092 204" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M1008 230 L1016 225 L1024 230" fill="none" stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <p class="footer-wordmark" aria-hidden="true">saleep</p>
+      </div>
+    </footer>
 
     <script src="js/script.js"></script>
     

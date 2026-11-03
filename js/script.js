@@ -60,35 +60,36 @@ if (myDate) myDate.innerHTML = currentYear;
 
 
 const contactForm = document.getElementById("contactForm");
-const submitLoader = document.getElementById("submit-loader");
-const successMessage = document.getElementById("message-success");
-const warningMessage = document.getElementById("message-warning");
-
-if (contactForm) contactForm.addEventListener("submit", function (event) {
+if (contactForm) contactForm.addEventListener("submit", async function (event) {
   event.preventDefault();
-  submitLoader.style.display = "block";
-  successMessage.style.display = "none";
-  warningMessage.style.display = "none";
-
-  fetch("https://formspree.io/f/mayznvpp", {
-    method: "POST",
-    body: new FormData(contactForm),
-    headers: { "Accept": "application/json" }
-  })
-    .then((response) => {
-      submitLoader.style.display = "none";
-      if (response.ok) {
-        successMessage.style.display = "block";
-        contactForm.reset();
-      } else {
-        warningMessage.style.display = "block";
-      }
-    })
-    .catch(() => {
-      submitLoader.style.display = "none";
-      warningMessage.style.display = "block";
-    });
+  const status = document.getElementById("form-status");
+  const button = contactForm.querySelector("button");
+  button.disabled = true;
+  status.textContent = "Sending.";
+  try {
+    const response = await fetch(contactForm.action, { method: "POST", body: new FormData(contactForm), headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error("failed");
+    contactForm.reset();
+    status.textContent = "Sent. Thanks.";
+  } catch (error) {
+    status.textContent = "Not sent. Email me instead.";
+  }
+  button.disabled = false;
 });
+
+const footer = document.querySelector(".site-footer");
+if (footer) {
+  footer.dataset.variant = "art";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    let timer;
+    const flip = () => { footer.dataset.variant = footer.dataset.variant === "art" ? "wordmark" : "art"; };
+    new IntersectionObserver((entries) => {
+      clearInterval(timer);
+      if (entries[0].isIntersecting) timer = setInterval(flip, 6000);
+    }, { threshold: 0.4 }).observe(footer);
+  }
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -571,62 +572,6 @@ window.addEventListener('click', function(event) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contactForm');
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const subjectInput = document.getElementById('subject');
-  const messageInput = document.getElementById('message');
-
-  const nameError = document.getElementById('nameError');
-  const emailError = document.getElementById('emailError');
-  const subjectError = document.getElementById('subjectError');
-  const messageError = document.getElementById('messageError');
-
-  if (form) form.addEventListener('submit', function(event) {
-    let valid = true;
-
-
-    if (nameInput.value.trim().length < 2) {
-      nameError.textContent = 'Name must be at least 2 characters long.';
-      nameError.style.display = 'block';
-      valid = false;
-    } else {
-      nameError.style.display = 'none';
-    }
-
-
-    if (!emailInput.value.includes('@')) {
-      emailError.textContent = 'Please enter a valid email address.';
-      emailError.style.display = 'block';
-      valid = false;
-    } else {
-      emailError.style.display = 'none';
-    }
-
-
-    if (subjectInput.value.trim() === '') {
-      subjectError.textContent = 'Subject cannot be empty.';
-      subjectError.style.display = 'block';
-      valid = false;
-    } else {
-      subjectError.style.display = 'none';
-    }
-
-
-    if (messageInput.value.trim() === '') {
-      messageError.textContent = 'Message cannot be empty.';
-      messageError.style.display = 'block';
-      valid = false;
-    } else {
-      messageError.style.display = 'none';
-    }
-
-    if (!valid) {
-      event.preventDefault();
-    }
-  });
-});
 
 document.addEventListener('DOMContentLoaded', function() {
   const backToTopButton = document.getElementById('backToTop');
