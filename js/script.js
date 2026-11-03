@@ -67,7 +67,10 @@ if (tileVideos.length && !reduceMotion) {
     });
     sync();
   }, { threshold: 0.5 });
-  tileVideos.forEach((video) => watcher.observe(video));
+  tileVideos.forEach((video) => {
+    video.style.backgroundImage = `url("${video.poster}")`;
+    watcher.observe(video);
+  });
   if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
     tileVideos.forEach((video) => video.removeAttribute("controls"));
   }
