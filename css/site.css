@@ -286,8 +286,8 @@ body {
   position: relative;
   width: 440px;
   height: 440px;
-  object-fit: contain;
-  object-position: bottom;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .logo-strip {
